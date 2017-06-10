@@ -1,7 +1,8 @@
-# Conditional Operators
+# 条件操作符
 
-For use-cases that depend on a specific condition to be met, these operators do the trick. 
+对于依赖于特定条件的用例，这些操作符可以做到这一点。
 
-## Contents
+## 内容
+
 * [defaultIfEmpty](defaultifempty.md)
 * [every](every.md)

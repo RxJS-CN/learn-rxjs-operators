@@ -1,25 +1,23 @@
 # mergeAll
 
-#### signature: `mergeAll(concurrent: number): Observable`
+#### 签名: `mergeAll(concurrent: number): Observable`
 
-## Collect and subscribe to all observables.
+## 收集并订阅所有的 observables 。
 
 ---
 
-:bulb: In many cases you can use [mergeMap](../transformation/mergemap.md) as a
-single operator instead!
+:bulb:  在很多情况下，你可以使用只使用单个操作符 [mergeMap](../transformation/mergemap.md) 来替代！
+> 译者注：mergeMap === map + mergeAll
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-(
-[example tests](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/mergeall-spec.ts)
-)
+( [示例测试](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/mergeall-spec.ts) )
 
-##### Example 1: mergeAll with promises
+##### 示例 1: 使用 promise 来进行 concatAll
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-y4ncvc?file=index.ts&devtoolsheight=100)
@@ -33,18 +31,18 @@ import { of } from 'rxjs';
 
 const myPromise = val =>
   new Promise(resolve => setTimeout(() => resolve(`Result: ${val}`), 2000));
-//emit 1,2,3
+// 发出 1,2,3
 const source = of(1, 2, 3);
 
 const example = source.pipe(
-  //map each value to promise
+  // 将每个值映射成 promise
   map(val => myPromise(val)),
-  //emit result from source
+  // 发出 source 的结果
   mergeAll()
 );
 
 /*
-  output:
+  输出:
   "Result: 1"
   "Result: 2"
   "Result: 3"
@@ -52,7 +50,7 @@ const example = source.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: mergeAll with _concurrent_ parameter
+##### 示例 2: 使用**并发的**参数来进行 mergeAll
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-xpaqjh?file=index.ts&devtoolsheight=100)
@@ -66,10 +64,8 @@ import { interval } from 'rxjs';
 const source = interval(500).pipe(take(5));
 
 /*
-  interval is emitting a value every 0.5s.  This value is then being mapped to interval that
-  is delayed for 1.0s.  The mergeAll operator takes an optional argument that determines how
-  many inner observables to subscribe to at a time.  The rest of the observables are stored
-  in a backlog waiting to be subscribe.
+  interval 每0.5秒发出一个值。这个值会被映射成延迟1秒的 interval 。mergeAll 操作符接收一个可选参数
+  以决定在同一时间有多少个内部 observables 可以被订阅。其余的 observables 会先暂存以等待订阅。
 */
 const example = source
   .pipe(
@@ -83,18 +79,14 @@ const example = source
   )
   .subscribe(val => console.log(val));
 /*
-  The subscription is completed once the operator emits all values.
+  一旦操作符发出了所有值，则 subscription 完成。
 */
 ```
 
-### Additional Resources
+### 其他资源
 
-- [mergeAll](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mergeAll)
-  :newspaper: - Official docs
-- [Flatten a higher order observable with mergeAll in RxJS](https://egghead.io/lessons/rxjs-flatten-a-higher-order-observable-with-mergeall-in-rxjs?course=use-higher-order-observables-in-rxjs-effectively)
-  :video_camera: :dollar: - André Staltz
+- [mergeAll](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-mergeAll) :newspaper: - 官方文档
+- [[使用 RxJS 的 mergeAll 来打平高阶 observable](https://egghead.io/lessons/rxjs-flatten-a-higher-order-observable-with-mergeall-in-rxjs?course=use-higher-order-observables-in-rxjs-effectively) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeAll.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeAll.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeAll.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeAll.ts)

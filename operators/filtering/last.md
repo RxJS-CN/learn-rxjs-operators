@@ -1,20 +1,20 @@
-#last
+# last
 
-#### signature: `last(predicate: function): Observable`
+#### 签名: `last(predicate: function): Observable`
 
-## Emit the last value emitted from source on completion, based on provided expression.
+## 根据提供的表达式，在源 observable 完成时发出它的最后一个值。
 
 ---
 
-:bulb: The counterpart to last is [**first**](first.md)!
+:bulb: 与 last 对应的操作符是 [**first**](first.md)！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Last value in sequence
+##### 示例 1: 序列中的最后一个值
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-ma7knv?file=index.ts&devtoolsheight=100)
@@ -27,13 +27,13 @@ import { from } from 'rxjs';
 import { last } 'rxjs/operators';
 
 const source = from([1, 2, 3, 4, 5]);
-//no arguments, emit last value
+// 没有参数则发出最后一个值
 const example = source.pipe(last());
-//output: "Last value: 5"
+// 输出: "Last value: 5"
 const subscribe = example.subscribe(val => console.log(`Last value: ${val}`));
 ```
 
-##### Example 2: Last value to pass predicate
+##### 示例 2: 最后一个通过 predicate 函数的值
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-tk42hj?file=index.ts&devtoolsheight=100)
@@ -46,15 +46,15 @@ import { from } from 'rxjs';
 import { last } 'rxjs/operators';
 
 const source = from([1, 2, 3, 4, 5]);
-//emit last even number
+// 发出最后一个偶数
 const exampleTwo = source.pipe(last(num => num % 2 === 0));
-//output: "Last to pass test: 4"
+// 输出: "Last to pass test: 4"
 const subscribeTwo = exampleTwo.subscribe(val =>
   console.log(`Last to pass test: ${val}`)
 );
 ```
 
-##### Example 3: Last with default value
+##### 示例 3: 使用结果选择器的 last
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-nrc1an?file=index.ts&devtoolsheight=100)
@@ -67,20 +67,16 @@ import { from } from 'rxjs';
 import { last } 'rxjs/operators';
 
 const source = from([1, 2, 3, 4, 5]);
-//no values will pass given predicate, emit default
+// 没有值通过的话则发出默认值
 const exampleTwo = source.pipe(last(v => v > 5, 'Nothing!'));
-//output: 'Nothing!'
+// 输出: 'Nothing!'
 const subscribeTwo = exampleTwo.subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
-- [last](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-last)
-  :newspaper: - Official docs
-- [Filtering operator: takeLast, last](https://egghead.io/lessons/rxjs-filtering-operators-takelast-last?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+- [last](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-last) :newspaper: - 官方文档
+- [过滤操作符: takeLast, last](https://egghead.io/lessons/rxjs-filtering-operators-takelast-last?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/last.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/last.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/last.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/last.ts)

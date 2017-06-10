@@ -1,4 +1,4 @@
-# Concepts
+# 概念
 
 Short explanations of common RxJS scenarios and use-cases.
 

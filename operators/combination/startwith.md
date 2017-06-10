@@ -1,26 +1,22 @@
 # startWith
 
-#### signature: `startWith(an: Values): Observable`
+#### 签名: `startWith(an: Values): Observable`
 
-## Emit given value first.
+## 发出给定的第一个值
 
 ---
 
-:bulb: A
-[BehaviorSubject](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md)
-can also start with an initial value!
+:bulb: [BehaviorSubject](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md) 也可以从初始值开始！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-(
-[example tests](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/startwith-spec.ts)
-)
+( [示例测试](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/startwith-spec.ts) )
 
-##### Example 1: startWith on number sequence
+##### 示例 1: 对数字序列使用 startWith
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-2qrwjt?file=index.ts&devtoolsheight=100)
@@ -32,15 +28,15 @@ can also start with an initial value!
 import { startWith } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-//emit (1,2,3)
+// 发出 (1,2,3)
 const source = of(1, 2, 3);
-//start with 0
+// 从0开始
 const example = source.pipe(startWith(0));
-//output: 0,1,2,3
+// 输出: 0,1,2,3
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: startWith for initial scan value
+##### 示例 2: startWith 用作 scan 的初始值
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-8gkbsc?file=index.ts&devtoolsheight=100)
@@ -52,15 +48,15 @@ const subscribe = example.subscribe(val => console.log(val));
 import { startWith, scan } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-//emit ('World!', 'Goodbye', 'World!')
+// 发出 ('World!', 'Goodbye', 'World!')
 const source = of('World!', 'Goodbye', 'World!');
-//start with 'Hello', concat current string to previous
+// 以 'Hello' 开头，后面接当前字符串
 const example = source.pipe(
   startWith('Hello'),
   scan((acc, curr) => `${acc} ${curr}`)
 );
 /*
-  output:
+  输出:
   "Hello"
   "Hello World!"
   "Hello World! Goodbye"
@@ -69,7 +65,7 @@ const example = source.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: startWith multiple values
+##### 示例 3: 使用多个值进行 startWith 
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-ek45ff?file=index.ts&devtoolsheight=100)
@@ -81,30 +77,24 @@ const subscribe = example.subscribe(val => console.log(val));
 import { startWith } from 'rxjs/operators';
 import { interval } from 'rxjs';
 
-//emit values in sequence every 1s
+// 每1秒发出值
 const source = interval(1000);
-//start with -3, -2, -1
+// 以 -3, -2, -1 开始
 const example = source.pipe(startWith(-3, -2, -1));
-//output: -3, -2, -1, 0, 1, 2....
+// 输出: -3, -2, -1, 0, 1, 2....
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-- [Smart Counter](../../recipes/smartcounter.md)
+- [智能计数器](../../recipes/smartcounter.md)
 
-### Additional Resources
+### 其他资源
 
-- [startWith](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-startWith)
-  :newspaper: - Official docs
-- [Displaying initial data with startWith](https://egghead.io/lessons/rxjs-displaying-initial-data-with-startwith?course=step-by-step-async-javascript-with-rxjs)
-  :video_camera: :dollar: - John Linquist
-- [Clear data while loading with startWith](https://egghead.io/lessons/rxjs-reactive-programming-clear-data-while-loading-with-rxjs-startwith?course=introduction-to-reactive-programming)
-  :video_camera: :dollar: - André Staltz
-- [Combination operator: concat, startWith](https://egghead.io/lessons/rxjs-combination-operators-concat-startwith?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+- [startWith](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-startWith) :newspaper: - 官方文档
+- [使用 startWith 显示初始值](https://egghead.io/lessons/rxjs-displaying-initial-data-with-startwith?course=step-by-step-async-javascript-with-rxjs) :video_camera: :dollar: - John Linquist
+- [当加载时使用 startWith 清除数据](https://egghead.io/lessons/rxjs-reactive-programming-clear-data-while-loading-with-rxjs-startwith?course=introduction-to-reactive-programming) :video_camera: :dollar: - André Staltz
+- [组合操作符: concat, startWith](https://egghead.io/lessons/rxjs-combination-operators-concat-startwith?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/startWith.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/startWith.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/startWith.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/startWith.ts)

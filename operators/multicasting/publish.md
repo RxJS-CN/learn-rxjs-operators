@@ -1,14 +1,14 @@
 # publish
 
-#### signature: `publish() : ConnectableObservable`
+#### 签名: `publish() : ConnectableObservable`
 
-## Share source and make hot by calling connect.
+## 共享源 observable 并通过调用 connect 方法使其变成热的。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Connect observable after subscribers
+##### 示例 1: 在订阅之后调用 observable 的 connect 方法
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-zje8ms?file=index.ts&devtoolsheight=100)
@@ -20,18 +20,18 @@
 import { interval } from 'rxjs';
 import { publish, tap } from 'rxjs/operators';
 
-//emit value every 1 second
+// 每1秒发出值
 const source = interval(1000);
 const example = source.pipe(
-  //side effects will be executed once
+  // 副作用只会执行1次
   tap(_ => console.log('Do Something!')),
-  //do nothing until connect() is called
+  // 不会做任何事直到 connect() 被调用
   publish()
 );
 
 /*
-  source will not emit values until connect() is called
-  output: (after 5s)
+  source 不会发出任何值直到 connect() 被调用
+  输出: (5秒后)
   "Do Something!"
   "Subscriber One: 0"
   "Subscriber Two: 0"
@@ -46,16 +46,15 @@ const subscribeTwo = example.subscribe(val =>
   console.log(`Subscriber Two: ${val}`)
 );
 
-//call connect after 5 seconds, causing source to begin emitting items
+// 5秒后调用 connect，这会使得 source 开始发出值
 setTimeout(() => {
   example.connect();
 }, 5000);
 ```
 
-### Additional Resources
 
-- [publish](http://reactivex-rxjs5.surge.sh/function/index.html#static-function-publish)
-  :newspaper: - Official docs
+### 其他资源
 
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/publish.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/publish.ts)
+- [publish](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-publish) :newspaper: - 官方文档
+
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/publish.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/publish.ts)

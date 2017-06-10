@@ -1,18 +1,16 @@
 # switchMap
 
-#### signature: `switchMap(project: function: Observable, resultSelector: function(outerValue, innerValue, outerIndex, innerIndex): any): Observable`
+#### 签名: ` switchMap(project: function: Observable, resultSelector: function(outerValue, innerValue, outerIndex, innerIndex): any): Observable`
 
-## Map to observable, complete previous inner observable, emit values.
+## 映射成 observable，完成前一个内部 observable，发出值。
 
 ---
 
-:bulb: If you would like more than one inner subscription to be maintained, try
-[`mergeMap`](mergemap.md)!
+:bulb: 如果你想要维护多个内部 subscription 的话， 请尝试 [`mergeMap`](mergemap.md)！
 
-:bulb: This operator is generally considered a safer default to
-[`mergeMap`](mergemap.md)!
+:bulb: 此操作符通常被认为是 [`mergeMap`](mergemap.md) 的安全版本！
 
-:bulb: This operator can cancel in-flight network requests!
+:bulb: 此操作符可以取消正在进行中的网络请求！
 
 ---
 
@@ -40,9 +38,9 @@ cancel a request if the source emits quickly enough. In these scenarios
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Restart interval every 5 seconds
+##### 示例 1: 每5秒重新启动 interval
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-eb62ap?file=index.ts&devtoolsheight=100)
@@ -54,15 +52,15 @@ cancel a request if the source emits quickly enough. In these scenarios
 import { timer, interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-//emit immediately, then every 5s
+// 立即发出值， 然后每5秒发出值
 const source = timer(0, 5000);
-//switch to new inner observable when source emits, emit items that are emitted
+// 当 source 发出值时切换到新的内部 observable，发出新的内部 observable 所发出的值
 const example = source.pipe(switchMap(() => interval(500)));
-//output: 0,1,2,3,4,5,6,7,8,9...0,1,2,3,4,5,6,7,8
+// 输出: 0,1,2,3,4,5,6,7,8,9...0,1,2,3,4,5,6,7,8
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Reset on every click
+##### 示例 2: 每次点击时重置
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-s4pvix?file=index.ts&devtoolsheight=100)
@@ -74,17 +72,17 @@ const subscribe = example.subscribe(val => console.log(val));
 import { interval, fromEvent } from 'rxjs';
 import { switchMap, mapTo } from 'rxjs/operators';
 
-//emit every click
+// 发出每次点击
 const source = fromEvent(document, 'click');
-//if another click comes within 3s, message will not be emitted
+// 如果3秒内发生了另一次点击，则消息不会被发出
 const example = source.pipe(
   switchMap(val => interval(3000).pipe(mapTo('Hello, I made it!')))
 );
-//(click)...3s...'Hello I made it!'...(click)...2s(click)...
+// (点击)...3s...'Hello I made it!'...(点击)...2s(点击)...
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: Using a `resultSelector` function
+##### 示例 3: 使用 `resultSelector` 函数
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-bmibzi?file=index.ts&devtoolsheight=100)
@@ -96,9 +94,9 @@ const subscribe = example.subscribe(val => console.log(val));
 import { timer, interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-//emit immediately, then every 5s
+// 立即发出值， 然后每5秒发出值
 const source = timer(0, 5000);
-//switch to new inner observable when source emits, invoke project function and emit values
+// 当 source 发出值时切换到新的内部 observable，调用投射函数并发出值
 const example = source.pipe(
   switchMap(
     _ => interval(2000),
@@ -111,7 +109,7 @@ const example = source.pipe(
   )
 );
 /*
-	Output:
+	输出:
 	{outerValue: 0, innerValue: 0, outerIndex: 0, innerIndex: 0}
 	{outerValue: 0, innerValue: 1, outerIndex: 0, innerIndex: 1}
 	{outerValue: 1, innerValue: 0, outerIndex: 1, innerIndex: 0}
@@ -120,7 +118,7 @@ const example = source.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 4: Countdown timer with switchMap
+##### 示例 4: 使用 switchMap 的倒计时定时器
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-ivdebg?file=index.ts) )
 
@@ -162,26 +160,19 @@ Resume Timer
 </button>
 ```
 
-### Related Recipes
+### 相关食谱
 
-- [Smart Counter](../../recipes/smartcounter.md)
-- [Progress Bar](../../recipes/progressbar.md)
+- [智能计数器](../../recipes/smartcounter.md)
+- [进度条](../../recipes/progressbar.md)
 - [HTTP Polling](../../recipes/http-polling.md)
 
-### Additional Resources
+### 其他资源
 
-- [switchMap](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap)
-  :newspaper: - Official docs
-- [Avoiding switchMap-Related Bugs](https://blog.angularindepth.com/switchmap-bugs-b6de69155524) -
-  Nicholas Jamieson
-- [Starting a stream with switchMap](https://egghead.io/lessons/rxjs-starting-a-stream-with-switchmap?course=step-by-step-async-javascript-with-rxjs)
-  :video_camera: :dollar: - John Linquist
-- [Use RxJS switchMap to map and flatten higher order observables](https://egghead.io/lessons/rxjs-use-rxjs-switchmap-to-map-and-flatten-higher-order-observables?course=use-higher-order-observables-in-rxjs-effectively)
-  :video_camera: :dollar: - André Staltz
-- [Use switchMap as a safe default to flatten observables in RxJS](https://egghead.io/lessons/rxjs-use-switchmap-as-a-safe-default-to-flatten-observables-in-rxjs?course=use-higher-order-observables-in-rxjs-effectively)
-  :video_camera: :dollar: - André Staltz
+- [switchMap](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-switchMap) :newspaper: - 官方文档
+- [Avoiding switchMap-Related Bugs](https://blog.angularindepth.com/switchmap-bugs-b6de69155524) - Nicholas Jamieson
+- [使用 switchMap 开启流](https://egghead.io/lessons/rxjs-starting-a-stream-with-switchmap?course=step-by-step-async-javascript-with-rxjs) :video_camera: :dollar: - John Linquist
+- [使用 RxJS 的 switchMap 操作符来映射并打平高阶 observables](https://egghead.io/lessons/rxjs-use-rxjs-switchmap-to-map-and-flatten-higher-order-observables?course=use-higher-order-observables-in-rxjs-effectively) :video_camera: :dollar: - André Staltz
+- [在 RxJS 中，使用 switchMap 作为打平 observables 的安全默认操作符](https://egghead.io/lessons/rxjs-use-switchmap-as-a-safe-default-to-flatten-observables-in-rxjs?course=use-higher-order-observables-in-rxjs-effectively) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/switchMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/switchMap.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/switchMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/switchMap.ts)

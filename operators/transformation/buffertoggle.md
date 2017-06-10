@@ -1,14 +1,14 @@
 # bufferToggle
 
-#### signature: `bufferToggle(openings: Observable, closingSelector: Function): Observable`
+#### 签名: `bufferToggle(openings: Observable, closingSelector: Function): Observable`
 
-## Toggle on to catch emitted values from source, toggle off to emit buffered values as array.
+## 开启开关以捕获源 observable 所发出的值，关闭开关以将缓冲的值作为数组发出。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Toggle buffer on and off at interval
+##### 示例 1: 使用 interval 来切换缓冲的开关
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-xu3sq8?file=index.ts&devtoolsheight=100) | [jsBin](http://jsbin.com/relavezugo/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/6ad3w3wf/) )
@@ -18,35 +18,32 @@
 import { interval } from 'rxjs';
 import { bufferToggle } from 'rxjs/operators';
 
-//emit value every second
+// 每1秒发出值
 const sourceInterval = interval(1000);
-//start first buffer after 5s, and every 5s after
+// 5秒后开启第一个缓冲区，然后每5秒钟开启新的缓冲区
 const startInterval = interval(5000);
-//emit value after 3s, closing corresponding buffer
+// 3秒后发出值以关闭相应的缓冲区
 const closingInterval = val => {
   console.log(`Value ${val} emitted, starting buffer! Closing in 3s!`);
   return interval(3000);
 };
-//every 5s a new buffer will start, collecting emitted values for 3s then emitting buffered values
+// 每5秒会开启一个新的缓冲区以收集发出的值，3秒后发出缓冲的值
 const bufferToggleInterval = sourceInterval.pipe(
   bufferToggle(
     startInterval,
     closingInterval
   )
 );
-//log to console
-//ex. emitted buffers [4,5,6]...[9,10,11]
+// 输出到控制台
+// 输出: Emitted Buffer: [4,5,6]...[9,10,11]
 const subscribe = bufferToggleInterval.subscribe(val =>
   console.log('Emitted Buffer:', val)
 );
 ```
 
-### Additional Resources
+### 其他资源
 
-* [bufferToggle](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-bufferToggle)
-  :newspaper: - Official docs
+* [bufferToggle](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-bufferToggle) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/bufferToggle.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/bufferToggle.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/bufferToggle.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/bufferToggle.ts)

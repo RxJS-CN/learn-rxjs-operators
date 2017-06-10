@@ -1,26 +1,22 @@
 # from
 
-#### signature: `from(ish: ObservableInput, mapFn: function, thisArg: any, scheduler: Scheduler): Observable`
+#### 签名: `from(ish: ObservableInput, mapFn: function, thisArg: any, scheduler: Scheduler): Observable`
 
-## Turn an array, promise, or iterable into an observable.
+## 将数组、promise 或迭代器转换成 observable 。
 
 ---
 
-:bulb: This operator can be used to convert a promise to an observable!
+:bulb:  对于数组和迭代器，所有包含的值都会被作为序列发出！
 
-:bulb: For arrays and iterables, all contained values will be emitted as a
-sequence!
-
-:bulb: This operator can also be used to emit a string as a sequence of
-characters!
+:bulb:  此操作符也可以用来将字符串作为字符的序列发出！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Observable from array
+##### 示例 1: 数组转换而来的 observable 
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-sckwsw?file=index.ts&devtoolsheight=100)
@@ -31,13 +27,13 @@ characters!
 // RxJS v6+
 import { from } from 'rxjs';
 
-//emit array as a sequence of values
+// 将数组作为值的序列发出
 const arraySource = from([1, 2, 3, 4, 5]);
-//output: 1,2,3,4,5
+// 输出: 1,2,3,4,5
 const subscribe = arraySource.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Observable from promise
+##### 示例 2: promise 转换而来的 observable
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-clpg1f?file=index.ts&devtoolsheight=100)
@@ -48,13 +44,13 @@ const subscribe = arraySource.subscribe(val => console.log(val));
 // RxJS v6+
 import { from } from 'rxjs';
 
-//emit result of promise
+// 发出 promise 的结果
 const promiseSource = from(new Promise(resolve => resolve('Hello World!')));
-//output: 'Hello World'
+// 输出: 'Hello World'
 const subscribe = promiseSource.subscribe(val => console.log(val));
 ```
 
-##### Example 3: Observable from collection
+##### 示例 3: 集合转换而来的 observable
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-drfckx?file=index.ts&devtoolsheight=100)
@@ -65,17 +61,17 @@ const subscribe = promiseSource.subscribe(val => console.log(val));
 // RxJS v6+
 import { from } from 'rxjs';
 
-//works on js collections
+// 使用 js 的集合
 const map = new Map();
 map.set(1, 'Hi');
 map.set(2, 'Bye');
 
 const mapSource = from(map);
-//output: [1, 'Hi'], [2, 'Bye']
+// 输出: [1, 'Hi'], [2, 'Bye']
 const subscribe = mapSource.subscribe(val => console.log(val));
 ```
 
-##### Example 4: Observable from string
+##### 示例 4: 字符串转换而来的 observable
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-19nejh?file=index.ts&devtoolsheight=100)
@@ -86,25 +82,21 @@ const subscribe = mapSource.subscribe(val => console.log(val));
 // RxJS v6+
 import { from } from 'rxjs';
 
-//emit string as a sequence
+// 将字符串作为字符序列发出
 const source = from('Hello World');
-//output: 'H','e','l','l','o',' ','W','o','r','l','d'
+// 输出: 'H','e','l','l','o',' ','W','o','r','l','d'
 const subscribe = source.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-- [Progress Bar](../../recipes/progressbar.md)
+- [进度条](../../recipes/progressbar.md)
 - [HTTP Polling](../../recipes/http-polling.md)
 
-### Additional Resources
+### 其他资源
 
-- [from](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-from)
-  :newspaper: - Official docs
-- [Creation operators: from, fromArray, fromPromise](https://egghead.io/lessons/rxjs-creation-operators-from-fromarray-frompromise?course=rxjs-beyond-the-basics-creating-observables-from-scratch)
-  :video_camera: :dollar: - André Staltz
+- [from](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-from) :newspaper: - 官方文档
+- [创建操作符: from, fromArray, fromPromise](https://egghead.io/lessons/rxjs-creation-operators-from-fromarray-frompromise?course=rxjs-beyond-the-basics-creating-observables-from-scratch) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/from.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/from.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/from.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/from.ts)

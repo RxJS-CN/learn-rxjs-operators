@@ -1,9 +1,10 @@
-# Combination Operators
+# 组合操作符
 
-The combination operators allow the joining of information from multiple observables.
-Order, time, and structure of emitted values is the primary variation among these operators.
+组合操作符允许连接来自多个 observables 的信息。
+发出值的顺序、时间以及结构是这些操作符的主要变化。
 
-## Contents
+## 内容
+
 * [combineAll](combineall.md)
 * [combineLatest](combinelatest.md) :star:
 * [concat](concat.md) :star:
@@ -17,4 +18,4 @@ Order, time, and structure of emitted values is the primary variation among thes
 * [withLatestFrom](withlatestfrom.md) :star:
 * [zip](zip.md)
 
-:star: - *commonly used*
+:star: - *常用*

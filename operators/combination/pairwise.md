@@ -1,14 +1,14 @@
 # pairwise
 
-#### signature: `pairwise(): Observable<Array>`
+#### 签名: `pairwise(): Observable<Array>`
 
-## Emit the previous and current values as an array.
+## 将前一个值和当前值作为数组发出
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1:
+##### 示例 1:
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-tkuydr?file=index.ts&devtoolsheight=50)
@@ -20,7 +20,7 @@
 import { pairwise, take } from 'rxjs/operators';
 import { interval } from 'rxjs';
 
-//Returns: [0,1], [1,2], [2,3], [3,4], [4,5]
+// 返回: [0,1], [1,2], [2,3], [3,4], [4,5]
 interval(1000)
   .pipe(
     pairwise(),
@@ -29,12 +29,9 @@ interval(1000)
   .subscribe(console.log);
 ```
 
-### Additional Resources
+### 其他资源
 
-- [pairwise](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-pairwise)
-  :newspaper: - Official docs
+- [pairwise](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-pairwise) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/pairwise.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/pairwise.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/pairwise.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/pairwise.ts)

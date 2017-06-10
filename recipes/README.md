@@ -1,11 +1,10 @@
-# Recipes
+# 食谱
 
-Common use-cases and interesting recipes to help learn RxJS.
+有助于学习 RxJS 的常见用例和有趣的食谱。
 
+### 内容
 
-### Contents
-* [Progress Bar](progressbar.md)
-* [Smart Counter](smartcounter.md)
-* [Game Loop](gameloop.md)
+* [进度条](progressbar.md)
+* [智能计数器](smartcounter.md)
+* [游戏循环](gameloop.md)
 * [HTTP Polling](http-polling.md)
-    

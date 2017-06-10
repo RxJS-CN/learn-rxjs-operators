@@ -1,14 +1,14 @@
 # every
 
-#### signature: `every(predicate: function, thisArg: any): Observable`
+#### 签名: `every(predicate: function, thisArg: any): Observable`
 
-## If all values pass predicate before completion emit true, else false.
+## 如果完成时所有的值都能通过断言，那么发出 true，否则发出 false 。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Some values false
+##### 示例 1: 一些值不符合条件
 
 (
 [Stackblitz](https://stackblitz.com/edit/typescript-299d7s?file=index.ts&devtoolsheight=100)
@@ -20,17 +20,17 @@
 import { every } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-//emit 5 values
+// 发出5个值
 const source = of(1, 2, 3, 4, 5);
 const example = source.pipe(
-  //is every value even?
+  // 每个值都是偶数吗？
   every(val => val % 2 === 0)
 );
-//output: false
+// 输出: false
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: All values true
+##### 示例 2: 所有值都符合条件
 
 (
 [Stackblitz](https://stackblitz.com/edit/typescript-ztrzqe?file=index.ts&devtoolsheight=100)
@@ -42,22 +42,19 @@ const subscribe = example.subscribe(val => console.log(val));
 import { every } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-//emit 5 values
+// 发出5个值
 const allEvens = of(2, 4, 6, 8, 10);
 const example = allEvens.pipe(
-  //is every value even?
+  // 每个值都是偶数吗？
   every(val => val % 2 === 0)
 );
-//output: true
+// 输出: true
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
-- [every](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-every)
-  :newspaper: - Official docs
+- [every](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-every) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/every.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/every.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/every.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/every.ts)

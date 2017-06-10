@@ -1,14 +1,14 @@
 # ignoreElements
 
-#### signature: `ignoreElements(): Observable`
+#### 签名: `ignoreElements(): Observable`
 
-## Ignore everything but complete and error.
+## 忽略所有通知，除了 complete 和 error 。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Ignore all elements from source
+##### 示例 1: 忽略源 observable 的所有数据项
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-jpjcpg?file=index.ts&devtoolsheight=100)
@@ -20,14 +20,14 @@
 import { interval } from 'rxjs';
 import { take, ignoreElements } from 'rxjs/operators';
 
-//emit value every 100ms
+// 每100毫秒发出值
 const source = interval(100);
-//ignore everything but complete
+// 略所有值，只发出 complete
 const example = source.pipe(
   take(5),
   ignoreElements()
 );
-//output: "COMPLETE!"
+// 输出: "COMPLETE!"
 const subscribe = example.subscribe(
   val => console.log(`NEXT: ${val}`),
   val => console.log(`ERROR: ${val}`),
@@ -35,7 +35,7 @@ const subscribe = example.subscribe(
 );
 ```
 
-##### Example 2: Only displaying error
+##### 示例 2: 只显示错误
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-3yxv9z?file=index.ts&devtoolsheight=100)
@@ -47,9 +47,9 @@ const subscribe = example.subscribe(
 import { interval, throwError, of } from 'rxjs';
 import { mergeMap, ignoreElements } from 'rxjs/operators';
 
-//emit value every 100ms
+// 每100毫秒发出值
 const source = interval(100);
-//ignore everything but error
+// 忽略所有值，只发出 error
 const error = source.pipe(
   mergeMap(val => {
     if (val === 4) {
@@ -59,7 +59,7 @@ const error = source.pipe(
   }),
   ignoreElements()
 );
-//output: "ERROR: ERROR AT 4"
+// 输出: "ERROR: ERROR AT 4"
 const subscribe = error.subscribe(
   val => console.log(`NEXT: ${val}`),
   val => console.log(`ERROR: ${val}`),
@@ -67,12 +67,9 @@ const subscribe = error.subscribe(
 );
 ```
 
-### Additional Resources
+### 其他资源
 
-- [ignoreElements](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-ignoreElements)
-  :newspaper: - Official docs
+- [ignoreElements](https://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-ignoreElements) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/ignoreElements.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/ignoreElements.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/ignoreElements.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/ignoreElements.ts)

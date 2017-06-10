@@ -1,11 +1,10 @@
-# RxJS 5 Operators By Example
+# 通过示例来学习 RxJS 5 操作符
 
-A complete list of RxJS 5 operators with clear explanations, relevant resources,
-and executable examples.
+RxJS 5 操作符的完整列表，每个操作符都有着清晰的解释、相关资源和可执行的示例。
 
-_[Prefer a split by operator type?](README.md)_
+*[更喜欢按操作符类型进行分类？](README.md)*
 
-### Contents (In Alphabetical Order)
+### 内容 (按字母顺序)
 
 * [audit](filtering/audit.md)
 * [auditTime](filtering/audittime.md)
@@ -86,11 +85,9 @@ _[Prefer a split by operator type?](README.md)_
 * [withLatestFrom](combination/withlatestfrom.md) :star:
 * [zip](combination/zip.md)
 
-:star: - _commonly used_
+:star: - *常用*
 
-### Additional Resources
+### 其他资源
 
-* [What Are Operators?](http://reactivex.io/rxjs/manual/overview.html#operators)
-  :newspaper: - Official Docs
-* [What Operators Are](https://egghead.io/lessons/rxjs-what-rxjs-operators-are)
-  :video_camera: :dollar: - André Staltz
+* [什么是操作符？](http://cn.rx.js.org/manual/overview.html#29) :newspaper: - 官方文档
+* [操作符是什么？](https://egghead.io/lessons/rxjs-what-rxjs-operators-are) :video_camera: :dollar: - André Staltz

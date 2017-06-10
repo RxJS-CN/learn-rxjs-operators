@@ -1,14 +1,14 @@
 # map
 
-#### signature: `map(project: Function, thisArg: any): Observable`
+#### 签名: `map(project: Function, thisArg: any): Observable`
 
-## Apply projection with each value from source.
+## 对源 observable 的每个值应用投射函数。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Add 10 to each number
+##### 示例 1: 每个数字加10
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-s7jb9n?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/padasukano/1/edit?js,console) |
@@ -18,15 +18,15 @@
 import { from } from 'rxjs/observable/from';
 import { map } from 'rxjs/operators';
 
-//emit (1,2,3,4,5)
+// 发出 (1,2,3,4,5)
 const source = from([1, 2, 3, 4, 5]);
-//add 10 to each value
+// 每个数字加10
 const example = source.pipe(map(val => val + 10));
-//output: 11,12,13,14,15
+// 输出: 11,12,13,14,15
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Map to single property
+##### 示例 2: 映射成单一属性
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-6ynh1a?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/detozumale/1/edit?js,console) |
@@ -36,34 +36,29 @@ const subscribe = example.subscribe(val => console.log(val));
 import { from } from 'rxjs/observable/from';
 import { map } from 'rxjs/operators';
 
-//emit ({name: 'Joe', age: 30}, {name: 'Frank', age: 20},{name: 'Ryan', age: 50})
+// 发出 ({name: 'Joe', age: 30}, {name: 'Frank', age: 20},{name: 'Ryan', age: 50})
 const source = from([
   { name: 'Joe', age: 30 },
   { name: 'Frank', age: 20 },
   { name: 'Ryan', age: 50 }
 ]);
-//grab each persons name, could also use pluck for this scenario
+// 提取每个 person 的 name 属性
 const example = source.pipe(map(({ name }) => name));
-//output: "Joe","Frank","Ryan"
+// 输出: "Joe","Frank","Ryan"
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-* [Smart Counter](../../recipes/smartcounter.md)
-* [Game Loop](../../recipes/gameloop.md)
+* [智能计数器](../../recipes/smartcounter.md)
+* [游戏循环](../../recipes/gameloop.md)
 * [HTTP Polling](../../recipes/http-polling.md)
 
-### Additional Resources
+### 其他资源
 
-* [map](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-map)
-  :newspaper: - Official docs
-* [map vs flatMap](https://egghead.io/lessons/rxjs-rxjs-map-vs-flatmap)
-  :video_camera: - Ben Lesh
-* [Transformation operator: map and mapTo](https://egghead.io/lessons/rxjs-transformation-operator-map-and-mapto?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [map](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-map) :newspaper: - 官方文档
+* [map vs flatMap](https://egghead.io/lessons/rxjs-rxjs-map-vs-flatmap) :video_camera: - Ben Lesh
+* [转换操作符: map 和 mapTo](https://egghead.io/lessons/rxjs-transformation-operator-map-and-mapto?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/map.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/map.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/map.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/map.ts)

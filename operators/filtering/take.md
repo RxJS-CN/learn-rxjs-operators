@@ -1,8 +1,8 @@
 # take
 
-#### signature: `take(count: number): Observable`
+#### 签名: ` take(count: number): Observable`
 
-## Emit provided number of values before completing.
+## 在完成前发出N个值(N由参数决定)。
 
 ### Why use `take`
 
@@ -16,9 +16,7 @@ emission to do whatever it is you need.
 
 ---
 
-:bulb: If you want to take a variable number of values based on some logic, or
-another observable, you can use [takeUntil](takeuntil.md) or
-[takeWhile](takewhile.md)!
+:bulb: 如果想基于某个逻辑或另一个 observable 来取任意数量的值，你可以 [takeUntil](takeuntil.md) 或 [takeWhile](takewhile.md)！
 
 :bulb: `take` is the opposite of `skip` where `take` will take the first _n_
 number of emissions while `skip` will skip the first _n_ number of emissions.
@@ -27,9 +25,9 @@ number of emissions while `skip` will skip the first _n_ number of emissions.
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Take 1 value from source
+##### 示例 1: 从源 observable 中取第一个值
 
 ( [jsBin](http://jsbin.com/vaxitupiwi/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/f9bz0tr3/) )
@@ -38,15 +36,15 @@ number of emissions while `skip` will skip the first _n_ number of emissions.
 import { of } from 'rxjs/observable/of';
 import { take } 'rxjs/operators';
 
-//emit 1,2,3,4,5
+// 发出 1,2,3,4,5
 const source = of(1, 2, 3, 4, 5);
-//take the first emitted value then complete
+// 取第一个发出的值然后完成
 const example = source.pipe(take(1));
-//output: 1
+// 输出: 1
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Take the first 5 values from source
+##### 示例 2: 从源 observable 中取前5个值
 
 ( [jsBin](http://jsbin.com/kexenuzulu/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/g1fhxgua/) )
@@ -55,11 +53,11 @@ const subscribe = example.subscribe(val => console.log(val));
 import { interval } from 'rxjs/observable/interval';
 import { take } 'rxjs/operators';
 
-//emit value every 1s
+// 每1秒发出值
 const interval = interval(1000);
-//take the first 5 emitted values
+// 取前5个发出的值
 const example = interval.pipe(take(5));
-//output: 0,1,2,3,4
+// 输出: 0,1,2,3,4
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
@@ -88,14 +86,10 @@ const oneClickEvent = fromEvent(document, 'click').pipe(
 const subscribe = oneClickEvent.subscribe();
 ```
 
-### Additional Resources
+### 其他资源
 
-* [take](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-take)
-  :newspaper: - Official docs
-* [Filtering operator: take, first, skip](https://egghead.io/lessons/rxjs-filtering-operators-take-first-skip?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [take](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-take) :newspaper: - 官方文档
+* [过滤操作符: take, first, skip](https://egghead.io/lessons/rxjs-filtering-operators-take-first-skip?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/take.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/take.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/take.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/take.ts)

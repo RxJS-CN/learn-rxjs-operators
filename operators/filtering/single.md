@@ -1,14 +1,14 @@
 # single
 
-#### signature: `single(a: Function): Observable`
+#### 签名: `single(a: Function): Observable`
 
-## Emit single item that passes expression.
+## 发出通过表达式的单一项。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Emit first number passing predicate
+##### 示例 1: 发出通过断言的第一个数字
 
 ( [jsBin](http://jsbin.com/solecibuza/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/26r5y90s/) )
@@ -17,20 +17,17 @@
 import { from } from 'rxjs/observable/from';
 import { single } 'rxjs/operators';
 
-//emit (1,2,3,4,5)
+// 发出 (1,2,3,4,5)
 const source = from([1, 2, 3, 4, 5]);
-//emit one item that matches predicate
+// 发出匹配断言函数的一项
 const example = source.pipe(single(val => val === 4));
-//output: 4
+// 输出: 4
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
-* [single](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-single)
-  :newspaper: - Official docs
+* [single](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-single) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/single.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/single.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/single.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/single.ts)

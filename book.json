@@ -1,6 +1,9 @@
 {
   "gitbook": "3.1.1",
-  "title": "Learn RxJS",
+  "title": "学习 RxJS 操作符",
+  "structure": {
+    "readme": "index.md"
+  },
   "plugins": [
     "include-codeblock",
     "advanced-emoji",
@@ -9,24 +12,23 @@
     "copy-code-button",
     "edit-link",
     "github",
-    "github-buttons",
-    "ga"
+    "github-buttons"
   ],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/btroncone/learn-rxjs/tree/master",
+      "base": "https://github.com/RxJS-CN/learn-rxjs-operators/tree/master",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/btroncone/learn-rxjs/"
-    },
-    "ga": {
-      "token": "UA-54001708-2"
+      "url": "https://github.com/RxJS-CN/learn-rxjs-operators"
     },
     "github-buttons": {
-      "repo": "btroncone/learn-rxjs",
-      "types": ["star", "watch"],
-      "size": "large"
+      "repo": "RxJS-CN/learn-rxjs-operators",
+      "types": [
+        "star",
+        "fork"
+      ],
+      "size": "small"
     }
   }
 }

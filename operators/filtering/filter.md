@@ -1,19 +1,18 @@
 # filter
 
-#### signature: `filter(select: Function, thisArg: any): Observable`
+#### 签名: `filter(select: Function, thisArg: any): Observable`
 
-## Emit values that pass the provided condition.
-
----
-
-:bulb: If you would like to complete an observable when a condition fails, check
-out [takeWhile](takewhile.md)!
+## 发出符合给定条件的值。
 
 ---
 
-### Examples
+:bulb: 如果你希望当不满足条件时完成 observable 的话，请查阅 [takeWhile](takewhile.md)！
 
-##### Example 1: filter for even numbers
+---
+
+### 示例
+
+##### 示例 1: 过滤出偶数
 
 ( [jsBin](http://jsbin.com/vafogoluye/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/tkz0fuy2/) )
@@ -22,15 +21,15 @@ out [takeWhile](takewhile.md)!
 import { from } from 'rxjs/observable/from';
 import { filter } from 'rxjs/operators';
 
-//emit (1,2,3,4,5)
+// 发出 (1,2,3,4,5)
 const source = from([1, 2, 3, 4, 5]);
-//filter out non-even numbers
+// 过滤掉奇数
 const example = source.pipe(filter(num => num % 2 === 0));
-//output: "Even number: 2", "Even number: 4"
+// 输出: "Even number: 2", "Even number: 4"
 const subscribe = example.subscribe(val => console.log(`Even number: ${val}`));
 ```
 
-##### Example 2: filter objects based on property
+##### 示例 2: 基于属性过滤对象
 
 ( [jsBin](http://jsbin.com/qihagaxuso/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/yjdsoug1/) )
@@ -39,15 +38,15 @@ const subscribe = example.subscribe(val => console.log(`Even number: ${val}`));
 import { from } from 'rxjs/observable/from';
 import { filter } from 'rxjs/operators';
 
-//emit ({name: 'Joe', age: 31}, {name: 'Bob', age:25})
+// 发出 ({name: 'Joe', age: 31}, {name: 'Bob', age:25})
 const source = from([{ name: 'Joe', age: 31 }, { name: 'Bob', age: 25 }]);
-//filter out people with age under 30
+// 过滤掉年龄小于30岁的人
 const example = source.pipe(filter(person => person.age >= 30));
-//output: "Over 30: Joe"
+// 输出: "Over 30: Joe"
 const subscribe = example.subscribe(val => console.log(`Over 30: ${val.name}`));
 ```
 
-##### Example 3: filter for number greater than specified value
+##### 示例 3: 过滤出大于给定值的数字
 
 ( [jsBin](http://jsbin.com/rakabaheyu/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/g1tgreha/) )
@@ -56,9 +55,9 @@ const subscribe = example.subscribe(val => console.log(`Over 30: ${val.name}`));
 import { interval } from 'rxjs/observable/interval';
 import { filter } from 'rxjs/operators';
 
-//emit every second
+// 每1秒发出值
 const source = interval(1000);
-//filter out all values until interval is greater than 5
+// 过滤掉所有值知道 interval 发出的值大于5
 const example = source.pipe(filter(num => num > 5));
 /*
   "Number greater than 5: 6"
@@ -71,21 +70,16 @@ const subscribe = example.subscribe(val =>
 );
 ```
 
-### Related Recipes
+### 相关食谱
 
 * [HTTP Polling](../../recipes/http-polling.md)
-* [Game Loop](../../recipes/gameloop.md)
+* [游戏循环](../../recipes/gameloop.md)
 
-### Additional Resources
+### 其他资源
 
-* [filter](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-filter)
-  :newspaper: - Official docs
-* [Adding conditional logic with filter](https://egghead.io/lessons/rxjs-adding-conditional-logic-with-filter?course=step-by-step-async-javascript-with-rxjs)
-  :video_camera: :dollar: - John Linquist
-* [Filtering operator: filter](https://egghead.io/lessons/rxjs-filtering-operator-filter?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [filter](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-filter) :newspaper: - 官方文档
+* [使用 filter 添加条件逻辑](https://egghead.io/lessons/rxjs-adding-conditional-logic-with-filter?course=step-by-step-async-javascript-with-rxjs) :video_camera: :dollar: - John Linquist
+* [过滤操作符: filter](https://egghead.io/lessons/rxjs-filtering-operator-filter?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/filter.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/filter.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/filter.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/filter.ts)

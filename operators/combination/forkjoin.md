@@ -1,16 +1,12 @@
 # forkJoin
 
-#### signature: `forkJoin(...args, selector : function): Observable`
+#### 签名: `forkJoin(...args, selector : function): Observable`
 
-## When all observables complete, emit the last emitted value from each.
+## 当所有 observables 完成时发出每个 observable 的最新值。
 
 ---
 
-:bulb: If you want corresponding emissions from multiple observables as they
-occur, try [zip](zip.md)!
-
-:warning: If an inner observable does not complete `forkJoin` will never emit a
-value!
+:bulb:  如果你想要多个 observables 按发出顺序相对应的值的组合，试试 [zip](zip.md)！
 
 ---
 
@@ -37,9 +33,9 @@ correct choice. In these cases you may better off with an operator like
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Observables completing after different durations
+##### 示例 1: 发起可变数量的请求
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-2qr3qi?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/remiduhimu/1/edit?js,console) |
@@ -57,22 +53,22 @@ const myPromise = val =>
   );
 
 /*
-  when all observables complete, give the last
-  emitted value from each as an array
+  当所有 observables 完成是，将每个 observable 
+  的最新值作为数组发出
 */
 const example = forkJoin(
-  //emit 'Hello' immediately
+  // 立即发出 'Hello'
   of('Hello'),
-  //emit 'World' after 1 second
+  // 1秒后发出 'World'
   of('World').pipe(delay(1000)),
-  //emit 0 after 1 second
+  // 1秒后发出0
   interval(1000).pipe(take(1)),
-  //emit 0...1 in 1 second interval
+  // 以1秒的时间间隔发出0和1
   interval(1000).pipe(take(2)),
-  //promise that resolves to 'Promise Resolved' after 5 seconds
+  // 5秒后解析 'Promise Resolved' 的 promise
   myPromise('RESULT')
 );
-//output: ["Hello", "World", 0, 1, "Promise Resolved: RESULT"]
+//输出: ["Hello", "World", 0, 1, "Promise Resolved: RESULT"]
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
@@ -93,10 +89,10 @@ const myPromise = val =>
   );
 
 const source = of([1, 2, 3, 4, 5]);
-//emit array of all 5 results
+// 发出数组的全部5个结果
 const example = source.pipe(mergeMap(q => forkJoin(...q.map(myPromise))));
 /*
-  output:
+  输出:
   [
    "Promise Resolved: 1",
    "Promise Resolved: 2",
@@ -214,12 +210,9 @@ export class App {
 }
 ```
 
-### Additional Resources
+### 其他资源
 
-* [forkJoin](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-forkJoin)
-  :newspaper: - Official docs
+* [forkJoin](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-forkJoin) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/observable/ForkJoinObservable.ts](https://github.com/ReactiveX/rxjs/blob/master/src/observable/ForkJoinObservable.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/observable/ForkJoinObservable.ts](https://github.com/ReactiveX/rxjs/blob/master/src/observable/ForkJoinObservable.ts)

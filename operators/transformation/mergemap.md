@@ -1,18 +1,16 @@
 # mergeMap
 
-#### signature: `mergeMap(project: function: Observable, resultSelector: function: any, concurrent: number): Observable`
+#### 签名: `mergeMap(project: function: Observable, resultSelector: function: any, concurrent: number): Observable`
 
-## Map to observable, emit values.
+## 映射成 observable 并发出值。
 
 ---
 
-:bulb: flatMap is an alias for mergeMap!
+:bulb:  flatMap 是 mergeMap 的别名！
 
-:bulb: If only one inner subscription should be active at a time, try
-[`switchMap`](switchmap.md)!
+:bulb: 如果同一时间应该只有一个内部 subscription 是有效的，请尝试 [`switchMap`](switchmap.md)！
 
-:bulb: If the order of emission and subscription of inner observables is
-important, try [`concatMap`](concatmap.md)!
+:bulb: 如果内部 observables 发送和订阅的顺序很重要，请尝试 [`concatMap`](concatmap.md)！
 
 ---
 
@@ -41,9 +39,9 @@ can also limit the number of active inner subscriptions at a time with the
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: mergeMap with observable
+##### 示例 1: 使用 observable 进行 mergeMap
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-4mlj3e?file=index.ts&devtoolsheight=50)
@@ -54,15 +52,15 @@ can also limit the number of active inner subscriptions at a time with the
 import { of } from 'rxjs/observable/of';
 import { mergeMap } from 'rxjs/operators';
 
-//emit 'Hello'
+// 发出 'Hello'
 const source = of('Hello');
-//map to inner observable and flatten
+// 映射成 observable 并将其打平
 const example = source.pipe(mergeMap(val => of(`${val} World!`)));
-//output: 'Hello World!'
+// 输出: 'Hello World!'
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: mergeMap with promise
+##### 示例 2: 使用 promise 进行 mergeMap
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-cxgrtg?file=index.ts&devtoolsheight=50)
@@ -73,18 +71,18 @@ const subscribe = example.subscribe(val => console.log(val));
 import { of } from 'rxjs/observable/of';
 import { mergeMap } from 'rxjs/operators';
 
-//emit 'Hello'
+// 发出 'Hello'
 const source = of('Hello');
-//mergeMap also emits result of promise
+// mergeMap 还会发出 promise 的结果
 const myPromise = val =>
   new Promise(resolve => resolve(`${val} World From Promise!`));
-//map to promise and emit result
+// 映射成 promise 并发出结果
 const example = source.pipe(mergeMap(val => myPromise(val)));
-//output: 'Hello World From Promise'
+// 输出: 'Hello World From Promise'
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: mergeMap with `resultSelector`
+##### 示例 3: 使用 `resultSelector` 函数进行 mergeMap
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-rlfc72?file=index.ts&devtoolsheight=50)
@@ -96,12 +94,11 @@ import { of } from 'rxjs/observable/of';
 import { mergeMap } from 'rxjs/operators';
 
 /*
-  you can also supply a second argument which receives the source value and emitted
-  value of inner observable or promise
+  你还可以提供第二个参数，它接收源 observable 的值并发出内部 observable 或 promise 的值
 */
-//emit 'Hello'
+// 发出 'Hello'
 const source = of('Hello');
-//mergeMap also emits result of promise
+// mergeMap 还会发出 promise 的结果
 const myPromise = val =>
   new Promise(resolve => resolve(`${val} World From Promise!`));
 const example = source.pipe(
@@ -112,11 +109,11 @@ const example = source.pipe(
     }
   )
 );
-//output: "Source: Hello, Promise: Hello World From Promise!"
+// 输出: "Source: Hello, Promise: Hello World From Promise!"
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 4: mergeMap with concurrent value
+##### 示例 4: 使用 concurrent 值进行 mergeMap
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-arsrsh?file=index.ts&devtoolsheight=50)
@@ -127,7 +124,7 @@ const subscribe = example.subscribe(val => console.log(val));
 import { interval } from 'rxjs/observable/interval';
 import { mergeMap, take } from 'rxjs/operators';
 
-//emit value every 1s
+// 每1秒发出值
 const source = interval(1000);
 
 const example = source.pipe(
@@ -141,13 +138,13 @@ const example = source.pipe(
   )
 );
 /*
-		Output:
-		[0, 0, 0, 0] <--1st inner observable
-		[1, 1, 0, 0] <--2nd inner observable
-		[0, 0, 1, 1] <--1st inner observable
-		[1, 1, 1, 1] <--2nd inner observable
-		[2, 2, 0, 0] <--3rd inner observable
-		[3, 3, 0, 0] <--4th inner observable
+		输出:
+		[0, 0, 0, 0] <--第一个内部 observable
+		[1, 1, 0, 0] <--第二个内部 observable
+		[0, 0, 1, 1] <--第一个内部 observable
+		[1, 1, 1, 1] <--第二个内部 observable
+		[2, 2, 0, 0] <--第三个内部 observable
+		[3, 3, 0, 0] <--第四个内部 observable
 */
 const subscribe = example.subscribe(val => console.log(val));
 ```
@@ -156,20 +153,13 @@ const subscribe = example.subscribe(val => console.log(val));
 
 * [HTTP Polling](../../recipes/http-polling.md)
 
-### Additional Resources
+### 其他资源
 
-* [mergeMap](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mergeMap)
-  :newspaper: - Official docs
-* [map vs flatMap](https://egghead.io/lessons/rxjs-rxjs-map-vs-flatmap)
-  :video_camera: :dollar: - Ben Lesh
-* [Async requests and responses in RxJS](https://egghead.io/lessons/rxjs-04-reactive-programming-async-requests-and-responses-in-rxjs)
-  :video_camera: :dollar: - André Staltz
-* [Use RxJS mergeMap to map and merge higher order observables](https://egghead.io/lessons/rxjs-use-rxjs-mergemap-to-map-and-merge-high-order-observables?course=use-higher-order-observables-in-rxjs-effectively)
-  :video_camera: :dollar: - André Staltz
-* [Use RxJS mergeMap for fine grain custom behavior](https://egghead.io/lessons/rxjs-use-rxjs-mergemap-for-fine-grain-custom-behavior?course=use-higher-order-observables-in-rxjs-effectively)
-  :video_camera: :dollar: - André Staltz
+* [mergeMap](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-mergeMap) :newspaper: - 官方文档
+* [map vs flatMap](https://egghead.io/lessons/rxjs-rxjs-map-vs-flatmap) :video_camera: :dollar: - Ben Lesh
+* [RxJS 中的异步请求和响应](https://egghead.io/lessons/rxjs-04-reactive-programming-async-requests-and-responses-in-rxjs) :video_camera: :dollar: - André Staltz
+* [使用 RxJS 的 mergeMap 操作符来映射并合并高阶 observables](https://egghead.io/lessons/rxjs-use-rxjs-mergemap-to-map-and-merge-high-order-observables?course=use-higher-order-observables-in-rxjs-effectively) :video_camera: :dollar: - André Staltz
+* [使用 RxJS 的 mergeMap 操作符来进行细粒度的自定义行为](https://egghead.io/lessons/rxjs-use-rxjs-mergemap-for-fine-grain-custom-behavior?course=use-higher-order-observables-in-rxjs-effectively) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeMap.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mergeMap.ts)

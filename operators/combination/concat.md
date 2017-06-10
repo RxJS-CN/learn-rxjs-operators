@@ -1,30 +1,26 @@
 # concat
 
-#### signature: `concat(observables: ...*): Observable`
+#### 签名: `concat(observables: ...*): Observable`
 
-## Subscribe to observables in order as previous completes, emit values.
+## 按照顺序，前一个 observable 完成了再订阅下一个 observable 并发出值。
 
 ---
 
-:bulb: You can think of concat like a line at a ATM, the next transaction
-(subscription) cannot start until the previous completes!
+:bulb:  你可以把 concat 想象成 ATM 机前的长队，下一次交易 (subscription) 不能在前一个交易完成前开始！
 
-:bulb: This operator can be used as either a static or instance method!
+:bulb:  此操作符可以既有静态方法，又有实例方法！
 
-:bulb: If throughput, not order, is a primary concern, try [merge](merge.md)
-instead!
+:bulb:  如果产生值的顺序不是首要考虑的，那么试试用 [merge](merge.md) 来代替！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-(
-[example tests](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/concat-spec.ts)
-)
+( [示例测试](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/concat-spec.ts) )
 
-##### Example 1: concat 2 basic observables
+##### 示例 1: concat 2个基础的 observables
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-oqm79a?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/gegubutele/1/edit?js,console) |
@@ -34,19 +30,19 @@ instead!
 import { concat } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
-//emits 1,2,3
+// 发出 1,2,3
 const sourceOne = of(1, 2, 3);
-//emits 4,5,6
+// 发出 4,5,6
 const sourceTwo = of(4, 5, 6);
-//emit values from sourceOne, when complete, subscribe to sourceTwo
+// 先发出 sourceOne 的值，当完成时订阅 sourceTwo
 const example = sourceOne.pipe(concat(sourceTwo));
-//output: 1,2,3,4,5,6
+// 输出: 1,2,3,4,5,6
 const subscribe = example.subscribe(val =>
   console.log('Example: Basic concat:', val)
 );
 ```
 
-##### Example 2: concat as static method
+##### 示例 2: concat 作为静态方法
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-oqtzx7?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/xihagewune/1/edit?js,console) |
@@ -56,18 +52,18 @@ const subscribe = example.subscribe(val =>
 import { of } from 'rxjs/observable/of';
 import { concat } from 'rxjs/observable/concat';
 
-//emits 1,2,3
+// 发出 1,2,3
 const sourceOne = of(1, 2, 3);
-//emits 4,5,6
+// 发出 4,5,6
 const sourceTwo = of(4, 5, 6);
 
-//used as static
+// 作为静态方法使用
 const example = concat(sourceOne, sourceTwo);
-//output: 1,2,3,4,5,6
+// 输出: 1,2,3,4,5,6
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: concat with delayed source
+##### 示例 3: 使用延迟的 souce observable 进行 concat
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-rkvfgp?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/nezonosubi/1/edit?js,console) |
@@ -77,22 +73,22 @@ const subscribe = example.subscribe(val => console.log(val));
 import { delay, concat } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
-//emits 1,2,3
+// 发出 1,2,3
 const sourceOne = of(1, 2, 3);
-//emits 4,5,6
+// 发出 4,5,6
 const sourceTwo = of(4, 5, 6);
 
-//delay 3 seconds then emit
+// 延迟3秒，然后发出
 const sourceThree = sourceOne.pipe(delay(3000));
-//sourceTwo waits on sourceOne to complete before subscribing
+// sourceTwo 要等待 sourceOne 完成才能订阅
 const example = sourceThree.pipe(concat(sourceTwo));
-//output: 1,2,3,4,5,6
+// 输出: 1,2,3,4,5,6
 const subscribe = example.subscribe(val =>
   console.log('Example: Delayed source one:', val)
 );
 ```
 
-##### Example 4: concat with source that does not complete
+##### 示例 4: 使用不完成的 source observable 进行 concat
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-pccj1d?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/vixajoxaze/1/edit?js,console) |
@@ -103,25 +99,23 @@ import { interval } from 'rxjs/observable/interval';
 import { of } from 'rxjs/observable/of';
 import { concat } from 'rxjs/observable/concat';
 
-//when source never completes, the subsequent observables never runs
+// 当 source 永远不完成时，随后的 observables 永远不会运行
 const source = concat(interval(1000), of('This', 'Never', 'Runs'));
-//outputs: 0,1,2,3,4....
+// 输出: 0,1,2,3,4....
 const subscribe = source.subscribe(val =>
   console.log(
     'Example: Source never completes, second observable never runs:',
     val
   )
-);
+// 输出: 1,2,3,4....
+const subscribe = source.subscribe(val => console.log('Example: Source never completes, second observable never runs:', val));
 ```
 
-### Additional Resources
 
-* [concat](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-concat)
-  :newspaper: - Official docs
-* [Combination operator: concat, startWith](https://egghead.io/lessons/rxjs-combination-operators-concat-startwith?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+### 其他资源
+
+* [concat](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-concat) :newspaper: - 官方文档
+* [组合操作符: concat, startWith](https://egghead.io/lessons/rxjs-combination-operators-concat-startwith?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concat.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concat.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concat.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concat.ts)

@@ -1,14 +1,14 @@
 # delay
 
-#### signature: `delay(delay: number | Date, scheduler: Scheduler): Observable`
+#### 签名: `delay(delay: number | Date, scheduler: Scheduler): Observable`
 
-## Delay emitted values by given time.
+## 根据给定时间延迟发出值。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Delay for increasing durations
+##### 示例 1: 延迟时间持续增加
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-gc7gct?file=index.ts&devtoolsheight=100)
@@ -20,31 +20,27 @@ import { of } from 'rxjs/observable/of';
 import { merge } from 'rxjs/observable/merge';
 import { mapTo, delay } from 'rxjs/operators';
 
-//emit one item
+// 发出一项
 const example = of(null);
-//delay output of each by an extra second
+// 每延迟一次输出便增加1秒延迟时间
 const message = merge(
   example.pipe(mapTo('Hello')),
   example.pipe(mapTo('World!'), delay(1000)),
   example.pipe(mapTo('Goodbye'), delay(2000)),
   example.pipe(mapTo('World!'), delay(3000))
 );
-//output: 'Hello'...'World!'...'Goodbye'...'World!'
+// 输出: 'Hello'...'World!'...'Goodbye'...'World!'
 const subscribe = message.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-* [Progress Bar](../../recipes/progressbar.md)
+* [进度条](../../recipes/progressbar.md)
 
-### Additional Resources
+### 其他资源
 
-* [delay](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-delay)
-  :newspaper: - Official docs
-* [Transformation operator: delay and delayWhen](https://egghead.io/lessons/rxjs-transformation-operators-delay-and-delaywhen?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [delay](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-delay) :newspaper: - 官方文档
+* [转换操作符: delay 和 delayWhen](https://egghead.io/lessons/rxjs-transformation-operators-delay-and-delaywhen?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/delay.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/delay.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/delay.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/delay.ts)

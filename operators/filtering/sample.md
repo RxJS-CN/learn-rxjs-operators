@@ -1,14 +1,14 @@
 # sample
 
-#### signature: `sample(sampler: Observable): Observable`
+#### 签名: `sample(sampler: Observable): Observable`
 
-## Sample from source when provided observable emits.
+## 当提供的 observable 发出时从源 observable 中取样。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Sample source every 2 seconds
+##### 示例 1: 每2秒对源 observable 取样
 
 ( [jsBin](http://jsbin.com/gemebopifu/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/8wsbuvjb/) )
@@ -17,15 +17,15 @@
 import { interval } from 'rxjs/observable/interval';
 import { sample } 'rxjs/operators';
 
-//emit value every 1s
+// 每1秒发出值
 const source = interval(1000);
-//sample last emitted value from source every 2s
+// 每2秒对源 observable 最新发出的值进行取样
 const example = source.sample.pipe(interval(2000));
-//output: 2..4..6..8..
+// 输出: 2..4..6..8..
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Sample source when interval emits
+##### 示例 2: 当 interval 发出时对源 observable 取样
 
 ( [jsBin](http://jsbin.com/cunicepube/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/b33kg9dn/) )
@@ -37,14 +37,14 @@ import { from } from 'rxjs/observable/from';
 import { sample } 'rxjs/operators';
 
 const source = zip(
-  //emit 'Joe', 'Frank' and 'Bob' in sequence
+  // 发出 'Joe', 'Frank' and 'Bob' in sequence
   from(['Joe', 'Frank', 'Bob']),
-  //emit value every 2s
+  // 每2秒发出值
   interval(2000)
 );
-//sample last emitted value from source every 2.5s
+// 每2.5秒对源 observable 最新发出的值进行取样
 const example = source.pipe(sample(interval(2500)));
-//output: ["Joe", 0]...["Frank", 1]...........
+// 输出: ["Joe", 0]...["Frank", 1]...........
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
@@ -70,12 +70,9 @@ const listener = merge(
   })
 ```
 
-### Additional Resources
+### 其他资源
 
-* [sample](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-sample)
-  :newspaper: - Official docs
+* [sample](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-sample) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/sample.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/sample.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/sample.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/sample.ts)

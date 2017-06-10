@@ -1,20 +1,20 @@
 # takeUntil
 
-#### signature: `takeUntil(notifier: Observable): Observable`
+#### 签名: ` takeUntil(notifier: Observable): Observable`
 
-## Emit values until provided observable emits.
+## 发出值，直到提供的 observable 发出值，它便完成。
 
 ---
 
-:bulb: If you only need a specific number of values, try [take](take.md)!
+:bulb: 如果你只需要指定数量的值，试试 [take](take.md)！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Take values until timer emits
+##### 示例 1: 取值直到 timer 发出
 
 ( [jsBin](http://jsbin.com/yevuhukeja/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/zbe9dzb9/) )
@@ -24,17 +24,17 @@ import { interval } from 'rxjs/observable/interval';
 import { timer } from 'rxjs/observable/timer';
 import { takeUntil } 'rxjs/operators';
 
-//emit value every 1s
+// 每1秒发出值
 const source = interval(1000);
-//after 5 seconds, emit value
+// 5秒后发出值
 const timer = timer(5000);
-//when timer emits after 5s, complete source
+// 当5秒后 timer 发出值时， source 则完成
 const example = source.pipe(takeUntil(timer));
-//output: 0,1,2,3
+// 输出: 0,1,2,3
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Take the first 5 even numbers
+##### 示例 2: 取前5个偶数
 
 ( [jsBin](http://jsbin.com/doquqecara/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/0dLeksLe/) )
@@ -43,22 +43,22 @@ const subscribe = example.subscribe(val => console.log(val));
 import { interval } from 'rxjs/observable/interval';
 import { takeUntil, filter, scan, map, withLatestFrom } 'rxjs/operators';
 
-//emit value every 1s
+// 每1秒发出值
 const source = interval(1000);
-//is number even?
+// 是偶数吗？
 const isEven = val => val % 2 === 0;
-//only allow values that are even
+// 只允许是偶数的值
 const evenSource = source.pipe(filter(isEven));
-//keep a running total of the number of even numbers out
+// 保存运行中的偶数数量
 const evenNumberCount = evenSource.pipe(scan((acc, _) => acc + 1, 0));
-//do not emit until 5 even numbers have been emitted
+// 不发出直到发出过5个偶数
 const fiveEvenNumbers = evenNumberCount.pipe(filter(val => val > 5));
 
 const example = evenSource.pipe(
-    //also give me the current even number count for display
+    // 还给出当前偶数的数量以用于显示
     withLatestFrom(evenNumberCount),
     map(([val, count]) => `Even number (${count}) : ${val}`),
-    //when five even numbers have been emitted, complete source observable
+    // 当发出了5个偶数时，source 则完成
     takeUntil(fiveEvenNumbers)
   )
 /*
@@ -71,14 +71,10 @@ const example = evenSource.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
-* [takeUntil](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-takeUntil)
-  :newspaper: - Official docs
-* [Stopping a stream with takeUntil](https://egghead.io/lessons/rxjs-stopping-a-stream-with-takeuntil?course=step-by-step-async-javascript-with-rxjs)
-  :video_camera: :dollar: - John Linquist
+* [takeUntil](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-takeUntil) :newspaper: - 官方文档
+* [使用 takeUntil 来停止流](https://egghead.io/lessons/rxjs-stopping-a-stream-with-takeuntil?course=step-by-step-async-javascript-with-rxjs) :video_camera: :dollar: - John Linquist
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/takeUntil.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/takeUntil.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/takeUntil.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/takeUntil.ts)

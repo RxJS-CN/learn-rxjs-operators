@@ -1,14 +1,14 @@
 # create
 
-#### signature: `create(subscribe: function)`
+#### 签名: `create(subscribe: function)`
 
-## Create an observable with given subscription function.
+## 使用给定的订阅函数来创建 observable 。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Observable that emits multiple values
+##### 示例 1: 发出多个值的 observable
 
 ( [jsBin](http://jsbin.com/qorugiwaba/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/td5107he/) )
@@ -16,19 +16,18 @@
 ```js
 import { Observable } from 'rxjs/Observable';
 /*
-  Create an observable that emits 'Hello' and 'World' on  
-  subscription.
+  创建在订阅函数中发出 'Hello' 和 'World' 的 observable 。
 */
 const hello = Observable.create(function(observer) {
   observer.next('Hello');
   observer.next('World');
 });
 
-//output: 'Hello'...'World'
+// 输出: 'Hello'...'World'
 const subscribe = hello.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Observable that emits even numbers on timer
+##### 示例 2: 基于定时器发出偶数的 observable
 
 ( [jsBin](http://jsbin.com/lodilohate/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/vtozg6uf/) )
@@ -37,7 +36,7 @@ const subscribe = hello.subscribe(val => console.log(val));
 import { Observable } from 'rxjs/Observable';
 
 /*
-  Increment value every 1s, emit even numbers.
+  每秒自增值并且只发出偶数
 */
 const evenNumbers = Observable.create(function(observer) {
   let value = 0;
@@ -50,24 +49,20 @@ const evenNumbers = Observable.create(function(observer) {
 
   return () => clearInterval(interval);
 });
-//output: 0...2...4...6...8
+// 输出: 0...2...4...6...8
 const subscribe = evenNumbers.subscribe(val => console.log(val));
-//unsubscribe after 10 seconds
+// 10秒后取消订阅
 setTimeout(() => {
   subscribe.unsubscribe();
 }, 10000);
 ```
 
-### Additional Resources
 
-* [create](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-create)
-  :newspaper: - Official docs
-* [Creation operators: Create()](https://egghead.io/lessons/rxjs-creation-operator-create?course=rxjs-beyond-the-basics-creating-observables-from-scratch)
-  :video_camera: :dollar: - André Staltz
-* [Using Observable.create for fine-grained control](https://egghead.io/lessons/rxjs-using-observable-create-for-fine-grained-control)
-  :video_camera: :dollar: - Shane Osbourne
+### 其他资源
+
+* [create](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-create) :newspaper: - 官方文档
+* [创建操作符: Create()](https://egghead.io/lessons/rxjs-creation-operator-create?course=rxjs-beyond-the-basics-creating-observables-from-scratch) :video_camera: :dollar: - André Staltz
+* [使用 Observable.create 来实现细粒度的控制](https://egghead.io/lessons/rxjs-using-observable-create-for-fine-grained-control) :video_camera: :dollar: - Shane Osbourne
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/GenerateObservable.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/GenerateObservable.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/GenerateObservable.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/GenerateObservable.ts)

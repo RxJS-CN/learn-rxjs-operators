@@ -1,14 +1,14 @@
 # exhaustMap
 
-#### signature: `exhaustMap(project: function, resultSelector: function): Observable`
+#### 签名: `exhaustMap(project: function, resultSelector: function): Observable`
 
-## Map to inner observable, ignore other values until that observable completes.
+## 映射成内部 observable，忽略其他值直到该 observable 完成。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: exhaustMap with interval
+##### 示例 1: 使用 interval 的 exhaustMap 
 
 ( [Stackblitz](https://stackblitz.com/edit/typescript-duwrhu?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/woposeqobo/1/edit?js,console) |
@@ -24,28 +24,28 @@ const sourceInterval = interval(1000);
 const delayedInterval = sourceInterval.pipe(delay(10), take(4));
 
 const exhaustSub = merge(
-  // delay 10ms, then start interval emitting 4 values
+  // 延迟10毫秒，然后开始 interval 并发出4个值
   delayedInterval,
-  // emit immediately
+  // 立即发出
   of(true)
 )
   .pipe(exhaustMap(_ => sourceInterval.pipe(take(5))))
   /*
-                 *  The first emitted value (of(true)) will be mapped
-                 *  to an interval observable emitting 1 value every
-                 *  second, completing after 5.
-                 *  Because the emissions from the delayed interval
-                 *  fall while this observable is still active they will be ignored.
-                 *
-                 *  Contrast this with concatMap which would queue,
-                 *  switchMap which would switch to a new inner observable each emission,
-                 *  and mergeMap which would maintain a new subscription for each emitted value.
-                 */
-  // output: 0, 1, 2, 3, 4
+   *  第一个发出的值 (of(true)) 会被映射成每秒发出值、 
+   *  5秒后完成的 interval observable 。
+   *  因为 delayedInterval 的发送是晚于前者的，虽然 observable 
+   *  仍然是活动的，但它们会被忽略。
+   *
+   *  与类似的操作符进行下对比:
+   *  concatMap 会进行排队
+   *  switchMap 会在每次发送时切换成新的内部 observable
+   *  mergeMap 会为每个发出值维护新的 subscription
+   */
+  // 输出: 0, 1, 2, 3, 4
   .subscribe(val => console.log(val));
 ```
 
-##### Example 2: Another exhaustMap with interval
+##### 示例 2: 另一个使用 interval 的 exhaustMap 
 
 ( [Stackblitz](https://stackblitz.com/edit/typescript-crlz2s?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/fizuduzuti/1/edit?js,console) |
@@ -66,25 +66,25 @@ const exhaustSub = firstInterval
     })
   )
   /*
-                When we subscribed to the first interval, it starts to emit a values (starting 0).
-                This value is mapped to the second interval which then begins to emit (starting 0).  
-                While the second interval is active, values from the first interval are ignored.
-                We can see this when firstInterval emits number 3,6, and so on...
+    当我们订阅第一个 interval 时，它开始发出值(从0开始)。
+    这个值会映射成第二个 interval，然后它开始发出值(从0开始)。
+    当第二个 interval 出于激活状态时，第一个 interval 的值会被忽略。
+    我们可以看到 firstInterval 发出的数字为3，6，等等...
 
-                  Output:
-                  Emission of first interval: 0
-                  0
-                  1
-                  Emission of first interval: 3
-                  0
-                  1
-                  Emission of first interval: 6
-                  0
-                  1
-                  Emission of first interval: 9
-                  0
-                  1
-              */
+    输出:
+    Emission of first interval: 0
+    0
+    1
+    Emission of first interval: 3
+    0
+    1
+    Emission of first interval: 6
+    0
+    1
+    Emission of first interval: 9
+    0
+    1
+*/
   .subscribe(s => console.log(s));
 ```
 
@@ -112,12 +112,9 @@ const exhaustSub = firstInterval
   );
 ```
 
-### Additional Resources
+### 其他资源
 
-* [exhaustMap](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-exhaustMap)
-  :newspaper: - Official docs
+* [exhaustMap](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-exhaustMap) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/exhaustMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/exhaustMap.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/exhaustMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/exhaustMap.ts)

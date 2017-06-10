@@ -1,14 +1,14 @@
 # windowWhen
 
-#### signature: `windowWhen(closingSelector: function(): Observable): Observable`
+#### 签名: `windowWhen(closingSelector: function(): Observable): Observable`
 
-## Close window at provided time frame emitting observable of collected values from source.
+## 在提供的时间帧处关闭窗口，并发出从源 observable 中收集的值的 observable 。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Open and close window at interval
+##### 示例 1: 根据定时器开启和关闭窗口
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-bgpaoi?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/tuhaposemo/edit?js,console) |
@@ -19,20 +19,20 @@ import { timer } from 'rxjs/observable/timer';
 import { interval } from 'rxjs/observable/interval';
 import { windowWhen, tap, mergeAll } from 'rxjs/operators';
 
-//emit immediately then every 1s
+// 立即发出值，然后每秒发出值
 const source = timer(0, 1000);
 const example = source.pipe(
-  //close window every 5s and emit observable of collected values from source
+  // 每5秒关闭窗口并发出从源 observable 中收集的值的 observable
   windowWhen(() => interval(5000)),
   tap(_ => console.log('NEW WINDOW!'))
 );
 
 const subscribeTwo = example
   .pipe(
-    //window emits nested observable
+    // 窗口发出嵌套的 observable
     mergeAll()
     /*
-      output:
+      输出:
       "NEW WINDOW!"
       0
       1
@@ -50,12 +50,9 @@ const subscribeTwo = example
   .subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
-* [windowWhen](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-windowWhen)
-  :newspaper: - Official docs
+* [windowWhen](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-windowWhen) :newspaper: - 官方文档
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/windowWhen.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/windowWhen.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/windowWhen.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/windowWhen.ts)

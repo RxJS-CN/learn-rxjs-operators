@@ -1,19 +1,18 @@
 # debounceTime
 
-#### signature: `debounceTime(dueTime: number, scheduler: Scheduler): Observable`
+#### 签名: `debounceTime(dueTime: number, scheduler: Scheduler): Observable`
 
-## Discard emitted values that take less than the specified time between output
-
----
-
-:bulb: This operator is popular in scenarios such as type-ahead where the rate
-of user input must be controlled!
+## 舍弃掉在两次输出之间小于指定时间的发出值
 
 ---
 
-### Examples
+:bulb:  此操作符在诸如预先知道用户的输入频率的场景下很受欢迎！
 
-##### Example 1: Debouncing based on time between input
+---
+
+### 示例
+
+##### 示例 1: 基于输入间隔时间的 debounce
 
 ( [jsBin](http://jsbin.com/kacijarogi/1/edit?js,console,output) |
 [jsFiddle](https://jsfiddle.net/btroncone/7kbg4q2e/) )
@@ -25,27 +24,23 @@ import { debounceTime, map } from 'rxjs/operators';
 
 const input = document.getElementById('example');
 
-//for every keyup, map to current input value
+// 对于每次键盘敲击，都将映射成当前输入值
 const example = fromEvent(input, 'keyup').pipe(map(i => i.currentTarget.value));
 
-//wait .5s between keyups to emit current value
-//throw away all other values
+// 在两次键盘敲击之间等待0.5秒方才发出当前值，
+// 并丢弃这0.5秒内的所有其他值
 const debouncedInput = example.pipe(debounceTime(500));
 
-//log values
+// 输出值
 const subscribe = debouncedInput.subscribe(val => {
   console.log(`Debounced Input: ${val}`);
 });
 ```
 
-### Additional Resources
+### 其他资源
 
-* [debounceTime](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-debounceTime)
-  :newspaper: - Official docs
-* [Transformation operator: debounce and debounceTime](https://egghead.io/lessons/rxjs-transformation-operators-debounce-and-debouncetime?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [debounceTime](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-debounceTime) :newspaper: - 官方文档
+* [转换操作符: debounce 和 debounceTime](https://egghead.io/lessons/rxjs-transformation-operators-debounce-and-debouncetime?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/debounceTime.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/debounceTime.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/debounceTime.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/debounceTime.ts)

@@ -1,9 +1,8 @@
-# Utility Operators
+# 工具操作符
 
-From logging, handling notifications, to setting up schedulers, these operators
-provide helpful utilities in your observable toolkit.
+从打印日志、处理通知到设置调度器，这些操作符提供了一些有用的工具以补充你的 observable 工具箱。
 
-## Contents
+## 内容
 
 * [do / tap](do.md) :star:
 * [delay](delay.md) :star:
@@ -14,4 +13,4 @@ provide helpful utilities in your observable toolkit.
 * [timeout](timeout.md)
 * [toPromise](topromise.md)
 
-:star: - _commonly used_
+:star: - *常用*

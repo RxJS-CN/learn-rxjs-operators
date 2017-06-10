@@ -1,21 +1,20 @@
 # withLatestFrom
 
-#### signature: `withLatestFrom(other: Observable, project: Function): Observable`
+#### 签名: `withLatestFrom(other: Observable, project: Function): Observable`
 
-## Also provide the last value from another observable.
+## 还提供另一个 observable 的最新值。
 
 ---
 
-:bulb: If you want the last emission any time a variable number of observables
-emits, try [combinelatest](combinelatest.md)!
+:bulb: 如果你希望每当任意 observable 发出值时各个 observable 的最新值，请尝试 [combinelatest](combinelatest.md)！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Latest value from quicker second source
+##### 示例 1: 发出频率更快的第二个 source 的最新值
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-sekrr5?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/fitekeseru/1/edit?js,console) |
@@ -25,9 +24,9 @@ emits, try [combinelatest](combinelatest.md)!
 import { withLatestFrom, map } from 'rxjs/operators';
 import { interval } from 'rxjs/observable/interval';
 
-//emit every 5s
+// 每5秒发出值
 const source = interval(5000);
-//emit every 1s
+// 每1秒发出值
 const secondSource = interval(1000);
 const example = source.pipe(
   withLatestFrom(secondSource),
@@ -36,6 +35,7 @@ const example = source.pipe(
   })
 );
 /*
+  输出:
   "First Source (5s): 0 Second Source (1s): 4"
   "First Source (5s): 1 Second Source (1s): 9"
   "First Source (5s): 2 Second Source (1s): 14"
@@ -44,7 +44,7 @@ const example = source.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Slower second source
+##### 示例 2: 第二个 source 发出频率更慢一些
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-unq2gn?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/vujekucuxa/1/edit?js,console) |
@@ -54,13 +54,13 @@ const subscribe = example.subscribe(val => console.log(val));
 import { withLatestFrom, map } from 'rxjs/operators';
 import { interval } from 'rxjs/observable/interval';
 
-//emit every 5s
+// 每5秒发出值
 const source = interval(5000);
-//emit every 1s
+// 每1秒发出值
 const secondSource = interval(1000);
-//withLatestFrom slower than source
+// withLatestFrom 的 observable 比源 observable 慢
 const example = secondSource.pipe(
-  //both sources must emit at least 1 value (5s) before emitting
+  // 两个 observable 在发出值前要确保至少都有1个值 (需要等待5秒)
   withLatestFrom(source),
   map(([first, second]) => {
     return `Source (1s): ${first} Latest From (5s): ${second}`;
@@ -75,19 +75,15 @@ const example = secondSource.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-* [Progress Bar](../../recipes/progressbar.md)
-* [Game Loop](../../recipes/gameloop.md)
+* [进度条](../../recipes/progressbar.md)
+* [游戏循环](../../recipes/gameloop.md)
 
-### Additional Resources
+### 其他资源
 
-* [withLatestFrom](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-withLatestFrom)
-  :newspaper: - Official docs
-* [Combination operator: withLatestFrom](https://egghead.io/lessons/rxjs-combination-operator-withlatestfrom?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [withLatestFrom](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-withLatestFrom) :newspaper: - 官方文档
+* [组合操作符: withLatestFrom](https://egghead.io/lessons/rxjs-combination-operator-withlatestfrom?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/withLatestFrom.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/withLatestFrom.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/withLatestFrom.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/withLatestFrom.ts)

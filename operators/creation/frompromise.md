@@ -1,22 +1,22 @@
 # fromPromise
 
-#### signature: `fromPromise(promise: Promise, scheduler: Scheduler): Observable`
+#### 签名: `fromPromise(promise: Promise, scheduler: Scheduler): Observable`
 
-## Create observable from promise, emitting result.
+## 创建由 promise 转换而来的 observable，并发出 promise 的结果。
 
 ---
 
-:bulb: Flattening operators can accept promises without wrapping!
+:bulb: 打平类操作符通常可以接收 promises 而不需要 observable 包装！
 
-:bulb: You could also use [from](from.md) for the same result!
+:bulb: 你还可以使用 [from](from.md) 达到同样的效果！
 
 ---
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Converting promise to observable and catching errors
+##### 示例 1: 将 promise 转换成 observable 并捕获错误
 
 ( [jsBin](http://jsbin.com/cokivecima/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/upy6nr6n/) )
@@ -26,7 +26,7 @@ import { of } from 'rxjs/observable/of';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import { mergeMap, catchError } from 'rxjs/operators';
 
-//example promise that will resolve or reject based on input
+// 基于输入来决定是 resolve 还是 reject 的示例 promise
 const myPromise = willReject => {
   return new Promise((resolve, reject) => {
     if (willReject) {
@@ -35,29 +35,25 @@ const myPromise = willReject => {
     resolve('Resolved!');
   });
 };
-//emit true, then false
+// 先发出 true，然后是 false
 const source = of(true, false);
 const example = source.pipe(
   mergeMap(val =>
     fromPromise(myPromise(val)).pipe(
-      //catch and gracefully handle rejections
+      // 捕获并优雅地处理 reject 的结果
       catchError(error => of(`Error: ${error}`))
     )
   )
 );
-//output: 'Error: Rejected!', 'Resolved!'
+// 输出: 'Error: Rejected!', 'Resolved!'
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
-* [fromPromise](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-fromPromise)
-  :newspaper: - Official docs
-* [Creation operators: from, fromArray, fromPromise](https://egghead.io/lessons/rxjs-creation-operators-from-fromarray-frompromise?course=rxjs-beyond-the-basics-creating-observables-from-scratch)
-  :video_camera: :dollar: - André Staltz
-* [fromPromise - Guide](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/promises.md)
+* [fromPromise](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-fromPromise) :newspaper: - 官方文档
+* [创建操作符: from, fromArray, fromPromise](https://egghead.io/lessons/rxjs-creation-operators-from-fromarray-frompromise?course=rxjs-beyond-the-basics-creating-observables-from-scratch) :video_camera: :dollar: - André Staltz
+* [fromPromise - 指南](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/promises.md)
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/fromPromise.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/fromPromise.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/fromPromise.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/observable/fromPromise.ts)

@@ -1,22 +1,16 @@
-# Smart Counter
+# 智能计数器
 
-An interesting element on interfaces which involve dynamically updating numbers
-is a smart counter, or odometer effect. Instead of jumping a number up and down,
-quickly counting to the desired number can achieve a cool effect. An example of
-a popular library that accomplishes this is
-[odometer](https://github.com/HubSpot/odometer) by
-[Hubspot](https://github.com/HubSpot). Let's see how we can accomplish something
-similar with just a few lines of RxJS.
+一个在页面上带有动态更新数字效果的有趣元素就是智能计数器，也可以称之为里程表效果。不采用上下跳数的方式，而是快速地清点到期望的数字，这能达到一种很酷的效果。能做到这点的流行库的其中一个就是由 [Hubspot](https://github.com/HubSpot) 所写的 [odometer](https://github.com/HubSpot/odometer) 。让我们来看看如何使用短短几行 RxJS 代码来实现类似的效果。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-#### Vanilla JS
+#### 原生 JS
 
 ( [JSBin](http://jsbin.com/jojucaqiki/1/edit?js,output) |
 [JSFiddle](https://jsfiddle.net/btroncone/au4sqvxu/) )
 
 ```js
-// utility functions
+// 工具函数
 const takeUntilFunc = (endRange, currentNumber) => {
   return endRange > currentNumber
     ? val => val <= endRange
@@ -28,7 +22,7 @@ const positiveOrNegative = (endRange, currentNumber) => {
 };
 
 const updateHTML = id => val => (document.getElementById(id).innerHTML = val);
-// display
+// 显示
 const input = document.getElementById('range');
 const updateButton = document.getElementById('update');
 
@@ -58,12 +52,9 @@ const subscription = (function(currentNumber) {
 <h3 id="display">0</h3>
 ```
 
-We can easily take our vanilla smart counter and wrap it in any popular
-component based UI library. Below is an example of an Angular smart counter
-component which takes an `Input` of the updated end ranges and performs the
-appropriate transition.
+我们可以轻易地获取我们的原生 JS 所写的智能计数器并将其包装在任何流行的基于 UI 库中。下面是 Angular 版本的智能计数器，它接收一个更新结束范围的 `Input` 输入属性并执行适当的转换。
 
-#### Angular Version
+#### Angular 版本
 
 (
 [StackBlitz](https://stackblitz.com/edit/angular-gcnqlq?file=app%2Fnumber-tracker.component.ts)
@@ -139,7 +130,7 @@ export class NumberTrackerComponent implements OnDestroy {
 <number-tracker [end]="counterNumber"></number-tracker>
 ```
 
-### Operators Used
+### 使用到的操作符
 
 * [fromEvent](../operators/creation/fromevent.md)
 * [map](../operators/transformation/map.md)

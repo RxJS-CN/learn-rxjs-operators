@@ -1,14 +1,14 @@
 # mapTo
 
-#### signature: `mapTo(value: any): Observable`
+#### 签名: `mapTo(value: any): Observable`
 
-## Map emissions to constant value.
+## 将每个发出值映射成常量。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Map every emission to string
+##### 示例 1: 将每个发出值映射成字符串
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-zdgcuu?file=index.ts&devtoolsheight=50)
@@ -19,15 +19,15 @@
 import { interval } from 'rxjs/observable/interval';
 import { mapTo } from 'rxjs/operators';
 
-//emit value every two seconds
+// 每2秒发出值
 const source = interval(2000);
-//map all emissions to one value
+// 将所有发出值映射成同一个值
 const example = source.pipe(mapTo('HELLO WORLD!'));
-//output: 'HELLO WORLD!'...'HELLO WORLD!'...'HELLO WORLD!'...
+// 输出: 'HELLO WORLD!'...'HELLO WORLD!'...'HELLO WORLD!'...
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Mapping clicks to string
+##### 示例 2: 将点击映射成字符串
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-qm5spu?file=index.ts&devtoolsheight=50)
@@ -38,29 +38,24 @@ const subscribe = example.subscribe(val => console.log(val));
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { mapTo } from 'rxjs/operators';
 
-//emit every click on document
+// 发出每个页面点击
 const source = fromEvent(document, 'click');
-//map all emissions to one value
+// 将所有发出值映射成同一个值
 const example = source.pipe(mapTo('GOODBYE WORLD!'));
-//output: (click)'GOODBYE WORLD!'...
+// 输出: (click)'GOODBYE WORLD!'...
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
 * [HTTP Polling](../../recipes/http-polling.md)
-* [Smart Counter](../../recipes/smartcounter.md)
+* [智能计数器](../../recipes/smartcounter.md)
 
-### Additional Resources
+### 其他资源
 
-* [mapTo](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mapTo)
-  :newspaper: - Official docs
-* [Changing behavior with mapTo](https://egghead.io/lessons/rxjs-changing-behavior-with-mapto?course=step-by-step-async-javascript-with-rxjs)
-  :video_camera: :dollar: - John Linquist
-* [Transformation operator: map and mapTo](https://egghead.io/lessons/rxjs-transformation-operator-map-and-mapto?course=rxjs-beyond-the-basics-operators-in-depth)
-  :video_camera: :dollar: - André Staltz
+* [mapTo](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-mapTo) :newspaper: - 官方文档
+* [使用 mapTo 来改变行为](https://egghead.io/lessons/rxjs-changing-behavior-with-mapto?course=step-by-step-async-javascript-with-rxjs) :video_camera: :dollar: - John Linquist
+* [转换操作符: map 和 mapTo](https://egghead.io/lessons/rxjs-transformation-operator-map-and-mapto?course=rxjs-beyond-the-basics-operators-in-depth) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mapTo.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mapTo.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mapTo.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/mapTo.ts)

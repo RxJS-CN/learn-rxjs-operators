@@ -1,14 +1,14 @@
 # concatMap
 
-#### signature: `concatMap(project: function, resultSelector: function): Observable`
+#### 签名: `concatMap(project: function, resultSelector: function): Observable`
 
-## Map values to inner observable, subscribe and emit in order.
+## 将值映射成内部 observable，并按顺序订阅和发出。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Demonstrating the difference between `concatMap` and [`mergeMap`](./mergemap.md)
+##### 示例 1: 演示 `concatMap` 和 [`mergeMap`](./mergemap.md) 之间的区别
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-skud3w?file=index.ts&devtoolsheight=50) )
 
@@ -44,7 +44,7 @@ const mergeMapExample = source
   .subscribe(val => console.log(`With mergeMap: ${val}`));
 ```
 
-##### Example 2: Map to promise
+##### 示例 2: 映射成 promise
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-svgsod?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/celixodeba/1/edit?js,console) |
@@ -54,19 +54,19 @@ const mergeMapExample = source
 import { of } from 'rxjs/observable/of';
 import { concatMap } from 'rxjs/operators';
 
-//emit 'Hello' and 'Goodbye'
+// 发出 'Hello' 和 'Goodbye'
 const source = of('Hello', 'Goodbye');
-//example with promise
+// 使用 promise 的示例
 const examplePromise = val => new Promise(resolve => resolve(`${val} World!`));
-// map value from source into inner observable, when complete emit result and move to next
+// 将 source 的值映射成内部 observable，当一个完成发出结果后再继续下一个
 const example = source.pipe(concatMap(val => examplePromise(val)));
-//output: 'Example w/ Promise: 'Hello World', Example w/ Promise: 'Goodbye World'
+// 输出: 'Example w/ Promise: 'Hello World', Example w/ Promise: 'Goodbye World'
 const subscribe = example.subscribe(val =>
   console.log('Example w/ Promise:', val)
 );
 ```
 
-##### Example 3: Supplying a projection function
+##### 示例 3: 应用投射函数
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-u6tie6?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/vihacewozo/1/edit?js,console) |
@@ -76,28 +76,24 @@ const subscribe = example.subscribe(val =>
 import { of } from 'rxjs/observable/of';
 import { concatMap } from 'rxjs/operators';
 
-//emit 'Hello' and 'Goodbye'
+// 发出 'Hello' 和 'Goodbye'
 const source = of('Hello', 'Goodbye');
-//example with promise
+// 使用 promise 的示例
 const examplePromise = val => new Promise(resolve => resolve(`${val} World!`));
-//result of first param passed to second param selector function before being  returned
+// 返回结果前，第一个参数的结果将传递给第二个参数选择器函数
 const example = source.pipe(
   concatMap(val => examplePromise(val), result => `${result} w/ selector!`)
 );
-//output: 'Example w/ Selector: 'Hello w/ Selector', Example w/ Selector: 'Goodbye w/ Selector'
+// 输出: 'Example w/ Selector: 'Hello w/ Selector', Example w/ Selector: 'Goodbye w/ Selector'
 const subscribe = example.subscribe(val =>
   console.log('Example w/ Selector:', val)
 );
 ```
 
-### Additional Resources
+### 其他资源
 
-* [concatMap](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-concatMap)
-  :newspaper: - Official docs
-* [Use RxJS concatMap to map and concat higher order observables](https://egghead.io/lessons/rxjs-use-rxjs-concatmap-to-map-and-concat-high-order-observables?course=use-higher-order-observables-in-rxjs-effectively)
-  :video_camera: :dollar: - André Staltz
+* [concatMap](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-concatMap) :newspaper: - 官方文档
+* [使用 RxJS 的 concatMap 操作符来映射并连接高阶 observables](https://egghead.io/lessons/rxjs-use-rxjs-concatmap-to-map-and-concat-high-order-observables?course=use-higher-order-observables-in-rxjs-effectively) :video_camera: :dollar: - André Staltz
 
 ---
-
-> :file_folder: Source Code:
-> [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concatMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concatMap.ts)
+> :file_folder: 源码:  [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concatMap.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/concatMap.ts)

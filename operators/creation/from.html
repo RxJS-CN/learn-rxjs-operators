@@ -1,0 +1,1538 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>from · 学习 RxJS 操作符</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="fromevent.html" />
+    
+    
+    <link rel="prev" href="empty.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="https://github.com/RxJS-CN/learn-rxjs-operators">
+            
+                    
+                    学习 RxJS 操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">学习 RxJS</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    操作符
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../combination/">
+            
+                <a href="../combination/">
+            
+                    
+                    组合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../combination/combineall.html">
+            
+                <a href="../combination/combineall.html">
+            
+                    
+                    combineAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../combination/combinelatest.html">
+            
+                <a href="../combination/combinelatest.html">
+            
+                    
+                    combineLatest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../combination/concat.html">
+            
+                <a href="../combination/concat.html">
+            
+                    
+                    concat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.4" data-path="../combination/concatall.html">
+            
+                <a href="../combination/concatall.html">
+            
+                    
+                    concatAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="../combination/forkjoin.html">
+            
+                <a href="../combination/forkjoin.html">
+            
+                    
+                    forkJoin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.6" data-path="../combination/merge.html">
+            
+                <a href="../combination/merge.html">
+            
+                    
+                    merge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.7" data-path="../combination/mergeall.html">
+            
+                <a href="../combination/mergeall.html">
+            
+                    
+                    mergeAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.8" data-path="../combination/pairwise.html">
+            
+                <a href="../combination/pairwise.html">
+            
+                    
+                    pairwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.9" data-path="../combination/race.html">
+            
+                <a href="../combination/race.html">
+            
+                    
+                    race
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.10" data-path="../combination/startwith.html">
+            
+                <a href="../combination/startwith.html">
+            
+                    
+                    startWith
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.11" data-path="../combination/withlatestfrom.html">
+            
+                <a href="../combination/withlatestfrom.html">
+            
+                    
+                    withLatestFrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.12" data-path="../combination/zip.html">
+            
+                <a href="../combination/zip.html">
+            
+                    
+                    zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../conditional/">
+            
+                <a href="../conditional/">
+            
+                    
+                    条件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../conditional/defaultifempty.html">
+            
+                <a href="../conditional/defaultifempty.html">
+            
+                    
+                    defaultIfEmpty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../conditional/every.html">
+            
+                <a href="../conditional/every.html">
+            
+                    
+                    every
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    创建
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="create.html">
+            
+                <a href="create.html">
+            
+                    
+                    create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="empty.html">
+            
+                <a href="empty.html">
+            
+                    
+                    empty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.3.3" data-path="from.html">
+            
+                <a href="from.html">
+            
+                    
+                    from
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="fromevent.html">
+            
+                <a href="fromevent.html">
+            
+                    
+                    fromEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="frompromise.html">
+            
+                <a href="frompromise.html">
+            
+                    
+                    fromPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="interval.html">
+            
+                <a href="interval.html">
+            
+                    
+                    interval
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="of.html">
+            
+                <a href="of.html">
+            
+                    
+                    of
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="range.html">
+            
+                <a href="range.html">
+            
+                    
+                    range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="throw.html">
+            
+                <a href="throw.html">
+            
+                    
+                    throw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="timer.html">
+            
+                <a href="timer.html">
+            
+                    
+                    timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    错误处理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../error_handling/catch.html">
+            
+                <a href="../error_handling/catch.html">
+            
+                    
+                    catch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../error_handling/retry.html">
+            
+                <a href="../error_handling/retry.html">
+            
+                    
+                    retry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../error_handling/retrywhen.html">
+            
+                <a href="../error_handling/retrywhen.html">
+            
+                    
+                    retryWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../multicasting/">
+            
+                <a href="../multicasting/">
+            
+                    
+                    多播
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="../multicasting/cache.md">
+            
+                <span>
+            
+                    
+                    cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="../multicasting/publish.html">
+            
+                <a href="../multicasting/publish.html">
+            
+                    
+                    publish
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="../multicasting/multicast.html">
+            
+                <a href="../multicasting/multicast.html">
+            
+                    
+                    multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="../multicasting/share.html">
+            
+                <a href="../multicasting/share.html">
+            
+                    
+                    share
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../filtering/">
+            
+                <a href="../filtering/">
+            
+                    
+                    过滤
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../filtering/debounce.html">
+            
+                <a href="../filtering/debounce.html">
+            
+                    
+                    debounce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../filtering/debouncetime.html">
+            
+                <a href="../filtering/debouncetime.html">
+            
+                    
+                    debounceTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../filtering/distinctuntilchanged.html">
+            
+                <a href="../filtering/distinctuntilchanged.html">
+            
+                    
+                    distinctUntilChanged
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../filtering/filter.html">
+            
+                <a href="../filtering/filter.html">
+            
+                    
+                    filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="../filtering/first.html">
+            
+                <a href="../filtering/first.html">
+            
+                    
+                    first
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.6" data-path="../filtering/ignoreelements.html">
+            
+                <a href="../filtering/ignoreelements.html">
+            
+                    
+                    ignoreElements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.7" data-path="../filtering/last.html">
+            
+                <a href="../filtering/last.html">
+            
+                    
+                    last
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.8" data-path="../filtering/sample.html">
+            
+                <a href="../filtering/sample.html">
+            
+                    
+                    sample
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.9" data-path="../filtering/single.html">
+            
+                <a href="../filtering/single.html">
+            
+                    
+                    single
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.10" data-path="../filtering/skip.html">
+            
+                <a href="../filtering/skip.html">
+            
+                    
+                    skip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.11" data-path="../filtering/skipuntil.html">
+            
+                <a href="../filtering/skipuntil.html">
+            
+                    
+                    skipUntil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.12" data-path="../filtering/skipwhile.html">
+            
+                <a href="../filtering/skipwhile.html">
+            
+                    
+                    skipWhile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.13" data-path="../filtering/take.html">
+            
+                <a href="../filtering/take.html">
+            
+                    
+                    take
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.14" data-path="../filtering/takeuntil.html">
+            
+                <a href="../filtering/takeuntil.html">
+            
+                    
+                    takeUntil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.15" data-path="../filtering/takewhile.html">
+            
+                <a href="../filtering/takewhile.html">
+            
+                    
+                    takeWhile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.16" data-path="../filtering/throttle.html">
+            
+                <a href="../filtering/throttle.html">
+            
+                    
+                    throttle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.17" data-path="../filtering/throttletime.html">
+            
+                <a href="../filtering/throttletime.html">
+            
+                    
+                    throttleTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../transformation/">
+            
+                <a href="../transformation/">
+            
+                    
+                    转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="../transformation/buffer.html">
+            
+                <a href="../transformation/buffer.html">
+            
+                    
+                    buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="../transformation/buffercount.html">
+            
+                <a href="../transformation/buffercount.html">
+            
+                    
+                    bufferCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="../transformation/buffertime.html">
+            
+                <a href="../transformation/buffertime.html">
+            
+                    
+                    bufferTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.4" data-path="../transformation/buffertoggle.html">
+            
+                <a href="../transformation/buffertoggle.html">
+            
+                    
+                    bufferToggle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.5" data-path="../transformation/bufferwhen.html">
+            
+                <a href="../transformation/bufferwhen.html">
+            
+                    
+                    bufferWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.6" data-path="../transformation/concatmap.html">
+            
+                <a href="../transformation/concatmap.html">
+            
+                    
+                    concatMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.7" data-path="../transformation/concatmapto.html">
+            
+                <a href="../transformation/concatmapto.html">
+            
+                    
+                    concatMapTo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.8" data-path="../transformation/expand.html">
+            
+                <a href="../transformation/expand.html">
+            
+                    
+                    expand
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.9" data-path="../transformation/groupby.html">
+            
+                <a href="../transformation/groupby.html">
+            
+                    
+                    groupBy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.10" data-path="../transformation/map.html">
+            
+                <a href="../transformation/map.html">
+            
+                    
+                    map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.11" data-path="../transformation/mapto.html">
+            
+                <a href="../transformation/mapto.html">
+            
+                    
+                    mapTo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.12" data-path="../transformation/mergemap.html">
+            
+                <a href="../transformation/mergemap.html">
+            
+                    
+                    mergeMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.13" data-path="../transformation/partition.html">
+            
+                <a href="../transformation/partition.html">
+            
+                    
+                    partition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.14" data-path="../transformation/pluck.html">
+            
+                <a href="../transformation/pluck.html">
+            
+                    
+                    pluck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.15" data-path="../transformation/scan.html">
+            
+                <a href="../transformation/scan.html">
+            
+                    
+                    scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.16" data-path="../transformation/switchmap.html">
+            
+                <a href="../transformation/switchmap.html">
+            
+                    
+                    switchMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.17" data-path="../transformation/window.html">
+            
+                <a href="../transformation/window.html">
+            
+                    
+                    window
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.18" data-path="../transformation/windowcount.html">
+            
+                <a href="../transformation/windowcount.html">
+            
+                    
+                    windowCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.19" data-path="../transformation/windowtime.html">
+            
+                <a href="../transformation/windowtime.html">
+            
+                    
+                    windowTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.20" data-path="../transformation/windowtoggle.html">
+            
+                <a href="../transformation/windowtoggle.html">
+            
+                    
+                    windowToggle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.21" data-path="../transformation/windowwhen.html">
+            
+                <a href="../transformation/windowwhen.html">
+            
+                    
+                    windowWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../utility/">
+            
+                <a href="../utility/">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../utility/do.html">
+            
+                <a href="../utility/do.html">
+            
+                    
+                    do
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../utility/delay.html">
+            
+                <a href="../utility/delay.html">
+            
+                    
+                    delay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../utility/delaywhen.html">
+            
+                <a href="../utility/delaywhen.html">
+            
+                    
+                    delayWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../utility/dematerialize.html">
+            
+                <a href="../utility/dematerialize.html">
+            
+                    
+                    dematerialize
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../utility/let.html">
+            
+                <a href="../utility/let.html">
+            
+                    
+                    let
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.6" data-path="../utility/topromise.html">
+            
+                <a href="../utility/topromise.html">
+            
+                    
+                    toPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../complete.html">
+            
+                <a href="../complete.html">
+            
+                    
+                    完整列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../recipes/">
+            
+                <a href="../../recipes/">
+            
+                    
+                    食谱
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../recipes/smartcounter.html">
+            
+                <a href="../../recipes/smartcounter.html">
+            
+                    
+                    智能计数器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../concepts/">
+            
+                <a href="../../concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >from</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="from">from</h1>
+<h4 id="&#x7B7E;&#x540D;-fromish-observableinput-mapfn-function-thisarg-any-scheduler-scheduler-observable">&#x7B7E;&#x540D;: <code>from(ish: ObservableInput, mapFn: function, thisArg: any, scheduler: Scheduler): Observable</code></h4>
+<h2 id="&#x5C06;&#x6570;&#x7EC4;&#x3001;promise-&#x6216;&#x8FED;&#x4EE3;&#x5668;&#x8F6C;&#x6362;&#x6210;-observable-&#x3002;">&#x5C06;&#x6570;&#x7EC4;&#x3001;promise &#x6216;&#x8FED;&#x4EE3;&#x5668;&#x8F6C;&#x6362;&#x6210; observable &#x3002;</h2>
+<hr>
+<p><img align="absmiddle" alt=":bulb:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/bulb.png" title=":bulb:">  &#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x548C;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x6240;&#x6709;&#x5305;&#x542B;&#x7684;&#x503C;&#x90FD;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x5E8F;&#x5217;&#x53D1;&#x51FA;&#xFF01;</p>
+<p><img align="absmiddle" alt=":bulb:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/bulb.png" title=":bulb:">  &#x6B64;&#x64CD;&#x4F5C;&#x7B26;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x5B57;&#x7B26;&#x7684;&#x5E8F;&#x5217;&#x53D1;&#x51FA;&#xFF01;</p>
+<hr>
+<h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
+<h5 id="&#x793A;&#x4F8B;-1-&#x6570;&#x7EC4;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684;-observable">&#x793A;&#x4F8B; 1: &#x6570;&#x7EC4;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684; observable</h5>
+<p>( <a href="http://jsbin.com/foceyuketi/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/o7kb5e6j/" target="_blank">jsFiddle</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x5C06;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x503C;&#x7684;&#x5E8F;&#x5217;&#x53D1;&#x51FA;</span>
+<span class="token keyword">const</span> arraySource <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: 1,2,3,4,5</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> arraySource<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x793A;&#x4F8B;-2-promise-&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684;-observable">&#x793A;&#x4F8B; 2: promise &#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684; observable</h5>
+<p>( <a href="http://jsbin.com/tamofinujo/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/2czc5sae/" target="_blank">jsFiddle</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x53D1;&#x51FA; promise &#x7684;&#x7ED3;&#x679C;</span>
+<span class="token keyword">const</span> promiseSource <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;Hello World!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: &apos;Hello World&apos;</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> promiseSource<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x793A;&#x4F8B;-3-&#x96C6;&#x5408;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684;-observable">&#x793A;&#x4F8B; 3: &#x96C6;&#x5408;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684; observable</h5>
+<p>( <a href="http://jsbin.com/tezohobudu/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/ae6hu9a8/" target="_blank">jsFiddle</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x4F7F;&#x7528; js &#x7684;&#x96C6;&#x5408;</span>
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&apos;Hi&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&apos;Bye&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> mapSource <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: [1, &apos;Hi&apos;], [2, &apos;Bye&apos;]</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> mapSource<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x793A;&#x4F8B;-4-&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684;-observable">&#x793A;&#x4F8B; 4: &#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684; observable</h5>
+<p>( <a href="http://jsbin.com/wenozubana/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/hfvzjcvL/" target="_blank">jsFiddle</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x5B57;&#x7B26;&#x5E8F;&#x5217;&#x53D1;&#x51FA;</span>
+<span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token string">&apos;Hello World&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: &apos;H&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;,&apos; &apos;,&apos;W&apos;,&apos;o&apos;,&apos;r&apos;,&apos;l&apos;,&apos;d&apos;</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
+<ul>
+<li><a href="http://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-from" target="_blank">from</a> <img align="absmiddle" alt=":newspaper:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/newspaper.png" title=":newspaper:"> - &#x5B98;&#x65B9;&#x6587;&#x6863;</li>
+<li><a href="https://egghead.io/lessons/rxjs-creation-operators-from-fromarray-frompromise?course=rxjs-beyond-the-basics-creating-observables-from-scratch" target="_blank">&#x521B;&#x5EFA;&#x64CD;&#x4F5C;&#x7B26;: from, fromArray, fromPromise</a> <img align="absmiddle" alt=":video_camera:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/video_camera.png" title=":video_camera:"> <img align="absmiddle" alt=":dollar:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/dollar.png" title=":dollar:"> - Andr&#xE9; Staltz</li>
+</ul>
+<hr>
+<blockquote>
+<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/observable/FromObservable.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/observable/FromObservable.ts</a></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="empty.html" class="navigation navigation-prev " aria-label="Previous page: empty">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="fromevent.html" class="navigation navigation-next " aria-label="Next page: fromEvent">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"from","level":"2.1.3.3","depth":3,"next":{"title":"fromEvent","level":"2.1.3.4","depth":3,"path":"operators/creation/fromevent.md","ref":"operators/creation/fromevent.md","articles":[]},"previous":{"title":"empty","level":"2.1.3.2","depth":3,"path":"operators/creation/empty.md","ref":"operators/creation/empty.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/creation/from.md","mtime":"2017-06-24T13:36:27.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-06-24T13:40:48.853Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

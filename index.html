@@ -1,0 +1,1532 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Introduction · 学习 RxJS 操作符</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <a target="_blank" href="https://github.com/RxJS-CN/learn-rxjs-operators">
+            
+                    
+                    学习 RxJS 操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">学习 RxJS</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="operators/">
+            
+                <a href="operators/">
+            
+                    
+                    操作符
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="operators/combination/">
+            
+                <a href="operators/combination/">
+            
+                    
+                    组合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="operators/combination/combineall.html">
+            
+                <a href="operators/combination/combineall.html">
+            
+                    
+                    combineAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="operators/combination/combinelatest.html">
+            
+                <a href="operators/combination/combinelatest.html">
+            
+                    
+                    combineLatest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="operators/combination/concat.html">
+            
+                <a href="operators/combination/concat.html">
+            
+                    
+                    concat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.4" data-path="operators/combination/concatall.html">
+            
+                <a href="operators/combination/concatall.html">
+            
+                    
+                    concatAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="operators/combination/forkjoin.html">
+            
+                <a href="operators/combination/forkjoin.html">
+            
+                    
+                    forkJoin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.6" data-path="operators/combination/merge.html">
+            
+                <a href="operators/combination/merge.html">
+            
+                    
+                    merge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.7" data-path="operators/combination/mergeall.html">
+            
+                <a href="operators/combination/mergeall.html">
+            
+                    
+                    mergeAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.8" data-path="operators/combination/pairwise.html">
+            
+                <a href="operators/combination/pairwise.html">
+            
+                    
+                    pairwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.9" data-path="operators/combination/race.html">
+            
+                <a href="operators/combination/race.html">
+            
+                    
+                    race
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.10" data-path="operators/combination/startwith.html">
+            
+                <a href="operators/combination/startwith.html">
+            
+                    
+                    startWith
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.11" data-path="operators/combination/withlatestfrom.html">
+            
+                <a href="operators/combination/withlatestfrom.html">
+            
+                    
+                    withLatestFrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.12" data-path="operators/combination/zip.html">
+            
+                <a href="operators/combination/zip.html">
+            
+                    
+                    zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="operators/conditional/">
+            
+                <a href="operators/conditional/">
+            
+                    
+                    条件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="operators/conditional/defaultifempty.html">
+            
+                <a href="operators/conditional/defaultifempty.html">
+            
+                    
+                    defaultIfEmpty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="operators/conditional/every.html">
+            
+                <a href="operators/conditional/every.html">
+            
+                    
+                    every
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="operators/creation/">
+            
+                <a href="operators/creation/">
+            
+                    
+                    创建
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="operators/creation/create.html">
+            
+                <a href="operators/creation/create.html">
+            
+                    
+                    create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="operators/creation/empty.html">
+            
+                <a href="operators/creation/empty.html">
+            
+                    
+                    empty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="operators/creation/from.html">
+            
+                <a href="operators/creation/from.html">
+            
+                    
+                    from
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="operators/creation/fromevent.html">
+            
+                <a href="operators/creation/fromevent.html">
+            
+                    
+                    fromEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="operators/creation/frompromise.html">
+            
+                <a href="operators/creation/frompromise.html">
+            
+                    
+                    fromPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="operators/creation/interval.html">
+            
+                <a href="operators/creation/interval.html">
+            
+                    
+                    interval
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="operators/creation/of.html">
+            
+                <a href="operators/creation/of.html">
+            
+                    
+                    of
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.8" data-path="operators/creation/range.html">
+            
+                <a href="operators/creation/range.html">
+            
+                    
+                    range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.9" data-path="operators/creation/throw.html">
+            
+                <a href="operators/creation/throw.html">
+            
+                    
+                    throw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.10" data-path="operators/creation/timer.html">
+            
+                <a href="operators/creation/timer.html">
+            
+                    
+                    timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="operators/error_handling/">
+            
+                <a href="operators/error_handling/">
+            
+                    
+                    错误处理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="operators/error_handling/catch.html">
+            
+                <a href="operators/error_handling/catch.html">
+            
+                    
+                    catch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="operators/error_handling/retry.html">
+            
+                <a href="operators/error_handling/retry.html">
+            
+                    
+                    retry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="operators/error_handling/retrywhen.html">
+            
+                <a href="operators/error_handling/retrywhen.html">
+            
+                    
+                    retryWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="operators/multicasting/">
+            
+                <a href="operators/multicasting/">
+            
+                    
+                    多播
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="operators/multicasting/cache.md">
+            
+                <span>
+            
+                    
+                    cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="operators/multicasting/publish.html">
+            
+                <a href="operators/multicasting/publish.html">
+            
+                    
+                    publish
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="operators/multicasting/multicast.html">
+            
+                <a href="operators/multicasting/multicast.html">
+            
+                    
+                    multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="operators/multicasting/share.html">
+            
+                <a href="operators/multicasting/share.html">
+            
+                    
+                    share
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="operators/filtering/">
+            
+                <a href="operators/filtering/">
+            
+                    
+                    过滤
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="operators/filtering/debounce.html">
+            
+                <a href="operators/filtering/debounce.html">
+            
+                    
+                    debounce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="operators/filtering/debouncetime.html">
+            
+                <a href="operators/filtering/debouncetime.html">
+            
+                    
+                    debounceTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="operators/filtering/distinctuntilchanged.html">
+            
+                <a href="operators/filtering/distinctuntilchanged.html">
+            
+                    
+                    distinctUntilChanged
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="operators/filtering/filter.html">
+            
+                <a href="operators/filtering/filter.html">
+            
+                    
+                    filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="operators/filtering/first.html">
+            
+                <a href="operators/filtering/first.html">
+            
+                    
+                    first
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.6" data-path="operators/filtering/ignoreelements.html">
+            
+                <a href="operators/filtering/ignoreelements.html">
+            
+                    
+                    ignoreElements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.7" data-path="operators/filtering/last.html">
+            
+                <a href="operators/filtering/last.html">
+            
+                    
+                    last
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.8" data-path="operators/filtering/sample.html">
+            
+                <a href="operators/filtering/sample.html">
+            
+                    
+                    sample
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.9" data-path="operators/filtering/single.html">
+            
+                <a href="operators/filtering/single.html">
+            
+                    
+                    single
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.10" data-path="operators/filtering/skip.html">
+            
+                <a href="operators/filtering/skip.html">
+            
+                    
+                    skip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.11" data-path="operators/filtering/skipuntil.html">
+            
+                <a href="operators/filtering/skipuntil.html">
+            
+                    
+                    skipUntil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.12" data-path="operators/filtering/skipwhile.html">
+            
+                <a href="operators/filtering/skipwhile.html">
+            
+                    
+                    skipWhile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.13" data-path="operators/filtering/take.html">
+            
+                <a href="operators/filtering/take.html">
+            
+                    
+                    take
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.14" data-path="operators/filtering/takeuntil.html">
+            
+                <a href="operators/filtering/takeuntil.html">
+            
+                    
+                    takeUntil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.15" data-path="operators/filtering/takewhile.html">
+            
+                <a href="operators/filtering/takewhile.html">
+            
+                    
+                    takeWhile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.16" data-path="operators/filtering/throttle.html">
+            
+                <a href="operators/filtering/throttle.html">
+            
+                    
+                    throttle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.17" data-path="operators/filtering/throttletime.html">
+            
+                <a href="operators/filtering/throttletime.html">
+            
+                    
+                    throttleTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="operators/transformation/">
+            
+                <a href="operators/transformation/">
+            
+                    
+                    转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="operators/transformation/buffer.html">
+            
+                <a href="operators/transformation/buffer.html">
+            
+                    
+                    buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="operators/transformation/buffercount.html">
+            
+                <a href="operators/transformation/buffercount.html">
+            
+                    
+                    bufferCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="operators/transformation/buffertime.html">
+            
+                <a href="operators/transformation/buffertime.html">
+            
+                    
+                    bufferTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.4" data-path="operators/transformation/buffertoggle.html">
+            
+                <a href="operators/transformation/buffertoggle.html">
+            
+                    
+                    bufferToggle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.5" data-path="operators/transformation/bufferwhen.html">
+            
+                <a href="operators/transformation/bufferwhen.html">
+            
+                    
+                    bufferWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.6" data-path="operators/transformation/concatmap.html">
+            
+                <a href="operators/transformation/concatmap.html">
+            
+                    
+                    concatMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.7" data-path="operators/transformation/concatmapto.html">
+            
+                <a href="operators/transformation/concatmapto.html">
+            
+                    
+                    concatMapTo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.8" data-path="operators/transformation/expand.html">
+            
+                <a href="operators/transformation/expand.html">
+            
+                    
+                    expand
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.9" data-path="operators/transformation/groupby.html">
+            
+                <a href="operators/transformation/groupby.html">
+            
+                    
+                    groupBy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.10" data-path="operators/transformation/map.html">
+            
+                <a href="operators/transformation/map.html">
+            
+                    
+                    map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.11" data-path="operators/transformation/mapto.html">
+            
+                <a href="operators/transformation/mapto.html">
+            
+                    
+                    mapTo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.12" data-path="operators/transformation/mergemap.html">
+            
+                <a href="operators/transformation/mergemap.html">
+            
+                    
+                    mergeMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.13" data-path="operators/transformation/partition.html">
+            
+                <a href="operators/transformation/partition.html">
+            
+                    
+                    partition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.14" data-path="operators/transformation/pluck.html">
+            
+                <a href="operators/transformation/pluck.html">
+            
+                    
+                    pluck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.15" data-path="operators/transformation/scan.html">
+            
+                <a href="operators/transformation/scan.html">
+            
+                    
+                    scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.16" data-path="operators/transformation/switchmap.html">
+            
+                <a href="operators/transformation/switchmap.html">
+            
+                    
+                    switchMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.17" data-path="operators/transformation/window.html">
+            
+                <a href="operators/transformation/window.html">
+            
+                    
+                    window
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.18" data-path="operators/transformation/windowcount.html">
+            
+                <a href="operators/transformation/windowcount.html">
+            
+                    
+                    windowCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.19" data-path="operators/transformation/windowtime.html">
+            
+                <a href="operators/transformation/windowtime.html">
+            
+                    
+                    windowTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.20" data-path="operators/transformation/windowtoggle.html">
+            
+                <a href="operators/transformation/windowtoggle.html">
+            
+                    
+                    windowToggle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.21" data-path="operators/transformation/windowwhen.html">
+            
+                <a href="operators/transformation/windowwhen.html">
+            
+                    
+                    windowWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="operators/utility/">
+            
+                <a href="operators/utility/">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="operators/utility/do.html">
+            
+                <a href="operators/utility/do.html">
+            
+                    
+                    do
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="operators/utility/delay.html">
+            
+                <a href="operators/utility/delay.html">
+            
+                    
+                    delay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="operators/utility/delaywhen.html">
+            
+                <a href="operators/utility/delaywhen.html">
+            
+                    
+                    delayWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="operators/utility/dematerialize.html">
+            
+                <a href="operators/utility/dematerialize.html">
+            
+                    
+                    dematerialize
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="operators/utility/let.html">
+            
+                <a href="operators/utility/let.html">
+            
+                    
+                    let
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.6" data-path="operators/utility/topromise.html">
+            
+                <a href="operators/utility/topromise.html">
+            
+                    
+                    toPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="operators/complete.html">
+            
+                <a href="operators/complete.html">
+            
+                    
+                    完整列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="recipes/">
+            
+                <a href="recipes/">
+            
+                    
+                    食谱
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="recipes/smartcounter.html">
+            
+                <a href="recipes/smartcounter.html">
+            
+                    
+                    智能计数器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="concepts/">
+            
+                <a href="concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5B66;&#x4E60;-rxjs">&#x5B66;&#x4E60; RxJS</h1>
+<p>RxJS &#x7684;&#x6E05;&#x6670;&#x793A;&#x4F8B;&#x3001;&#x89E3;&#x91CA;&#x53CA;&#x8D44;&#x6E90;&#x3002;</p>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h2>
+<p><a href="https://github.com/ReactiveX/rxjs" target="_blank">RxJS</a> &#x662F;&#x5F53;&#x524D; web &#x5F00;&#x53D1;&#x4E2D;&#x6700;&#x70ED;&#x95E8;&#x7684;&#x5E93;&#x4E4B;&#x4E00;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x5F3A;&#x5927;&#x7684;&#x529F;&#x80FD;&#x6027;&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;&#x96C6;&#x6210;&#x70B9;&#x96C6;&#x4E2D;&#x5230;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x6846;&#x67B6;&#x3001;&#x5E93;&#x548C;&#x5B9E;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E00;&#x5207;&#x4F7F;&#x5F97;&#x5B66;&#x4E60; Rx &#x53D8;&#x5F97;&#x524D;&#x6240;&#x672A;&#x6709;&#x7684;&#x5438;&#x5F15;&#x4EBA;&#x3002;&#x5E76;&#x4E14;&#x5B83;&#x8FD8;&#x6709;&#x80FD;&#x529B;&#x5229;&#x7528;&#x4F60;&#x4E4B;&#x524D;&#x6240;&#x638C;&#x63E1;&#x7684;&#x8BED;&#x8A00;&#x77E5;&#x8BC6;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;<a href="http://reactivex.io/languages.html" target="_blank">&#x51E0;&#x4E4E;&#x6DB5;&#x76D6;&#x4E86;&#x6240;&#x6709;&#x8BED;&#x8A00;</a>&#x3002;&#x5982;&#x679C;&#x719F;&#x7EC3;&#x638C;&#x63E1;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B; (reactive programming) &#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x5B83;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x5207;&#x4F3C;&#x4E4E;&#x90FD;&#x53EF;&#x4EE5;&#x53D8;&#x5F97;&#x5F88;&#x5BB9;&#x6613;&#x3002;</p>
+<p><strong>&#x4F46;&#x662F;...</strong></p>
+<p>&#x5B66;&#x4E60; RxJS &#x548C;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;&#x5F88;<a href="https://twitter.com/hoss/status/742643506536153088" target="_blank">&#x96BE;</a>&#x3002;&#x5B83;&#x6709;&#x7740;&#x4F17;&#x591A;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5927;&#x91CF;&#x7684;&#x8868;&#x5C42; API &#x548C;&#x4ECE;<a href="http://codenugget.co/2015/03/05/declarative-vs-imperative-programming-web.html" target="_blank">&#x547D;&#x4EE4;&#x5F0F;&#x5230;&#x58F0;&#x660E;&#x5F0F;&#x98CE;&#x683C;</a>&#x7684;&#x601D;&#x7EF4;&#x8F6C;&#x6362;&#x3002;&#x672C;&#x7F51;&#x7AD9;&#x81F4;&#x529B;&#x4E8E;&#x8BA9;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x66F4;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x793A;&#x4F8B;&#x6E05;&#x6670;&#x4E14;&#x5BB9;&#x6613;&#x89E3;&#x91CA;&#xFF0C;&#x5E76;&#x4E14;&#x529F;&#x80FD;&#x53C2;&#x8003;&#x4E86;&#x7F51;&#x7EDC;&#x4E0A;&#x6700;&#x597D;&#x7684; RxJS &#x76F8;&#x5173;&#x8D44;&#x6E90;&#x3002;&#x76EE;&#x6807;&#x662F;&#x589E;&#x5F3A;<a href="http://reactivex.io/rxjs/" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#xFF0C;&#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;&#xFF0C;&#x65B0;&#x9C9C;&#x7684;&#x89C6;&#x89D2;&#xFF0C;&#x4EE5;&#x6E05;&#x9664;&#x4EFB;&#x4F55;&#x5B66;&#x4E60;&#x4E0A;&#x7684;&#x969C;&#x788D;&#x548C;&#x89E3;&#x51B3;&#x521D;&#x5B66;&#x8005;&#x7684;&#x75DB;&#x70B9;&#x3002;&#x5B66;&#x4E60; Rx &#x6216;&#x8BB8;&#x662F;&#x56F0;&#x96BE;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x7EDD;&#x5BF9;&#x503C;&#x5F97;&#x4F60;&#x53BB;&#x4ED8;&#x51FA;&#xFF01;</p>
+<h2 id="&#x5185;&#x5BB9;">&#x5185;&#x5BB9;</h2>
+<h4 id="&#x64CD;&#x4F5C;&#x7B26;">&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x64CD;&#x4F5C;&#x7B26;&#x662F; observables &#x80CC;&#x540E;&#x7684;&#x9A6C;&#x529B;&#xFF0C;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x4F18;&#x96C5;&#x7684;&#x58F0;&#x660E;&#x5F0F;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x672C;&#x7AE0;&#x8282;&#x6DB5;&#x76D6;&#x4E86;&#x6240;&#x6709; <a href="operators/">RxJS 5 &#x64CD;&#x4F5C;&#x7B26;</a>&#xFF0C;&#x8FD8;&#x9644;&#x5E26;&#x5728; <a href="https://jsbin.com" target="_blank">JSBin</a> &#x548C; <a href="https://jsfiddle.net" target="_blank">JSFiddle</a> &#x5747;&#x53EF;&#x6267;&#x884C;&#x7684;&#x6E05;&#x6670;&#x793A;&#x4F8B;&#x3002;&#x9002;&#x5F53;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD8;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;&#x63D0;&#x4F9B;&#x5176;&#x4ED6;&#x8D44;&#x6E90;&#x548C;&#x4F7F;&#x7528;&#x6280;&#x5DE7;&#x7684;&#x94FE;&#x63A5;&#x3002;</p>
+<h5 id="&#x5206;&#x7C7B;">&#x5206;&#x7C7B;</h5>
+<ul>
+<li><a href="operators/combination/">&#x7EC4;&#x5408;</a></li>
+<li><a href="operators/conditional/">&#x6761;&#x4EF6;</a></li>
+<li><a href="operators/creation/">&#x521B;&#x5EFA;</a></li>
+<li><a href="operators/error_handling/">&#x9519;&#x8BEF;&#x5904;&#x7406;</a></li>
+<li><a href="operators/multicasting/">&#x591A;&#x64AD;</a></li>
+<li><a href="operators/filtering/">&#x8FC7;&#x6EE4;</a></li>
+<li><a href="operators/transformation/">&#x8F6C;&#x6362;</a></li>
+<li><a href="operators/utility/">&#x5DE5;&#x5177;</a></li>
+</ul>
+<p><strong>&#x6216;&#x8005;...</strong></p>
+<p><a href="operators/complete.html">&#x6309;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#x6392;&#x5217;&#x7684;&#x5B8C;&#x6574;&#x5217;&#x8868;</a></p>
+<h5 id="&#x7FFB;&#x8BD1;&#x793A;&#x4F8B;">&#x7FFB;&#x8BD1;&#x793A;&#x4F8B;</h5>
+<ul>
+<li><a href="https://gist.github.com/DrakeLeung/ecbcedab8534d4486a888ef777a76140" target="_blank">&#x539F;&#x59CB;&#x7684; RxJS 5 &#x64CD;&#x4F5C;&#x7B26;&#x793A;&#x4F8B; - &#x4E2D;&#x6587;&#x7248;</a> - Drake Leung</li>
+</ul>
+<h4 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h4>
+<p>&#x5982;&#x679C;&#x5BF9; Observables &#x80CC;&#x540E;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x6CA1;&#x6709;&#x624E;&#x5B9E;&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x611F;&#x89C9; RxJS &#x5C31;&#x50CF;&#x662F;&#x201C;&#x9B54;&#x6CD5;&#x201D;&#x4E00;&#x822C;&#x3002;&#x672C;&#x7AE0;&#x8282;&#x6709;&#x52A9;&#x4E8E;&#x5DE9;&#x56FA;&#x6240;&#x9700;&#x7684;&#x4E3B;&#x8981;&#x6982;&#x5FF5;&#xFF0C;&#x4EE5;&#x4FBF;&#x5BF9;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;&#x548C; Observables &#x5F97;&#x5FC3;&#x5E94;&#x624B;&#x3002;</p>
+<p><em>&#x5373;&#x5C06;&#x53D1;&#x5E03;!</em></p>
+<h4 id="&#x98DF;&#x8C31;">&#x98DF;&#x8C31;</h4>
+<p>&#x98DF;&#x8C31;&#x7528;&#x4E8E;&#x4F7F;&#x7528; RxJS &#x7684;&#x5E38;&#x7528;&#x7528;&#x4F8B;&#x548C;&#x6709;&#x8DA3;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<p><a href="recipes/">&#x5B8C;&#x6574;&#x7684;&#x98DF;&#x8C31;&#x5217;&#x8868;</a></p>
+<h2 id="&#x4ECB;&#x7ECD;&#x6027;&#x8D44;&#x6E90;">&#x4ECB;&#x7ECD;&#x6027;&#x8D44;&#x6E90;</h2>
+<p>RxJS &#x548C;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x65B0;&#x624B;&#xFF1F;&#x9664;&#x4E86;&#x672C;&#x7F51;&#x7AD9;&#x4E0A;&#x53D1;&#x73B0;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8FD9;&#x4E9B;&#x4F18;&#x79C0;&#x7684;&#x6587;&#x7AE0;&#x548C;&#x89C6;&#x9891;&#x4E5F;&#x5C06;&#x6709;&#x52A9;&#x4E8E;&#x4F60;&#x5FEB;&#x901F;&#x79EF;&#x7D2F;&#x5B66;&#x4E60;&#x7ECF;&#x9A8C;&#xFF01;</p>
+<h4 id="&#x9605;&#x8BFB;">&#x9605;&#x8BFB;</h4>
+<ul>
+<li><a href="http://reactivex.io/rxjs/manual/overview.html#introduction" target="_blank">RxJS &#x5165;&#x95E8;</a> - &#x5B98;&#x65B9;&#x6587;&#x6863;</li>
+<li><a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754" target="_blank">&#x4F60;&#x5DF2;&#x7ECF;&#x9519;&#x8FC7;&#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;-&#x4ECB;&#x7ECD;</a> - Andr&#xE9; Staltz</li>
+</ul>
+<h4 id="&#x89C6;&#x9891;">&#x89C6;&#x9891;</h4>
+<ul>
+<li><a href="https://egghead.io/courses/mastering-asynchronous-programming-the-end-of-the-loop" target="_blank">&#x5F02;&#x6B65;&#x7F16;&#x7A0B;: &#x5FAA;&#x73AF;&#x7EC8;&#x7ED3;&#x8005;</a> - Jafar Husain</li>
+<li><a href="https://egghead.io/lessons/rxjs-what-is-rxjs" target="_blank">&#x4EC0;&#x4E48;&#x662F; RxJS &#xFF1F;</a> - Ben Lesh</li>
+<li><a href="https://egghead.io/lessons/rxjs-creating-observable-from-scratch" target="_blank">&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x521B;&#x5EFA; Observable</a> - Ben Lesh</li>
+<li><a href="https://egghead.io/lessons/rxjs-introduction-to-rxjs-marble-testing" target="_blank">&#x4ECB;&#x7ECD; RxJS &#x7684;&#x5F39;&#x73E0;&#x6D4B;&#x8BD5;</a> - Brian Troncone</li>
+<li><a href="https://egghead.io/courses/introduction-to-reactive-programming" target="_blank">&#x4ECB;&#x7ECD;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;</a> <img align="absmiddle" alt=":dollar:" class="emoji" src="gitbook/gitbook-plugin-advanced-emoji/emojis/dollar.png" title=":dollar:"> - Andr&#xE9; Staltz</li>
+<li><a href="https://www.youtube.com/watch?v=HT7JiiqnYYc&amp;feature=youtu.be" target="_blank">&#x4F7F;&#x7528; Observables &#x7684;&#x54CD;&#x5E94;&#x5F0F;&#x7F16;&#x7A0B;</a> - Jeremy Lund</li>
+</ul>
+<h4 id="&#x7EC3;&#x4E60;">&#x7EC3;&#x4E60;</h4>
+<ul>
+<li><a href="http://reactivex.io/learnrx/" target="_blank">JavaScript &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;</a> - Jafar Husain</li>
+</ul>
+<p><em>&#x5BF9; RxJS 4 &#x611F;&#x5174;&#x8DA3;&#xFF1F; &#x8BF7;&#x67E5;&#x9605; <a href="https://github.com/xgrommx" target="_blank">Denis Stoyanov&apos;s</a> &#x8D85;&#x68D2;&#x7684; <a href="https://xgrommx.github.io/rx-book/" target="_blank">&#x7535;&#x5B50;&#x4E66;</a>!</em></p>
+<h3 id="&#x53C2;&#x8003;&#x6587;&#x732E;&#x6CE8;">&#x53C2;&#x8003;&#x6587;&#x732E;&#x6CE8;</h3>
+<p>&#x672C; GitBook &#x4E2D;&#x5305;&#x542B;&#x7684;&#x6240;&#x6709;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x90FD;&#x662F;&#x5B66;&#x4E60;&#x8D44;&#x6E90;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x514D;&#x8D39;&#x7684;&#xFF0C;&#x4E5F;&#x6709;&#x4ED8;&#x8D39;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;&#x6211;&#x5B66;&#x4E60; RxJS &#x65F6;&#x7ED9;&#x4E88;&#x4E86;&#x6781;&#x5927;&#x7684;&#x5E2E;&#x52A9;&#x3002;&#x5982;&#x679C;&#x60A8;&#x9047;&#x5230;&#x60A8;&#x8BA4;&#x4E3A;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x5728;&#x6B64;&#x5904;&#x7684;&#x6587;&#x7AE0;&#x6216;&#x89C6;&#x9891;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;&#x9876;&#x90E8;&#x83DC;&#x5355;&#x4E2D;&#x7684;<em>&#x7F16;&#x8F91;&#x6B64;&#x9875;&#x9762;</em>&#x94FE;&#x63A5;&#x5E76;&#x63D0;&#x4EA4; pull request (&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x8BF7;&#x53BB;&#x82F1;&#x6587;&#x7AD9;&#x63D0;&#x4EA4;&#x76F8;&#x5173;&#x94FE;&#x63A5;&#x7684; PR&#xFF0C;&#x4E2D;&#x6587;&#x7AD9;&#x4E2D;&#x7684; PR &#x662F;&#x7528;&#x6765;&#x4FEE;&#x590D;&#x7FFB;&#x8BD1;&#x4E2D;&#x7684;&#x95EE;&#x9898;)&#x3002;&#x5BF9;&#x4E8E;&#x60A8;&#x7684;&#x53CD;&#x9988;&#x6211;&#x5C06;&#x6DF1;&#x8868;&#x611F;&#x8C22;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"学习 RxJS 操作符","level":"1.2","depth":1,"url":"https://github.com/RxJS-CN/learn-rxjs-operators","ref":"https://github.com/RxJS-CN/learn-rxjs-operators","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"index.md","mtime":"2017-06-24T13:36:27.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-06-24T13:40:48.853Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

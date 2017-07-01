@@ -1,9 +1,10 @@
 rm -rf ./_book
+cp README.md README-CN.md
 gitbook build
 mkdir ./_book/ebook
-gitbook pdf ./ ./_book/ebook/RxJS5基本原理.pdf
-gitbook mobi ./ ./_book/ebook/RxJS5基本原理.mobi
-gitbook epub ./ ./_book/ebook/RxJS5基本原理.epub
+gitbook pdf ./ ./_book/ebook/学习RxJS操作符.pdf
+gitbook mobi ./ ./_book/ebook/学习RxJS操作符.mobi
+gitbook epub ./ ./_book/ebook/学习RxJS操作符.epub
 git checkout gh-pages
 git pull origin gh-pages
 cp -rf ./_book/* ./

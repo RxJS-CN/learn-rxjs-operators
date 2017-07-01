@@ -1,5 +1,6 @@
 rm -rf ./_book
 gitbook build
+mkdir ./_book/ebook
 gitbook pdf ./ ./_book/ebook/RxJS5基本原理.pdf
 gitbook mobi ./ ./_book/ebook/RxJS5基本原理.mobi
 gitbook epub ./ ./_book/ebook/RxJS5基本原理.epub

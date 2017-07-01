@@ -1,6 +1,8 @@
 rm -rf ./_book
-cp README.md README-CN.md
+mkdir about
+cp README.md ./about/README.md
 gitbook build
+rm -rf ./about
 mkdir ./_book/ebook
 gitbook pdf ./ ./_book/ebook/学习RxJS操作符.pdf
 gitbook mobi ./ ./_book/ebook/学习RxJS操作符.mobi

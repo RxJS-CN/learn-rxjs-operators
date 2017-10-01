@@ -1,8 +1,8 @@
 # 概念
 
-Short explanations of common RxJS scenarios and use-cases.
+对于常见的 RxJS 场景和用例的简要说明。
 
-### Contents
+### 内容
 
 * [RxJS v5 -> v6 Upgrade](rxjs5-6.md)
-* [Understanding Operator Imports](operator-imports.md)
+* [理解操作符导入](operator-imports.md)

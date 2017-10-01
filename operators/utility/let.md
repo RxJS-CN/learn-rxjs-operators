@@ -8,35 +8,35 @@
 
 ### 示例
 
-##### Example 1: Reusing error handling logic with let
+##### 示例 1: 使用 let 重用错误处理逻辑
 
 ( [jsBin](http://jsbin.com/rosuborara/1/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/btroncone/qtq1h8vw/) )
 
 ```js
-// custom error handling logic
+// 自定义错误处理逻辑
 const retryThreeTimes = obs =>
   obs.retry(3).catch(_ => Rx.Observable.of('ERROR!'));
 const examplePromise = val =>
   new Promise(resolve => resolve(`Complete: ${val}`));
 
-//faking request
+// 伪造的请求
 const subscribe = Rx.Observable.of('some_url')
   .mergeMap(url => examplePromise(url))
-  // could reuse error handling logic in multiple places with let
+  // 能够在使用 let 的多个地方重用错误处理逻辑
   .let(retryThreeTimes)
-  //output: Complete: some_url
+  // 输出: Complete: some_url
   .subscribe(result => console.log(result));
 
 const customizableRetry = retryTimes => obs =>
   obs.retry(retryTimes).catch(_ => Rx.Observable.of('ERROR!'));
 
-//faking request
+// 伪造的请求
 const secondSubscribe = Rx.Observable.of('some_url')
   .mergeMap(url => examplePromise(url))
-  // could reuse error handling logic in multiple places with let
+  // 能够在使用 let 的多个地方重用错误处理逻辑
   .let(customizableRetry(3))
-  //output: Complete: some_url
+  // 输出: Complete: some_url
   .subscribe(result => console.log(result));
 ```
 

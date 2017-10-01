@@ -2,7 +2,7 @@
 
 #### 签名: `forkJoin(...args, selector : function): Observable`
 
-## 当所有 observables 完成时发出每个 observable 的最新值。
+## 当所有 observables 完成时，发出每个 observable 的最新值。
 
 ---
 

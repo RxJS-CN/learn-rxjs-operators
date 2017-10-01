@@ -1,14 +1,14 @@
-# Understanding Operator Imports
+# 理解操作符导入
 
-A problem you may have run into in the past when consuming or creating a public library that depends on RxJS is handling operator inclusion. The most predominant way to include operators in your project is to import them like below:
+在消费或创建依赖于 RxJS 的公共库时，你可能遇到处理运算符导入的问题。在项目中引入操作符最主要的方式像下面这样导入:
 
 ```js
 import 'rxjs/add/operator/take';
 ```
 
-This adds the imported operator to the `Observable` prototype for use throughout your project:
+这会将导入的操作符添加到 `Observable` 的原型上，以便在整个项目中使用:
 
-[(Source)](https://github.com/ReactiveX/rxjs/blob/master/src/add/operator/take.ts)
+[(源码)](https://github.com/ReactiveX/rxjs/blob/master/src/add/operator/take.ts)
 
 ```js
 import { Observable } from '../../Observable';
@@ -23,47 +23,49 @@ declare module '../../Observable' {
 }
 ```
 
-This method is generally *OK* for private projects and modules, the issue arises when you are using these imports in say, an [npm](https://www.npmjs.com/) package or library to be consumed throughout your organization.
+对于私有项目和模块，这种方法通常是“没问题的”，但当整个团队使用同一个 [npm](https://www.npmjs.com/) 包或库时再使用这种导入方式，问题就会出现。
 
 <div class="native-ad"></div>
 
-### A Quick Example
+### 简单示例
 
-To see where a problem can spring up, let's imagine **Person A** is creating a public Angular component library. In this library you need a few operators so you add the typical imports:
+来看看问题出在哪里，假设**小A**创建了一个公有的 Angular 组件库。在这个库中需要一些操作符，下面以传统的方式进行了导入:
 
 *some-public-library.ts*
+
 ```js
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/concatMap';
 import 'rxjs/add/operator/switchMap';
 ```
 
-**Person B** comes along and includes your library. They now have access to these operators even though they did not personally import them. *Probably not a huge deal but it can be confusing.* You use the library and operators, life goes on...
+**小B**引用了小A的库。尽管他并没有导入这些操作符，但他依然可以直接使用。**这可能不是什么大问题，但确实会带来一些困扰**。小B继续使用库和这些操作符，一切都很正常...
 
-A month later **Person A** decides to update their library. They no longer need `switchMap` or `concatMap` so they remove the imports:
+一个月后，**小A**决定更新自己的库。他不再需要 `switchMap` 或 `concatMap`，所以他删除了导入:
 
 *some-public-library.ts*
-```js
-import 'rxjs/add/operator/take';
-```
-
-**Person B** upgrades the dependency, builds their project, which now fails. They never included `switchMap` or `concatMap` themselves, it was **just working** based on the inclusion of a 3rd party dependency. If you were not aware this could be an issue it may take a bit to track down.
-
-### The Solution
-
-Instead of importing operators like:
 
 ```js
 import 'rxjs/add/operator/take';
 ```
 
-We can instead import them like:
+**小B**更新了依赖并构建自己的项目，但这次失败了。他本身并没有引入 `switchMap` 或 `concatMap`，只是基于第三方的依赖才能**正常运行**。如果你并没有意识到这样会产生问题，那可能需要一点时间来弄清楚。
+
+### 解决方案
+
+不再使用这种导入方式:
+
+```js
+import 'rxjs/add/operator/take';
+```
+
+我们可以这样来进行导入:
 
 ```js
 import { take } from 'rxjs/operator/take';
 ```
 
-This keeps them off the `Observable` prototype and let's us call them directly:
+这样可以保持 `Observable` 原型的干净，这样来直接调用它们:
 
 ```js
 import { take } from 'rxjs/operator/take';
@@ -75,7 +77,7 @@ take.call(
 );
 ```
 
-This quickly gets **ugly** however, imagine we have a longer chain:
+然而这样代码很快就会变得**丑陋不堪**，想象一下这样更长的调用链:
 
 ```js
 import { take } from 'rxjs/operator/take';
@@ -91,11 +93,11 @@ map.call(
 );
 ```
 
-Pretty soon we have a block of code that is near impossible to understand. How can we get the best of both worlds?
+很快我们的代码块将变得几乎无法理解。我们怎样才能两全其美呢？
 
-### Pipeable Operators
+### Pipeable 操作符
 
-RxJS now comes with a [`pipe`](https://github.com/ReactiveX/rxjs/blob/755df9bf908108974e38aaff79887279f2cde008/src/Observable.ts#L305-L329) helper on `Observable` that alleviates the pain of not having operators on the prototype. We can take the ugly block of code from above:
+现在 RxJS 提供了 [`pipe`](https://github.com/ReactiveX/rxjs/blob/755df9bf908108974e38aaff79887279f2cde008/src/Observable.ts#L305-L329) 辅助函数，它存在于 `Observable` 上，它缓解了操作符不在原型上所带来的问题。我们还继续使用上面丑陋的代码块:
 
 ```js
 import { take, map } from 'rxjs/operators';
@@ -110,7 +112,7 @@ map.call(
 );
 ```
 
-And transform it into:
+并将其转换成:
 
 ```js
 import { take, map } from 'rxjs/operators';

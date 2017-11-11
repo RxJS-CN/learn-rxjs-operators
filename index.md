@@ -71,6 +71,7 @@ RxJS 和响应式编程的新手？除了本网站上发现的内容，这些优
 
 * [Rx Marbles - Rx Observables 的交互弹珠图](http://rxmarbles.com/) - André Staltz
 * [Rx Visualizer - Rx Observables 的动画游乐场](https://rxviz.com) - Misha Moroshko
+* [Reactive.how - 学习响应式编程的动画卡片](http://reactive.how) - Cédric Soulas
 
 *对 RxJS 4 感兴趣？ 请查阅 [Denis Stoyanov's](https://github.com/xgrommx) 超棒的 [电子书](https://xgrommx.github.io/rx-book/)!*
 

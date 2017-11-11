@@ -28,7 +28,7 @@ const example = source.pipe(takeWhile(val => val <= 4));
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Difference between takeWhile() and filter()
+##### 示例 2: takeWhile() 和 filter() 的区别
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-roozza?file=index.ts&devtoolsheight=100)
@@ -40,16 +40,16 @@ const subscribe = example.subscribe(val => console.log(val));
 import { of } from 'rxjs';
 import { takeWhile, filter } from 'rxjs/operators';
 
-// emit 3, 3, 3, 9, 1, 4, 5, 8, 96, 3, 66, 3, 3, 3
+// 发出 3, 3, 3, 9, 1, 4, 5, 8, 96, 3, 66, 3, 3, 3
 const source = of(3, 3, 3, 9, 1, 4, 5, 8, 96, 3, 66, 3, 3, 3);
 
-// allow values until value from source equals 3, then complete
-// output: [3, 3, 3]
+// 允许值通过直到源发出的值不等于3，然后完成
+// 输出: [3, 3, 3]
 source
   .pipe(takeWhile(it => it === 3))
   .subscribe(val => console.log('takeWhile', val));
 
-// output: [3, 3, 3, 3, 3, 3, 3]
+// 输出: [3, 3, 3, 3, 3, 3, 3]
 source
   .pipe(filter(it => it === 3))
   .subscribe(val => console.log('filter', val));

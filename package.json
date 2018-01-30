@@ -1,0 +1,30 @@
+{
+  "name": "learn-rxjs",
+  "version": "0.0.1",
+  "description": "Learn RxJS 5 Gitbook",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "rxjs": "^5.0.0-beta.2"
+  },
+  "scripts": {
+    "gb": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btroncone/learn-rxjs.git"
+  },
+  "keywords": ["rxjs"],
+  "author": "Brian Troncone <btroncone@gmail.com>",
+  "contributors": [
+    {
+      "name": "Huy Le"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/btroncone/learn-rxjs/issues"
+  },
+  "homepage": "https://github.com/btroncone/learn-rxjs#readme"
+}

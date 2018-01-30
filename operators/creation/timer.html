@@ -1304,7 +1304,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.8.6" data-path="../utility/topromise.html">
+        <li class="chapter " data-level="2.2.8.6" data-path="../utility/timeout.html">
+            
+                <a href="../utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../utility/topromise.html">
             
                 <a href="../utility/topromise.html">
             
@@ -1454,14 +1467,16 @@
 <h2 id="&#x7ED9;&#x5B9A;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x518D;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x4F9D;&#x6B21;&#x53D1;&#x51FA;&#x6570;&#x5B57;&#x3002;">&#x7ED9;&#x5B9A;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x518D;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x4F9D;&#x6B21;&#x53D1;&#x51FA;&#x6570;&#x5B57;&#x3002;</h2>
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x5F53;-timer-&#x7ED3;&#x675F;&#x65F6;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;&#x503C;">&#x793A;&#x4F8B; 1: &#x5F53; timer &#x7ED3;&#x675F;&#x65F6;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;&#x503C;</h5>
-<p>( <a href="http://jsbin.com/pazajanehu/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/vpx0y8fu/" target="_blank">jsFiddle</a> )</p>
+<p>( <a href="http://jsbin.com/pazajanehu/1/edit?js,console" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/vpx0y8fu/" target="_blank">jsFiddle</a> )</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// 1&#x79D2;&#x540E;&#x53D1;&#x51FA;0&#xFF0C;&#x7136;&#x540E;&#x7ED3;&#x675F;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;</span>
 <span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: 0</span>
 <span class="token keyword">const</span> subscribe <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h5 id="&#x793A;&#x4F8B;-2-timer-1&#x79D2;&#x540E;&#x53D1;&#x51FA;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x6BCF;2&#x79D2;&#x53D1;&#x51FA;&#x503C;">&#x793A;&#x4F8B; 2: timer 1&#x79D2;&#x540E;&#x53D1;&#x51FA;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x6BCF;2&#x79D2;&#x53D1;&#x51FA;&#x503C;</h5>
-<p>( <a href="http://jsbin.com/kejidofuje/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/30ddov8j/" target="_blank">jsFiddle</a> )</p>
+<p>( <a href="http://jsbin.com/kejidofuje/1/edit?js,console" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/30ddov8j/" target="_blank">jsFiddle</a> )</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">/*
   timer &#x63A5;&#x6536;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x51B3;&#x5B9A;&#x4E86;&#x53D1;&#x51FA;&#x5E8F;&#x5217;&#x503C;&#x7684;&#x9891;&#x7387;&#xFF0C;&#x5728;&#x672C;&#x4F8B;&#x4E2D;&#x6211;&#x4EEC;&#x5728;1&#x79D2;&#x53D1;&#x51FA;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;
   &#x7136;&#x540E;&#x6BCF;2&#x79D2;&#x53D1;&#x51FA;&#x5E8F;&#x5217;&#x503C;
@@ -1522,7 +1537,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"timer","level":"2.2.3.10","depth":3,"next":{"title":"错误处理","level":"2.2.4","depth":2,"path":"operators/error_handling/README.md","ref":"operators/error_handling/README.md","articles":[{"title":"catch","level":"2.2.4.1","depth":3,"path":"operators/error_handling/catch.md","ref":"operators/error_handling/catch.md","articles":[]},{"title":"retry","level":"2.2.4.2","depth":3,"path":"operators/error_handling/retry.md","ref":"operators/error_handling/retry.md","articles":[]},{"title":"retryWhen","level":"2.2.4.3","depth":3,"path":"operators/error_handling/retrywhen.md","ref":"operators/error_handling/retrywhen.md","articles":[]}]},"previous":{"title":"throw","level":"2.2.3.9","depth":3,"path":"operators/creation/throw.md","ref":"operators/creation/throw.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/creation/timer.md","mtime":"2017-11-11T13:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-11-11T13:44:01.166Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"timer","level":"2.2.3.10","depth":3,"next":{"title":"错误处理","level":"2.2.4","depth":2,"path":"operators/error_handling/README.md","ref":"operators/error_handling/README.md","articles":[{"title":"catch","level":"2.2.4.1","depth":3,"path":"operators/error_handling/catch.md","ref":"operators/error_handling/catch.md","articles":[]},{"title":"retry","level":"2.2.4.2","depth":3,"path":"operators/error_handling/retry.md","ref":"operators/error_handling/retry.md","articles":[]},{"title":"retryWhen","level":"2.2.4.3","depth":3,"path":"operators/error_handling/retrywhen.md","ref":"operators/error_handling/retrywhen.md","articles":[]}]},"previous":{"title":"throw","level":"2.2.3.9","depth":3,"path":"operators/creation/throw.md","ref":"operators/creation/throw.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/creation/timer.md","mtime":"2018-01-21T09:53:45.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-01-30T11:56:42.729Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

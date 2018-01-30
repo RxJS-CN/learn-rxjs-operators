@@ -1304,7 +1304,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.8.6" data-path="../utility/topromise.html">
+        <li class="chapter " data-level="2.2.8.6" data-path="../utility/timeout.html">
+            
+                <a href="../utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../utility/topromise.html">
             
                 <a href="../utility/topromise.html">
             
@@ -1454,21 +1467,27 @@
 <h2 id="&#x5F00;&#x542F;&#x5F00;&#x5173;&#x4EE5;&#x6355;&#x83B7;&#x6E90;-observable-&#x6240;&#x53D1;&#x51FA;&#x7684;&#x503C;&#xFF0C;&#x5173;&#x95ED;&#x5F00;&#x5173;&#x4EE5;&#x5C06;&#x7F13;&#x51B2;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x53D1;&#x51FA;&#x3002;">&#x5F00;&#x542F;&#x5F00;&#x5173;&#x4EE5;&#x6355;&#x83B7;&#x6E90; observable &#x6240;&#x53D1;&#x51FA;&#x7684;&#x503C;&#xFF0C;&#x5173;&#x95ED;&#x5F00;&#x5173;&#x4EE5;&#x5C06;&#x7F13;&#x51B2;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x53D1;&#x51FA;&#x3002;</h2>
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x4F7F;&#x7528;-interval-&#x6765;&#x5207;&#x6362;&#x7F13;&#x51B2;&#x7684;&#x5F00;&#x5173;">&#x793A;&#x4F8B; 1: &#x4F7F;&#x7528; interval &#x6765;&#x5207;&#x6362;&#x7F13;&#x51B2;&#x7684;&#x5F00;&#x5173;</h5>
-<p>( <a href="http://jsbin.com/relavezugo/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/6ad3w3wf/" target="_blank">jsFiddle</a> )</p>
+<p>( <a href="http://jsbin.com/relavezugo/edit?js,console" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/6ad3w3wf/" target="_blank">jsFiddle</a> )</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;</span>
 <span class="token keyword">const</span> sourceInterval <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 5&#x79D2;&#x540E;&#x5F00;&#x542F;&#x7B2C;&#x4E00;&#x4E2A;&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x7136;&#x540E;&#x6BCF;5&#x79D2;&#x949F;&#x5F00;&#x542F;&#x65B0;&#x7684;&#x7F13;&#x51B2;&#x533A;</span>
 <span class="token keyword">const</span> startInterval <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 3&#x79D2;&#x540E;&#x53D1;&#x51FA;&#x503C;&#x4EE5;&#x5173;&#x95ED;&#x76F8;&#x5E94;&#x7684;&#x7F13;&#x51B2;&#x533A;</span>
 <span class="token keyword">const</span> closingInterval <span class="token operator">=</span> val <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Value </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> emitted, starting buffer! Closing in 3s!`</span></span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Value </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> emitted, starting buffer! Closing in 3s!`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x6BCF;5&#x79D2;&#x4F1A;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x4EE5;&#x6536;&#x96C6;&#x53D1;&#x51FA;&#x7684;&#x503C;&#xFF0C;3&#x79D2;&#x540E;&#x53D1;&#x51FA;&#x7F13;&#x51B2;&#x7684;&#x503C;</span>
-<span class="token keyword">const</span> bufferToggleInterval <span class="token operator">=</span> sourceInterval<span class="token punctuation">.</span><span class="token function">bufferToggle</span><span class="token punctuation">(</span>startInterval<span class="token punctuation">,</span> closingInterval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bufferToggleInterval <span class="token operator">=</span> sourceInterval<span class="token punctuation">.</span><span class="token function">bufferToggle</span><span class="token punctuation">(</span>
+  startInterval<span class="token punctuation">,</span>
+  closingInterval
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;</span>
 <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: Emitted Buffer: [4,5,6]...[9,10,11]</span>
-<span class="token keyword">const</span> subscribe <span class="token operator">=</span> bufferToggleInterval<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Emitted Buffer:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> bufferToggleInterval<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Emitted Buffer:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
 <ul>
@@ -1476,7 +1495,7 @@
 </ul>
 <hr>
 <blockquote>
-<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/operator/bufferToggle.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/operator/bufferToggle.ts</a></p>
+<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/bufferToggle.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/bufferToggle.ts</a></p>
 </blockquote>
 
                                 
@@ -1521,7 +1540,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"bufferToggle","level":"2.2.7.4","depth":3,"next":{"title":"bufferWhen","level":"2.2.7.5","depth":3,"path":"operators/transformation/bufferwhen.md","ref":"operators/transformation/bufferwhen.md","articles":[]},"previous":{"title":"bufferTime","level":"2.2.7.3","depth":3,"path":"operators/transformation/buffertime.md","ref":"operators/transformation/buffertime.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/buffertoggle.md","mtime":"2017-11-11T13:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-11-11T13:44:01.166Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"bufferToggle","level":"2.2.7.4","depth":3,"next":{"title":"bufferWhen","level":"2.2.7.5","depth":3,"path":"operators/transformation/bufferwhen.md","ref":"operators/transformation/bufferwhen.md","articles":[]},"previous":{"title":"bufferTime","level":"2.2.7.3","depth":3,"path":"operators/transformation/buffertime.md","ref":"operators/transformation/buffertime.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/buffertoggle.md","mtime":"2018-01-21T11:27:31.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-01-30T11:56:42.729Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

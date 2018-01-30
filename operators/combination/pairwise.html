@@ -1304,7 +1304,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.8.6" data-path="../utility/topromise.html">
+        <li class="chapter " data-level="2.2.8.6" data-path="../utility/timeout.html">
+            
+                <a href="../utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../utility/topromise.html">
             
                 <a href="../utility/topromise.html">
             
@@ -1454,11 +1467,13 @@
 <h2 id="&#x5C06;&#x524D;&#x4E00;&#x4E2A;&#x503C;&#x548C;&#x5F53;&#x524D;&#x503C;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x53D1;&#x51FA;">&#x5C06;&#x524D;&#x4E00;&#x4E2A;&#x503C;&#x548C;&#x5F53;&#x524D;&#x503C;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x53D1;&#x51FA;</h2>
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1">&#x793A;&#x4F8B; 1:</h5>
-<p>( <a href="http://jsbin.com/keteyahido/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/8va47bq3/" target="_blank">jsFiddle</a> )</p>
+<p>( <a href="http://jsbin.com/keteyahido/1/edit?js,console" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/8va47bq3/" target="_blank">jsFiddle</a> )</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">var</span> interval <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;: [0,1], [1,2], [2,3], [3,4], [4,5]</span>
-interval<span class="token punctuation">.</span><span class="token function">pairwise</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+interval
+  <span class="token punctuation">.</span><span class="token function">pairwise</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -1468,7 +1483,7 @@ interval<span class="token punctuation">.</span><span class="token function">pai
 </ul>
 <hr>
 <blockquote>
-<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/operator/pairwise.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/operator/pairwise.ts</a></p>
+<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/pairwise.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/pairwise.ts</a></p>
 </blockquote>
 
                                 
@@ -1513,7 +1528,7 @@ interval<span class="token punctuation">.</span><span class="token function">pai
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"pairwise","level":"2.2.1.8","depth":3,"next":{"title":"race","level":"2.2.1.9","depth":3,"path":"operators/combination/race.md","ref":"operators/combination/race.md","articles":[]},"previous":{"title":"mergeAll","level":"2.2.1.7","depth":3,"path":"operators/combination/mergeall.md","ref":"operators/combination/mergeall.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/combination/pairwise.md","mtime":"2017-11-11T13:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-11-11T13:44:01.166Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"pairwise","level":"2.2.1.8","depth":3,"next":{"title":"race","level":"2.2.1.9","depth":3,"path":"operators/combination/race.md","ref":"operators/combination/race.md","articles":[]},"previous":{"title":"mergeAll","level":"2.2.1.7","depth":3,"path":"operators/combination/mergeall.md","ref":"operators/combination/mergeall.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/combination/pairwise.md","mtime":"2018-01-21T09:19:30.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-01-30T11:56:42.729Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

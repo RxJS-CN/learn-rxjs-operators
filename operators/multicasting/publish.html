@@ -1304,7 +1304,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.8.6" data-path="../utility/topromise.html">
+        <li class="chapter " data-level="2.2.8.6" data-path="../utility/timeout.html">
+            
+                <a href="../utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../utility/topromise.html">
             
                 <a href="../utility/topromise.html">
             
@@ -1454,7 +1467,8 @@
 <h2 id="&#x5171;&#x4EAB;&#x6E90;-observable-&#x5E76;&#x901A;&#x8FC7;&#x8C03;&#x7528;-connect-&#x65B9;&#x6CD5;&#x4F7F;&#x5176;&#x53D8;&#x6210;&#x70ED;&#x7684;&#x3002;">&#x5171;&#x4EAB;&#x6E90; observable &#x5E76;&#x901A;&#x8FC7;&#x8C03;&#x7528; connect &#x65B9;&#x6CD5;&#x4F7F;&#x5176;&#x53D8;&#x6210;&#x70ED;&#x7684;&#x3002;</h2>
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x5728;&#x8BA2;&#x9605;&#x4E4B;&#x540E;&#x8C03;&#x7528;-observable-&#x7684;-connect-&#x65B9;&#x6CD5;">&#x793A;&#x4F8B; 1: &#x5728;&#x8BA2;&#x9605;&#x4E4B;&#x540E;&#x8C03;&#x7528; observable &#x7684; connect &#x65B9;&#x6CD5;</h5>
-<p>( <a href="http://jsbin.com/laguvecixi/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/fpe6csaz/" target="_blank">jsFiddle</a> )</p>
+<p>( <a href="http://jsbin.com/laguvecixi/edit?js,console" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/fpe6csaz/" target="_blank">jsFiddle</a> )</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;</span>
 <span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> example <span class="token operator">=</span> source
@@ -1473,20 +1487,24 @@
   &quot;Subscriber One: 1&quot;
   &quot;Subscriber Two: 1&quot;
 */</span>
-<span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Subscriber One: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> subscribeTwo <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Subscriber Two: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Subscriber One: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> subscribeTwo <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Subscriber Two: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// 5&#x79D2;&#x540E;&#x8C03;&#x7528; connect&#xFF0C;&#x8FD9;&#x4F1A;&#x4F7F;&#x5F97; source &#x5F00;&#x59CB;&#x53D1;&#x51FA;&#x503C;</span>
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
- example<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span>
+  example<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
 <ul>
 <li><a href="http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-publish" target="_blank">publish</a> <img align="absmiddle" alt=":newspaper:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/newspaper.png" title=":newspaper:"> - &#x5B98;&#x65B9;&#x6587;&#x6863;</li>
 </ul>
 <blockquote>
-<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/operator/publish.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/operator/publish.ts</a></p>
+<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/publish.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/publish.ts</a></p>
 </blockquote>
 
                                 
@@ -1531,7 +1549,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"publish","level":"2.2.5.1","depth":3,"next":{"title":"multicast","level":"2.2.5.2","depth":3,"path":"operators/multicasting/multicast.md","ref":"operators/multicasting/multicast.md","articles":[]},"previous":{"title":"多播","level":"2.2.5","depth":2,"path":"operators/multicasting/README.md","ref":"operators/multicasting/README.md","articles":[{"title":"publish","level":"2.2.5.1","depth":3,"path":"operators/multicasting/publish.md","ref":"operators/multicasting/publish.md","articles":[]},{"title":"multicast","level":"2.2.5.2","depth":3,"path":"operators/multicasting/multicast.md","ref":"operators/multicasting/multicast.md","articles":[]},{"title":"share","level":"2.2.5.3","depth":3,"path":"operators/multicasting/share.md","ref":"operators/multicasting/share.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/multicasting/publish.md","mtime":"2017-11-11T13:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-11-11T13:44:01.166Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"publish","level":"2.2.5.1","depth":3,"next":{"title":"multicast","level":"2.2.5.2","depth":3,"path":"operators/multicasting/multicast.md","ref":"operators/multicasting/multicast.md","articles":[]},"previous":{"title":"多播","level":"2.2.5","depth":2,"path":"operators/multicasting/README.md","ref":"operators/multicasting/README.md","articles":[{"title":"publish","level":"2.2.5.1","depth":3,"path":"operators/multicasting/publish.md","ref":"operators/multicasting/publish.md","articles":[]},{"title":"multicast","level":"2.2.5.2","depth":3,"path":"operators/multicasting/multicast.md","ref":"operators/multicasting/multicast.md","articles":[]},{"title":"share","level":"2.2.5.3","depth":3,"path":"operators/multicasting/share.md","ref":"operators/multicasting/share.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/multicasting/publish.md","mtime":"2018-01-21T11:14:26.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-01-30T11:56:42.729Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

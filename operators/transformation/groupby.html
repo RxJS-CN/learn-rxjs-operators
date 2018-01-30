@@ -1304,7 +1304,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.8.6" data-path="../utility/topromise.html">
+        <li class="chapter " data-level="2.2.8.6" data-path="../utility/timeout.html">
+            
+                <a href="../utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../utility/topromise.html">
             
                 <a href="../utility/topromise.html">
             
@@ -1454,15 +1467,21 @@
 <h2 id="&#x57FA;&#x4E8E;&#x63D0;&#x4F9B;&#x7684;&#x503C;&#x5206;&#x7EC4;&#x6210;&#x591A;&#x4E2A;-observables">&#x57FA;&#x4E8E;&#x63D0;&#x4F9B;&#x7684;&#x503C;&#x5206;&#x7EC4;&#x6210;&#x591A;&#x4E2A; observables</h2>
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x6839;&#x636E;&#x5C5E;&#x6027;&#x5206;&#x7EC4;">&#x793A;&#x4F8B; 1: &#x6839;&#x636E;&#x5C5E;&#x6027;&#x5206;&#x7EC4;</h5>
-<p>( <a href="http://jsbin.com/zibomoluru/1/edit?js,console" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/utncxxvf/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> people <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&apos;Sue&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span><span class="token number">25</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&apos;Joe&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&apos;Frank&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&apos;Sarah&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">35</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<p>( <a href="http://jsbin.com/buworowuye/edit?js,console" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/utncxxvf/" target="_blank">jsFiddle</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> people <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Sue&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">25</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Joe&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Frank&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">25</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Sarah&apos;</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">35</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x53D1;&#x51FA;&#x6BCF;&#x4E2A; people</span>
 <span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>people<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x6839;&#x636E; age &#x5206;&#x7EC4;</span>
 <span class="token keyword">const</span> example <span class="token operator">=</span> source
   <span class="token punctuation">.</span><span class="token function">groupBy</span><span class="token punctuation">(</span>person <span class="token operator">=</span><span class="token operator">&gt;</span> person<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
-  <span class="token comment" spellcheck="true">// &#x4E3A;&#x6BCF;&#x4E2A;&#x5206;&#x7EC4;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</span>
-  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>group <span class="token operator">=</span><span class="token operator">&gt;</span> group<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token operator">...</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// &#x5C06;&#x6BCF;&#x4E2A;&#x5206;&#x7EC4;&#x9879;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x8FD4;&#x56DE;</span>
+  <span class="token punctuation">.</span><span class="token function">mergeMap</span><span class="token punctuation">(</span>group <span class="token operator">=</span><span class="token operator">&gt;</span> group<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/*
   &#x8F93;&#x51FA;:
   [{age: 25, name: &quot;Sue&quot;},{age: 25, name: &quot;Frank&quot;}]
@@ -1479,7 +1498,7 @@
 </ul>
 <hr>
 <blockquote>
-<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/operator/groupBy.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/operator/groupBy.ts</a></p>
+<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/groupBy.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/groupBy.ts</a></p>
 </blockquote>
 
                                 
@@ -1524,7 +1543,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"groupBy","level":"2.2.7.11","depth":3,"next":{"title":"map","level":"2.2.7.12","depth":3,"path":"operators/transformation/map.md","ref":"operators/transformation/map.md","articles":[]},"previous":{"title":"exhaustMap","level":"2.2.7.10","depth":3,"path":"operators/transformation/exhaustmap.md","ref":"operators/transformation/exhaustmap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/groupby.md","mtime":"2017-11-11T13:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-11-11T13:44:01.166Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"groupBy","level":"2.2.7.11","depth":3,"next":{"title":"map","level":"2.2.7.12","depth":3,"path":"operators/transformation/map.md","ref":"operators/transformation/map.md","articles":[]},"previous":{"title":"exhaustMap","level":"2.2.7.10","depth":3,"path":"operators/transformation/exhaustmap.md","ref":"operators/transformation/exhaustmap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/groupby.md","mtime":"2018-01-30T11:56:25.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-01-30T11:56:42.729Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

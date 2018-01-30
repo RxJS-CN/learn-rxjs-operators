@@ -1304,7 +1304,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2.8.6" data-path="../utility/topromise.html">
+        <li class="chapter " data-level="2.2.8.6" data-path="../utility/timeout.html">
+            
+                <a href="../utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../utility/topromise.html">
             
                 <a href="../utility/topromise.html">
             
@@ -1457,13 +1470,14 @@
 <hr>
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x57FA;&#x4E8E;&#x8F93;&#x5165;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x7684;-debounce">&#x793A;&#x4F8B; 1: &#x57FA;&#x4E8E;&#x8F93;&#x5165;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#x7684; debounce</h5>
-<p>( <a href="http://jsbin.com/kacijarogi/1/edit?js,console,output" target="_blank">jsBin</a> | <a href="https://jsfiddle.net/btroncone/7kbg4q2e/" target="_blank">jsFiddle</a> )</p>
+<p>( <a href="http://jsbin.com/kacijarogi/1/edit?js,console,output" target="_blank">jsBin</a> |
+<a href="https://jsfiddle.net/btroncone/7kbg4q2e/" target="_blank">jsFiddle</a> )</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;example&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// &#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;&#x952E;&#x76D8;&#x6572;&#x51FB;&#xFF0C;&#x90FD;&#x5C06;&#x6620;&#x5C04;&#x6210;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x503C;</span>
-<span class="token keyword">const</span> example <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable
-  <span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">&apos;keyup&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>i <span class="token operator">=</span><span class="token operator">&gt;</span> i<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> example <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">&apos;keyup&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>
+  i <span class="token operator">=</span><span class="token operator">&gt;</span> i<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>value
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// &#x5728;&#x4E24;&#x6B21;&#x952E;&#x76D8;&#x6572;&#x51FB;&#x4E4B;&#x95F4;&#x7B49;&#x5F85;0.5&#x79D2;&#x65B9;&#x624D;&#x53D1;&#x51FA;&#x5F53;&#x524D;&#x503C;&#xFF0C;</span>
 <span class="token comment" spellcheck="true">// &#x5E76;&#x4E22;&#x5F03;&#x8FD9;0.5&#x79D2;&#x5185;&#x7684;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x503C;</span>
@@ -1481,7 +1495,7 @@
 </ul>
 <hr>
 <blockquote>
-<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/operator/debounceTime.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/operator/debounceTime.ts</a></p>
+<p><img align="absmiddle" alt=":file_folder:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/file_folder.png" title=":file_folder:"> &#x6E90;&#x7801;:  <a href="https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/debounceTime.ts" target="_blank">https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/debounceTime.ts</a></p>
 </blockquote>
 
                                 
@@ -1526,7 +1540,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"debounceTime","level":"2.2.6.2","depth":3,"next":{"title":"distinctUntilChanged","level":"2.2.6.3","depth":3,"path":"operators/filtering/distinctuntilchanged.md","ref":"operators/filtering/distinctuntilchanged.md","articles":[]},"previous":{"title":"debounce","level":"2.2.6.1","depth":3,"path":"operators/filtering/debounce.md","ref":"operators/filtering/debounce.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/filtering/debouncetime.md","mtime":"2017-11-11T13:39:21.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-11-11T13:44:01.166Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"debounceTime","level":"2.2.6.2","depth":3,"next":{"title":"distinctUntilChanged","level":"2.2.6.3","depth":3,"path":"operators/filtering/distinctuntilchanged.md","ref":"operators/filtering/distinctuntilchanged.md","articles":[]},"previous":{"title":"debounce","level":"2.2.6.1","depth":3,"path":"operators/filtering/debounce.md","ref":"operators/filtering/debounce.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"RxJS-CN/learn-rxjs-operators","types":["star","fork"],"size":"small"},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/filtering/debouncetime.md","mtime":"2018-01-21T10:06:58.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-01-30T11:56:42.729Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

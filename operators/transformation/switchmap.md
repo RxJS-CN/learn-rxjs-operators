@@ -14,27 +14,13 @@
 
 ---
 
-### Why use `switchMap`?
+### 为什么使用 `switchMap`？
 
-The main difference between `switchMap` and other flattening operators is the
-cancelling effect. On each emission the previous inner observable (the result of
-the function you supplied) is cancelled and the new observable is subscribed.
-You can remember this by the phrase **switch to a new observable**.
+`switchMap` 和其他打平操作符的主要区别是它具有取消效果。在每次发出时，会取消前一个内部 observable (你所提供函数的结果) 的订阅，然后订阅一个新的 observable 。你可以通过短语**切换成一个新的 observable**来记忆它。
 
-This works perfect for scenarios like
-[typeaheads](https://angular-2-training-book.rangle.io/handout/http/search_with_switchmap.html)
-where you are no longer concerned with the response of the previous request when
-a new input arrives. This also is a safe option in situations where a long lived
-inner observable could cause memory leaks, for instance if you used
-[mergeMap](mergemap.md) with an interval and forgot to properly dispose of inner
-subscriptions. Remember, `switchMap` maintains only one inner subscription at a
-time, this can be seen clearly in the
-[first example](#example-1-restart-interval-every-5-seconds).
+它能在像 [typeaheads](https://angular-2-training-book.rangle.io/handout/http/search_with_switchmap.html) 这样的场景下完美使用，当有新的输入时便不再关心之前请求的响应结果。在内部 observable 长期存活可能会导致内存泄露的情况下，这也是一种安全的选择，例如，如果你使用 [mergeMap](mergemap.md) 和 interval，并忘记正确处理内部订阅。记住，`switchMap` 同一时间只维护一个内部订阅，在[示例 1](#%E7%A4%BA%E4%BE%8B-1-%E6%AF%8F5%E7%A7%92%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8-interval)中可以清楚出看到这一点。
 
-Be careful though, you probably want to avoid `switchMap` in scenarios where
-every request needs to complete, think writes to a database. `switchMap` could
-cancel a request if the source emits quickly enough. In these scenarios
-[mergeMap](mergemap.md) is the correct option.
+不过要小心，在每个请求都需要完成的情况下，考虑写数据库，你可能要避免使用 `switchMap` 。如果源 observable 发出速度足够快的话，`switchMap` 可以取消请求。在这些场景中，[mergeMap](mergemap.md) 是正确的选择。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 

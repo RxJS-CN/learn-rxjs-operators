@@ -14,28 +14,14 @@
 
 ---
 
-### Why use `mergeMap`?
+### 为什么使用 `mergeMap`？
 
-This operator is best used when you wish to flatten an inner observable but want
-to manually control the number of inner subscriptions.
+当想要打平内部 observable 并手动控制内部订阅数量时，此操作符是最适合的。
 
-For instance, when using [`switchMap`](switchmap.md) each inner subscription is
-completed when the source emits, allowing only one active inner subscription. In
-contrast, `mergeMap` allows for multiple inner subscriptions to be active at a
-time. Because of this, one of the most common use-case for `mergeMap` is
-requests that should not be canceled, think writes rather than reads. Note that
-if order must be maintained [`concatMap`](concatmap.md) is a better option.
+例如，当使用 [`switchMap`](switchmap.md) 时，源 observable 发出值时，每个内部订阅都是完成的，只允许存在一个活动的内部订阅。与此相反，`mergeMap` 允许同一时间存在多个活动的内部订阅。正因为如此，`mergeMap` 最常见的用例便是不会被取消的请求，可以将其考虑成写，而不是读。注意如果需要考虑顺序的话，
+[`concatMap`](concatmap.md) 会是更好的选择。
 
-Be aware that because `mergeMap` maintains multiple active inner subscriptions
-at once it's possible to create a memory leak through long-lived inner
-subscriptions. A basic example would be if you were mapping to an observable
-with an inner timer, or a stream of dom events. In these cases, if you still
-wish to utilize `mergeMap` you may want to take advantage of another operator to
-manage the completion of the inner subscription, think
-[`take`](../filtering/take.md) or [`takeUntil`](../filtering/takeuntil.md). You
-can also limit the number of active inner subscriptions at a time with the
-`concurrent` parameter, seen in
-[example 4](#example-4-mergemap-with-concurrent-value).
+注意，因为 `mergeMap` 同时维护多个活动的内部订阅，由于这些长期活动的内部订阅，所以是有可能产生内存泄露的。举个例子，如果你将 observable 映射成内部的定时器或 DOM 事件流。在这些案例中，如果你仍然想用 `mergeMap` 的话，你应该利用另一个操作符来管理内部订阅的完成，比如 [`take`](../filtering/take.md) 或 [`takeUntil`](../filtering/takeuntil.md)。你还可以使用 `concurrent` 参数来限制活动的内部订阅的数量，参见 [示例 4](#%E7%A4%BA%E4%BE%8B%204%3A%20%E4%BD%BF%E7%94%A8%20concurrent%20%E5%80%BC%E8%BF%9B%E8%A1%8C%20mergeMap)。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 

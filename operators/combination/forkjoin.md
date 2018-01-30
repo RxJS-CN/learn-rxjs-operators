@@ -8,34 +8,23 @@
 
 :bulb:  如果你想要多个 observables 按发出顺序相对应的值的组合，试试 [zip](zip.md)！
 
+:warning: 如果内部 observable 不完成的话，`forkJoin` 永远不会发出值！
+
 ---
 
-### Why use `forkJoin`?
+### 为什么使用 `forkJoin`？
 
-This operator is best used when you have a group of observables and only care
-about the final emitted value of each. One common use case for this is if you
-wish to issue multiple requests on page load (or some other event) and only want
-to take action when a response has been receieved for all. In this way it is
-similar to how you might use
-[`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all).
+当有一组 observables，但你只关心每个 observable 最后发出的值时，此操作符是最适合的。此操作符的一个常见用例是在页面加载(或其他事件)时你希望发起多个请求，并在所有请求都响应后再采取行动。它可能与 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) 的使用方式类似。
 
-Be aware that if any of the inner observables supplied to `forkJoin` error you
-will lose the value of any other observables that would or have already
-completed if you do not [`catch`](../error_handling/catch.md) the
-[error correctly on the inner observable](#example-4-getting-successful-results-when-one-innner-observable-errors).
-If you are only concerned with all inner observables completing successfully you
-can [catch the error on the outside](#example-3-handling-errors-on-outside).
+注意，如果任意作用于 `forkJoin` 的内部 observable 报错的话，对于那些在内部 observable 上没有正确 [`catch`](../error_handling/catch.md) 错误，从而导致完成的 observable，你将丢失它们的值 (参见示例 4)。如果你只关心所有内部 observables 是否成功完成的话，可以[在外部捕获错误](#%E5%9C%A8%E5%A4%96%E9%83%A8%E5%A4%84%E7%90%86%E9%94%99%E8%AF%AF)。
 
-It's also worth noting that if you have an observable that emits more than one
-item, and you are concerned with the previous emissions `forkJoin` is not the
-correct choice. In these cases you may better off with an operator like
-[combineLatest](combinelatest.md) or [zip](zip.md).
+还需要注意的是如果 observable 发出的项多于一个的话，并且你只关心前一个发出的话，那么 `forkJoin` 并非正确的选择。在这种情况下，应该选择像 [combineLatest](combinelatest.md) 或 [zip](zip.md) 这样的操作符。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
 ### 示例
 
-##### 示例 1: 发起可变数量的请求
+##### 示例 1: Observables 再不同的时间间隔后完成
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-2qr3qi?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/remiduhimu/1/edit?js,console) |
@@ -53,7 +42,7 @@ const myPromise = val =>
   );
 
 /*
-  当所有 observables 完成是，将每个 observable 
+  当所有 observables 完成时，将每个 observable 
   的最新值作为数组发出
 */
 const example = forkJoin(
@@ -72,7 +61,7 @@ const example = forkJoin(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Making a variable number of requests
+##### 示例 2: 发起任意多个请求
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-uxbl41?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/febejakapi/1/edit?js,console) |
@@ -104,7 +93,7 @@ const example = source.pipe(mergeMap(q => forkJoin(...q.map(myPromise))));
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: Handling errors on outside
+##### 示例 3: 在外部处理错误
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-3fgrkn?file=index.ts&devtoolsheight=50) |
 [jsBin](http://jsbin.com/gugawucixi/1/edit?js,console) |
@@ -117,18 +106,18 @@ import { of } from 'rxjs/observable/of';
 import { _throw } from 'rxjs/observable/throw';
 
 /*
-  when all observables complete, give the last
-  emitted value from each as an array
+  当所有 observables 完成时，将每个 observable 
+  的最新值作为数组发出
 */
 const example = forkJoin(
-  //emit 'Hello' immediately
+  // 立即发出 'Hello'
   of('Hello'),
-  //emit 'World' after 1 second
+  // 1秒后发出 'World'
   of('World').pipe(delay(1000)),
-  // throw error
+  // 抛出错误
   _throw('This will error')
 ).pipe(catchError(error => of(error)));
-//output: 'This will Error'
+// 输出: 'This will Error'
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
@@ -145,22 +134,22 @@ import { of } from 'rxjs/observable/of';
 import { _throw } from 'rxjs/observable/throw';
 
 /*
-  when all observables complete, give the last
-  emitted value from each as an array
+  当所有 observables 完成时，将每个 observable 
+  的最新值作为数组发出
 */
 const example = forkJoin(
-  //emit 'Hello' immediately
+  // 立即发出 'Hello'
   of('Hello'),
-  //emit 'World' after 1 second
+  // 1秒后发出 'World'
   of('World').pipe(delay(1000)),
-  // throw error
+  // 抛出错误
   _throw('This will error').pipe(catchError(error => of(error)))
 );
-//output: ["Hello", "World", "This will error"]
+// 输出: ["Hello", "World", "This will error"]
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 5: forkJoin in Angular
+##### 示例 5: Angular 中的 forkJoin
 
 ( [plunker](https://plnkr.co/edit/ElTrOg8NfR3WbbAfjBXQ?p=preview) )
 
@@ -168,7 +157,7 @@ const subscribe = example.subscribe(val => console.log(val));
 @Injectable()
 export class MyService {
   makeRequest(value: string, delayDuration: number) {
-    // simulate http request
+    // 模拟 http 请求
     return of(`Complete: ${value}`).pipe(
       delay(delayDuration)
     );
@@ -195,7 +184,7 @@ export class App {
   constructor(private _myService: MyService) {}
 
   ngOnInit() {
-    // simulate 3 requests with different delays
+    // 使用不同的延迟模拟3个请求
     forkJoin(
       this._myService.makeRequest('Request One', 2000),
       this._myService.makeRequest('Request Two', 1000)

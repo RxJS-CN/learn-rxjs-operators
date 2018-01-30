@@ -1,14 +1,14 @@
 # timeout
 
-#### signature: `timeout(due: number, scheduler: Scheduler): Observable`
+#### 签名: `timeout(due: number, scheduler: Scheduler): Observable`
 
-## Error if no value is emitted before specified duration
+## 在指定时间间隔内不发出值就报错
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Examples
+### 示例
 
-##### Example 1: Timeout after 2.5 seconds
+##### 示例 1: 2.5秒后超时
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-gl1hhr?file=index.ts&devtoolsheight=100)
@@ -19,7 +19,7 @@
 import { of } from 'rxjs/observable/of';
 import { concatMap, timeout, catchError, delay } from 'rxjs/operators';
 
-// simulate request
+// 模拟请求
 function makeRequest(timeToDelay) {
   return of('Request Complete!').pipe(delay(timeToDelay));
 }
@@ -41,12 +41,12 @@ of(4000, 3000, 2000)
   .subscribe(val => console.log(val));
 ```
 
-### Additional Resources
+### 其他资源
 
 * [timeout](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/timeout.md)
-  :newspaper: - Official Docs
+  :newspaper: - 官方文档
 
 ---
 
-> :file_folder: Source Code:
+> :file_folder: 源码:
 > [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/timeout.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/timeout.ts)

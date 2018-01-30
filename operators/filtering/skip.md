@@ -4,17 +4,11 @@
 
 ## 跳过N个(由参数提供)发出值。
 
-### Why use `skip`?
+### 为什么使用 `skip`？
 
-Skip allows you to ignore the first x emissions from the source. Generally
-`skip` is used when you have an observable that always emits certain values on
-subscription that you wish to ignore. Perhaps those first few aren't needed or
-you are subscribing to a `Replay` or `BehaviorSubject` and do not need to act on
-the initial values. Reach for `skip` if you are only concerned about later
-emissions.
+`skip` 允许你忽略源 observable 开头的n个值。通常，当你总是想忽略 observable 的某些值时，应该使用 `skip` 。或许你不需要这些开头的值，或许你订阅了 `Replay` 或 `BehaviorSubject` 从而不需要初始值。如果你不关心开头的一组值，那就使用 `skip` 吧。
 
-You could mimic `skip` by using [`filter`](./filter.md) with indexes. Ex.
-`.filter((val, index) => index > 1)`
+你可以使用 [`filter`](./filter.md) 加索引来模拟 `skip` 。例如 `.filter((val, index) => index > 1)` 。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
@@ -37,7 +31,7 @@ const example = source.pipe(skip(5));
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-#### Example 2: Short hand for a specific filter use case
+#### 示例 2: filter 特定用法的简写形式
 
 ( [jsBin](http://jsbin.com/judamurego/edit?js,console) |
 [jsFiddle](https://jsfiddle.net/ElHuy/4jswLn3z/) )
@@ -58,7 +52,7 @@ const filterObs = numArrayObs.pipe(
   )
   .subscribe(console.log);
 
-//Same output!
+// 同样的输出！
 ```
 
 ### 其他资源

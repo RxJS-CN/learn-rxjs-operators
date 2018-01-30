@@ -2,7 +2,7 @@
 
 RxJS 5 操作符的完整列表，每个操作符都有着清晰的解释、相关资源和可执行的示例。
 
-*[更喜欢按操作符类型进行分类？](README.md)*
+_[更喜欢按操作符类型进行分类？](README.md)_
 
 ### 内容 (按字母顺序)
 
@@ -85,7 +85,7 @@ RxJS 5 操作符的完整列表，每个操作符都有着清晰的解释、相�
 * [withLatestFrom](combination/withlatestfrom.md) :star:
 * [zip](combination/zip.md)
 
-:star: - *常用*
+:star: - _常用_
 
 ### 其他资源
 

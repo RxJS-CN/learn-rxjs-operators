@@ -4,15 +4,9 @@
 
 ## 在完成前发出N个值(N由参数决定)。
 
-### Why use `take`
+### 为什么使用 `take`？
 
-When you are interested in only the first set number of emission, you want to
-use `take`. Maybe you want to see what the user first clicked on when he/she
-first entered the page, you would want to subscribe to the click event and just
-take the first emission. There is a race and you want to observe the race, but
-you're only interested in the first who crosses the finish line. This operator
-is clear and straight forward, you just want to see the first _n_ numbers of
-emission to do whatever it is you need.
+当只对开头的一组值感兴趣时，你想要的便是 `take` 操作符。也许你想看看当用户第一次进入页面时，用户首先点击的是什么，你想要订阅点击事件并只取首个值。举例来说，你想要观看赛跑，但其实你只对首先冲过终点的人感兴趣。此操作符很清晰明了，你想要取开头*n*个值。
 
 ---
 
@@ -61,7 +55,7 @@ const example = interval.pipe(take(5));
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: Taking first click loclation
+##### 示例 3: 取得首次点击的坐标
 
 ([jsFiddle](https://jsfiddle.net/ElHuy/9c5j064x/))
 

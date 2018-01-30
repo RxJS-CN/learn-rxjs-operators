@@ -107,7 +107,7 @@ const subscribe = source.subscribe(val =>
     'Example: Source never completes, second observable never runs:',
     val
   )
-// 输出: 1,2,3,4....
+// 输出: 0,1,2,3,4....
 const subscribe = source.subscribe(val => console.log('Example: Source never completes, second observable never runs:', val));
 ```
 

@@ -12,25 +12,13 @@
 
 ---
 
-### Why use `combineLatest`?
+### 为什么使用 `combineLatest`？
 
-This operator is best used when you have multiple, long-lived observables that
-rely on eachother for some calculation or determination. Basic examples of this
-can be seen in [example three](#example-3-combining-events-from-2-buttons),
-where events from multiple buttons are being combined to produce a count of each
-and an overall total, or a
-[calculation of BMI](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-combineLatest)
-from the RxJS documentation.
+当有多个长期活动的 observables 且它们依靠彼此来进行一些计算或决定时，此操作符是最适合的。[示例 3](#%E7%A4%BA%E4%BE%8B%203%3A%20%E7%BB%84%E5%90%882%E4%B8%AA%E6%8C%89%E9%92%AE%E7%9A%84%E4%BA%8B%E4%BB%B6)可作为基础示例演示，来自多个按钮的事件被组合在一起，以生成每个按钮的计数和总体总数，RxJS 文档中的 combineLatest 操作符的示例 [BMI 计算](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-combineLatest) 也可作为示例。
 
-Be aware that **`combineLatest` will not emit an initial value until each
-observable emits at least one value**. This is the same behavior as
-[`withLatestFrom`](withlatestfrom.md) and can be a _gotcha_ as there will be no
-output and no error but one (or more) of your inner observables is likely not
-functioning as intended, or a subscription is late.
+注意，**`combineLatest` 直到每个 observable 都至少发出一个值后才会发出初始值。**这和 [`withLatestFrom`](withlatestfrom.md) 的行为是一致的，这常常会成为陷阱，既没有输出，也不报错，但是一个(或多个)内部 observables 可能无法正常工作，或者订阅延迟。
 
-Lastly, if you are working with observables that only emit one value, or you
-only require the last value of each before completion, [`forkJoin`](forkjoin.md)
-is likely a better option.
+最后，如果你只需要 observables 发出一个值，或只需要它们完成前的最新值时，[`forkJoin`](forkjoin.md) 会是更好的选择。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 

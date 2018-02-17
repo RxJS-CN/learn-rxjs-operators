@@ -17,18 +17,25 @@
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/RxJS-CN/learn-rxjs-operators/tree/master",
-      "label": "Edit This Page"
+      "label": "帮忙纠错"
     },
     "github": {
       "url": "https://github.com/RxJS-CN/learn-rxjs-operators"
     },
     "github-buttons": {
-      "repo": "RxJS-CN/learn-rxjs-operators",
-      "types": [
-        "star",
-        "fork"
-      ],
-      "size": "small"
+      "buttons": [{
+        "user" : "RxJS-CN",
+        "repo" : "learn-rxjs-operators",
+        "type" : "star",
+        "size" : "small",
+        "count": true
+      }, {
+        "user" : "RxJS-CN",
+        "repo" : "learn-rxjs-operators",
+        "type" : "fork",
+        "size" : "small",
+        "count": true
+      }]
     }
   }
 }

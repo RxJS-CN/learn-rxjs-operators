@@ -1,14 +1,12 @@
-# Progress Bar
+# 进度条
 
-_By [@barryrowe](https://twitter.com/barryrowe)_
+_作者 [@barryrowe](https://twitter.com/barryrowe)_
 
-This recipe demonstrates the creation of an animated progress bar, simulating
-the management of multiple requests, and updating overall progress as each
-completes.
+本食谱演示了动态进度条的创建、模拟多个请求的管理，并在每个请求完成后更新总体进度。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Example Code
+### 示例代码
 
 (
 [StackBlitz](https://stackblitz.com/edit/rxjs-5-progress-bar-x33rrw?file=index.ts&devtoolsheight=50)
@@ -40,7 +38,7 @@ const loadButton = document.getElementById('load');
 const progressBar = document.getElementById('progress');
 const content = document.getElementById('data');
 
-// update progress bar as requests complete
+// 请求完成后更新进度条
 const updateProgress = progressRatio => {
   console.log('Progress Ratio: ', progressRatio);
   progressBar.style.width = 100 * progressRatio + '%';
@@ -50,7 +48,7 @@ const updateProgress = progressRatio => {
     progressBar.className = progressBar.className.replace(' finished', '');
   }
 };
-// simple helper to log updates
+// 通知更新的简单辅助函数
 const updateContent = newContent => {
   content.innerHTML += newContent;
 };
@@ -59,7 +57,7 @@ const displayData = data => {
   updateContent(`<div class="content-item">${data}</div>`);
 };
 
-// simulate 5 seperate requests that complete at variable length
+// 模拟5个不同时长的请求
 const observables: Array<Observable<string>> = [
   requestOne,
   requestTwo,
@@ -102,10 +100,9 @@ Load Data
 </div>
 ```
 
-_Thanks to [@johnlinquist](https://twitter.com/johnlindquist) for the additional
-help with example!_
+_感谢 [@johnlinquist](https://twitter.com/johnlindquist) 对本示例的帮助！_
 
-### Operators Used
+### 使用到的操作符
 
 * [concatAll](../operators/transformation/concatall.md)
 * [delay](../operators/utility/delay.md)

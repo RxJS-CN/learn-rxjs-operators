@@ -51,14 +51,13 @@ const example = source.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### 示例 2: Customizable retry with increased duration
+##### 示例 2: 时间间隔增加的自定义重试
 
 (
 [StackBlitz](https://stackblitz.com/edit/angular-cwnknr?file=app%2Frxjs-utils.ts)
 )
 
-_Credit to [Maxim Koretskyi](https://twitter.com/maxim_koretskyi) for the
-optimization_
+_归功于 [Maxim Koretskyi](https://twitter.com/maxim_koretskyi) 的优化_
 
 ```js
 import { Observable } from 'rxjs/Observable';
@@ -78,8 +77,8 @@ export const genericRetryStrategy = ({
   return attempts.pipe(
     mergeMap((error, i) => {
       const retryAttempt = i + 1;
-      // if maximum number of retries have been met
-      // or response is a status code we don't wish to retry, throw error
+      // 如果达到最大重试次数或响应的状态码
+      // 不是我们想重试的，就抛出错误
       if (
         retryAttempt > maxRetryAttempts ||
         excludedStatusCodes.find(e => e === error.status)
@@ -90,7 +89,7 @@ export const genericRetryStrategy = ({
         `Attempt ${retryAttempt}: retrying in ${retryAttempt *
           scalingDuration}ms`
       );
-      // retry after 1s, 2s, etc...
+      // 重试的时间间隔不断增长: 1秒、2秒，以此类推
       return timer(retryAttempt * scalingDuration);
     }),
     finalize(() => console.log('We are done!'))
@@ -122,7 +121,7 @@ export class AppComponent implements OnInit  {
       )
       .subscribe(console.log);
 
-    // excluding status code, delay for logging clarity
+    // 排除状态码，增加延迟以保持日志清晰
     setTimeout(() => {
     this._appService
       .getData(500)

@@ -48,10 +48,10 @@ const example = source.pipe(sample(interval(2500)));
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 3: Distinguish between drag and click
+##### 示例 3: 区分拖拽和点击
 
-From [Stack Overflow](https://stackoverflow.com/a/44865892/2774547) By
-[Dorus](https://stackoverflow.com/users/402027/dorus)
+来源: [Stack Overflow](https://stackoverflow.com/a/44865892/2774547)
+作者: [Dorus](https://stackoverflow.com/users/402027/dorus)
 
 ( [jsBin](http://jsbin.com/riwipicilo/1/edit?html,js,console,output) |
 [jsFiddle](https://jsfiddle.net/6yy6q0Lo/1/) )

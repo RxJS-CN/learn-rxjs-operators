@@ -12,32 +12,31 @@
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-skud3w?file=index.ts&devtoolsheight=50) )
 
-:bulb: Note the difference between `concatMap` and [`mergeMap`](./mergemap.md).
-Because `concatMap` does not subscribe to the next observable until the previous
-completes, the value from the source delayed by 2000ms will be emitted first.
-Contrast this with [`mergeMap`](./mergemap.md) which subscribes immediately to
-inner observables, the observable with the lesser delay (1000ms) will emit,
-followed by the observable which takes 2000ms to complete.
+:bulb: 注意 `concatMap` 和 [`mergeMap`](./mergemap.md) 之间的区别。
+因为 `concatMap` 之前前一个内部 observable 完成后才会订阅下一个，
+source 中延迟 2000ms 值会先发出。
+对比的话， [`mergeMap`](./mergemap.md) 会立即订阅所有内部 observables，
+延迟少的 observable (1000ms) 会先发出值，然后才是 2000ms 的 observable 。
 
 ```js
 import { of } from 'rxjs/observable/of';
 import { concatMap, delay, mergeMap } from 'rxjs/operators';
 
-//emit delay value
+// 发出延迟值
 const source = of(2000, 1000);
-// map value from source into inner observable, when complete emit result and move to next
+// 将内部 observable 映射成 source，当前一个完成时发出结果并订阅下一个
 const example = source.pipe(
   concatMap(val => of(`Delayed by: ${val}ms`).pipe(delay(val)))
 );
-//output: With concatMap: Delayed by: 2000ms, With concatMap: Delayed by: 1000ms
+// 输出: With concatMap: Delayed by: 2000ms, With concatMap: Delayed by: 1000ms
 const subscribe = example.subscribe(val =>
   console.log(`With concatMap: ${val}`)
 );
 
-// showing the difference between concatMap and mergeMap
+// 展示 concatMap 和 mergeMap 之间的区别
 const mergeMapExample = source
   .pipe(
-    // just so we can log this after the first example has run
+    // 只是为了确保 meregeMap 的日志晚于 concatMap 示例
     delay(5000),
     mergeMap(val => of(`Delayed by: ${val}ms`).pipe(delay(val)))
   )

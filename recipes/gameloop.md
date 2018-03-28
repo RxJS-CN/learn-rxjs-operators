@@ -1,17 +1,16 @@
-# Game Loop
+# 游戏循环
 
-_By [@barryrowe](https://twitter.com/barryrowe)_
+_作者 [@barryrowe](https://twitter.com/barryrowe)_
 
-This recipe demonstrates one way you might create a Game Loop as a combined set of streams. The recipe is intended to highlight how you might re-think existing problems with a reactive approach. In this recipe we provide the overall loop as a stream of frames and their deltaTimes since the previous frames. Combined with this is a stream of user inputs, and the current gameState, which we can use to update our objects, and render to to the screen on each frame emission.
+本食谱演示了使用组合流来创建游戏循环的一种方式。本食谱旨在突出如何用响应式的方式来重新思考现有问题。在这个示例中，我们将提供整体循环以及自上帧以来的增量时间。与此相结合的是用户输入流，以及当前的游戏状态，我们可以用它来更新我们的对象，并根据每帧的发出来将其渲染到屏幕上。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Example Code
+### 示例代码
 
 (
 [StackBlitz](https://stackblitz.com/edit/rxjs-5-based-game-loop?file=index.ts&devtoolsheight=50)
 )
-
 
 ```js
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -47,34 +46,34 @@ const gameArea: HTMLElement = document.getElementById('game');
 const fps: HTMLElement = document.getElementById('fps');
 
 /**
- * This is our core game loop logic. We update our objects and gameState here
- * each frame. The deltaTime passed in is in seconds, we are givent our current state,
- * and any inputStates. Returns the updated Game State
+ * 这是游戏循环的核心逻辑。每一帧都更新对象和游戏状态。
+ * 传入的 `deltaTime` 以秒为单位，我们还给定了当前状态和任意的输入状态。
+ * 返回值为更新后的游戏状态。
  */
 const update = (deltaTime: number, state: any, inputState: any): any => {
   //console.log("Input State: ", inputState);
   if(state['objects'] === undefined) {
     state['objects'] = [
       { 
-        // Transformation Props
+        // 变形属性
         x: 10, y: 10, width: 20, height: 30, 
-        // State Props
+        // 状态属性
         isPaused: false, toggleColor: '#FF0000', color: '#000000', 
-        // Movement Props
+        // 移动属性
         velocity: baseObjectVelocity 
       },
       { 
-        // Transformation Props
+        // 变形属性
         x: 200, y: 249, width: 50, height: 20,
-        // State Props
+        // 状态属性
         isPaused: false, toggleColor: '#00FF00', color: '#0000FF', 
-        // Movement Props
+        // 移动属性
         velocity: {x: -baseObjectVelocity.x, y: 2*baseObjectVelocity.y} }
     ];
   } else {
 
     state['objects'].forEach((obj) => {
-      // Process Inputs
+      // 处理输入
       if (inputState['spacebar']) {
         obj.isPaused = !obj.isPaused;
         let newColor = obj.toggleColor;        
@@ -82,16 +81,16 @@ const update = (deltaTime: number, state: any, inputState: any): any => {
         obj.color = newColor;        
       }
 
-      // Process GameLoop Updates
+      // 处理游戏循环的更新
       if(!obj.isPaused) {
 
-        // Apply Velocity Movements
+        // 应用速率运动
         obj.x = obj.x += obj.velocity.x*deltaTime;
         obj.y = obj.y += obj.velocity.y*deltaTime;  
 
-        // Check if we exceeded our boundaries
+        // 边界检查
         const didHit = runBoundaryCheck(obj, boundaries);    
-        // Handle boundary adjustments
+        // 处理边界调整
         if(didHit){
           if(didHit === 'right' || didHit === 'left') {
             obj.velocity.x *= -bounceRateChanges[didHit];
@@ -101,8 +100,7 @@ const update = (deltaTime: number, state: any, inputState: any): any => {
         }
       }
 
-      // Clamp Velocities in case our boundary bounces have gotten
-      //  us going tooooo fast.
+      // 如果我们的边界反弹使得我们的速度变得太快，就钳制速度。
       obj.velocity.x = clampMag(obj.velocity.x, 0, baseObjectVelocity.maxX);
       obj.velocity.y = clampMag(obj.velocity.y, 0, baseObjectVelocity.maxY);
     });    
@@ -112,15 +110,14 @@ const update = (deltaTime: number, state: any, inputState: any): any => {
 }
 
 /**
- * This is our rendering function. We take the given game state and render the items
- * based on their latest properties.
+ * 这是渲染函数。我们接收给定的游戏状态并根据它们的最新属性来渲染页面。
  */
 const render = (state: any) => {
-  const ctx: CanvasRenderingContext2D = (<HTMLCanvasElement>gameArea).getContext('2d');
-  // Clear the canvas
+  const ctx: CanvasRenderingContext2D = (/*<HTMLCanvasElement>*/gameArea).getContext('2d');
+  // 清除 canvas
   ctx.clearRect(0, 0, gameArea.clientWidth, gameArea.clientHeight);
 
-  // Render all of our objects (simple rectangles for simplicity)
+  // 渲染所有对象 (都是简单的矩形)
   state['objects'].forEach((obj) => {
     ctx.fillStyle = obj.color;
     ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
@@ -130,15 +127,14 @@ const render = (state: any) => {
 
 
 /**
- * This function returns an observable that will emit the next frame once the 
- * browser has returned an animation frame step. Given the previous frame it calculates
- * the delta time, and we also clamp it to 30FPS in case we get long frames.
+ * 这个函数返回一个 observable，一旦浏览器返回一个动画帧步骤，该 observable 将发出下一个帧。
+ * 鉴于前一帧计算得出的增量时间，我们将其钳制至30FPS，以防长帧的出现。
  */
 const calculateStep: (prevFrame: IFrameData) => Observable<IFrameData> = (prevFrame: IFrameData) => {
   return Observable.create((observer) => { 
     
     requestAnimationFrame((frameStartTime) => {      
-      // Millis to seconds
+      // 毫秒转化成秒
       const deltaTime = prevFrame ? (frameStartTime - prevFrame.frameStartTime)/1000 : 0;
       observer.next({
         frameStartTime,
@@ -151,25 +147,25 @@ const calculateStep: (prevFrame: IFrameData) => Observable<IFrameData> = (prevFr
   )
 };
 
-// This is our core stream of frames. We use expand to recursively call the 
-//  `calculateStep` function above that will give us each new Frame based on the
-//  window.requestAnimationFrame calls. Expand emits the value of the called functions
-//  returned observable, as well as recursively calling the function with that same 
-//  emitted value. This works perfectly for calculating our frame steps because each step
-//  needs to know the lastStepFrameTime to calculate the next. We also only want to request
-//  a new frame once the currently requested frame has returned.
+/**
+ * 这是帧的核心流。我们使用 `expand` 操作符来递归调用上面的 `calculateStep` 函数，
+ * 它会基于 `window.requestAnimationFrame` 的调用返回每一个新帧。
+ * `expand` 发出被调用函数返回的 observable 的值，并递归调用具有相同发出值的函数。
+ * 这非常适合计算我们的帧步骤，因为每个步骤都需要知道上一帧的时间来计算下一帧。
+ * 一旦当前请求的帧已经返回，我们还想要求一个新的帧。
+ */
 const frames$ = of(undefined)
   .pipe(
     expand((val) => calculateStep(val)),
-    // Expand emits the first value provided to it, and in this
-    //  case we just want to ignore the undefined input frame
+    // expand 发出提供给它的第一个值，
+    // 在这里我们只想忽略值为 undefined 的输入帧
     filter(frame => frame !== undefined),
     map((frame: IFrameData) => frame.deltaTime),
     share()
   )
 
-// This is our core stream of keyDown input events. It emits an object like `{"spacebar": 32}`
-//  each time a key is pressed down.
+// 这是 keyDown 输入事件的核心流。
+// 每次按键后它会发出类似 `{"spacebar": 32}` 的对象
 const keysDown$ = fromEvent(document, 'keydown')
   .pipe(
     map((event: KeyboardEvent) => {
@@ -185,9 +181,9 @@ const keysDown$ = fromEvent(document, 'keydown')
     filter((keyMap) => keyMap !== undefined)
   );
 
-// Here we buffer our keyDown stream until we get a new frame emission. This
-//  gives us a set of all the keyDown events that have triggered since the previous
-//  frame. We reduce these all down to a single dictionary of keys that were pressed.
+// 这里我们将 keyDown 流缓冲起来，直到发出新的帧。
+// 我们将得到自从上一帧发出后的所有 keyDown 事件。
+// 我们将其归并为单个对象。
 const keysDownPerFrame$ = keysDown$
   .pipe(
     buffer(frames$),
@@ -198,19 +194,17 @@ const keysDownPerFrame$ = keysDown$
     })
   );
 
-// Since we will be updating our gamestate each frame we can use an Observable
-//  to track that as a series of states with the latest emission being the current
-//  state of our game.
+// 因为每一帧我们都会更新游戏状态，所以可以使用 Observable 作为一系列状态
+// 进行追踪，最新的发出值即为当前游戏状态。
 const gameState$ = new BehaviorSubject({});
 
-// This is where we run our game! 
-//  We subscribe to our frames$ stream to kick it off, and make sure to
-//  combine in the latest emission from our inputs stream to get the data
-//  we need do perform our gameState updates.
+// 这是运行游戏的代码！
+// 我们订阅 `frames$` 流以开始，并确保组合了输入流的最新发出，以获取游戏状态更新所
+// 必须的数据。
 frames$
   .pipe(
     withLatestFrom(keysDownPerFrame$, gameState$),
-    // HOMEWORK_OPPORTUNITY: Handle Key-up, and map to a true KeyState change object
+    // 课后作业: 处理 keyUp 并映射成真正的按键状态变化对象
     map(([deltaTime, keysDown, gameState]) => update(deltaTime, gameState, keysDown)),
     tap((gameState) => gameState$.next(gameState))
    
@@ -220,7 +214,7 @@ frames$
   });
 
 
-// Average every 10 Frames to calculate our FPS
+// 平均每10帧计算一下FPS
 frames$ 
   .pipe(
     bufferCount(10),
@@ -239,7 +233,7 @@ frames$
 
 ```
 
-##### supporting js
+##### 辅助 js 文件
 
 - [game.util.ts](https://stackblitz.com/edit/rxjs-5-based-game-loop?file=game.util.ts)
 - [keys.util.ts](https://stackblitz.com/edit/rxjs-5-based-game-loop?file=keys.util.ts)
@@ -255,7 +249,7 @@ frames$
 </p>
 ```
 
-### Operators Used
+### 使用到的操作符
 
 * [buffer](../operators/transformation/buffer.md)
 * [bufferCount](../operators/transformation/bufferCount.md)

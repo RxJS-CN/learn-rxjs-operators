@@ -33,7 +33,7 @@ _[更喜欢按字母顺序排列的完整列表？](complete.md)_
   * [throw](creation/throw.md)
   * [timer](creation/timer.md)
 * [错误处理](error_handling/README.md)
-  * [catch](error_handling/catch.md) :star:
+  * [catchError](error_handling/catch.md) :star:
   * [retry](error_handling/retry.md)
   * [retryWhen](error_handling/retrywhen.md)
 * [过滤](filtering/README.md)

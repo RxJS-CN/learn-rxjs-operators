@@ -47,7 +47,6 @@ const combined = example.pipe(combineAll());
 const subscribe = combined.subscribe(val => console.log(val));
 ```
 
-
 ### 其他资源
 
 * [combineAll](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-combineAll) :newspaper: - 官方文档

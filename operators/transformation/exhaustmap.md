@@ -88,9 +88,9 @@ const exhaustSub = firstInterval
   .subscribe(s => console.log(s));
 ```
 
-### Outside Examples
+### 外部示例
 
-##### `exhaustMap` for login effect in [@ngrx example app](https://github.com/ngrx/platform/tree/a9e522953832b09bb329bac4524637bc608c450a/example-app)
+##### `exhaustMap` 用于 [@ngrx 示例应用](https://github.com/ngrx/platform/tree/a9e522953832b09bb329bac4524637bc608c450a/example-app) 的 login Effect
 
 (
 [Source](https://github.com/ngrx/platform/blob/a9e522953832b09bb329bac4524637bc608c450a/example-app/app/auth/effects/auth.effects.ts#L18-L30)

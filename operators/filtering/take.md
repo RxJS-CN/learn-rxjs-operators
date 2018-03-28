@@ -12,8 +12,7 @@
 
 :bulb: 如果想基于某个逻辑或另一个 observable 来取任意数量的值，你可以 [takeUntil](takeuntil.md) 或 [takeWhile](takewhile.md)！
 
-:bulb: `take` is the opposite of `skip` where `take` will take the first _n_
-number of emissions while `skip` will skip the first _n_ number of emissions.
+:bulb: `take` 与 `skip` 是相反的，它接收起始的N个值，而 `skip` 会跳过起始的N个值。
 
 ---
 

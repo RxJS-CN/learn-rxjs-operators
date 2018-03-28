@@ -126,3 +126,5 @@ of(1,2,3)
 ```
 
 Much easier to read, right? This also has the benefit of greatly reducing the RxJS bundle size in your application. For more on this, check out [Ashwin Sureshkumar's](https://twitter.com/Sureshkumar_Ash) excellent article [Reduce Angular app bundle size using lettable operators](https://hackernoon.com/rxjs-reduce-bundle-size-using-lettable-operators-418307295e85).
+
+代码可读性更高了，是吧？它还有额外的好处，就是可以大大减少应用中 RxJS 的打包尺寸。想深入了解，请参见 [Ashwin Sureshkumar's](https://twitter.com/Sureshkumar_Ash) 的精彩文章 [使用 lettable 操作符来减少 Angular 应用的打包尺寸](https://hackernoon.com/rxjs-reduce-bundle-size-using-lettable-operators-418307295e85)。

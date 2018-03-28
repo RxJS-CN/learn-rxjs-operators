@@ -17,17 +17,17 @@
 import { of, interval } from 'rxjs';
 import { concatMapTo, delay, take } from 'rxjs/operators';
 
-//emit value every 2 seconds
+// 每2秒发出值
 const sampleInterval = interval(500).pipe(take(5));
 const fakeRequest = of('Network request complete').pipe(delay(3000));
-//wait for first to complete before next is subscribed
+// 前一个完成才会订阅下一个
 const example = sampleInterval.pipe(concatMapTo(fakeRequest));
-//result
-//output: Network request complete...3s...Network request complete'
+// 结果
+// 输出: Network request complete...3s...Network request complete'
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 2: Using projection with `concatMap`
+##### 示例 2: 使用 `concatMap` 的投射函数
 
 ( [StackBlitz](https://stackblitz.com/edit/typescript-8kcfm1?file=index.ts&devtoolsheight=100) |
 [jsBin](http://jsbin.com/fogefebisu/1/edit?js,console) |
@@ -54,13 +54,13 @@ const example = interval$.pipe(
 );
 /*
   输出: 0 0
-          0 1
-          0 2
-          0 3
-          0 4
-          1 0
-          1 1
-          继续...
+        0 1
+        0 2
+        0 3
+        0 4
+        1 0
+        1 1
+        继续...
 
 */
 const subscribe = example.subscribe(val => console.log(val));

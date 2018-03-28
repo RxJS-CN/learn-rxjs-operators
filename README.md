@@ -2,7 +2,9 @@
 
 # 学习 RxJS 操作符
 
-_By [@btroncone](https://twitter.com/BTroncone)_
+本仓库是 [Learn RxJS](https://github.com/btroncone/learn-rxjs) 的中文版。
+
+意在通过每个操作符的清晰示例及解释来进行 RxJS 的学习。
 
 > 其实原作者还有其他想法(比如， 更底层的一些概念及更丰富的实战示例)，但目前来看，主要还是进行操作符的讲解，所以我将此库命名为 “学习 RxJS 操作符”
 

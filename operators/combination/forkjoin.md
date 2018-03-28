@@ -122,7 +122,7 @@ const example = forkJoin(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-##### Example 4: Getting successful results when one inner observable errors
+##### 示例 4: 当某个内部 observable 报错时得到成功结果
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-hydgiu?file=index.ts&devtoolsheight=100)

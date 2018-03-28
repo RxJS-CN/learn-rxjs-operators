@@ -42,6 +42,8 @@
 
     
         
+        <link rel="stylesheet" href="../../styles/website.css">
+        
     
         
     
@@ -557,7 +559,7 @@
                 <a href="../error_handling/catch.html">
             
                     
-                    catch
+                    catchError
             
                 </a>
             
@@ -642,6 +644,19 @@
             
                     
                     share
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../multicasting/sharereplay.html">
+            
+                <a href="../multicasting/sharereplay.html">
+            
+                    
+                    shareReplay
             
                 </a>
             
@@ -1380,6 +1395,32 @@
             
         </li>
     
+        <li class="chapter " data-level="2.3.2" data-path="../../recipes/progressbar.html">
+            
+                <a href="../../recipes/progressbar.html">
+            
+                    
+                    进度条
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../recipes/gameloop.html">
+            
+                <a href="../../recipes/gameloop.html">
+            
+                    
+                    游戏循环
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1472,21 +1513,15 @@
 <h5 id="&#x793A;&#x4F8B;-1-&#x4F7F;&#x7528;&#x57FA;&#x7840;&#x503C;&#x8FDB;&#x884C;-distinctuntilchanged">&#x793A;&#x4F8B; 1: &#x4F7F;&#x7528;&#x57FA;&#x7840;&#x503C;&#x8FDB;&#x884C; distinctUntilChanged</h5>
 <p>( <a href="http://jsbin.com/qoyoxeheva/1/edit?js,console" target="_blank">jsBin</a> |
 <a href="https://jsfiddle.net/btroncone/xc2vzct7/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x57FA;&#x4E8E;&#x6700;&#x65B0;&#x53D1;&#x51FA;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x53EA;&#x8F93;&#x51FA;&#x4E0D;&#x540C;&#x7684;&#x503C;</span>
-<span class="token keyword">const</span> myArrayWithDuplicatesInARow <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-  <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token number">2</span><span class="token punctuation">,</span>
-  <span class="token number">2</span><span class="token punctuation">,</span>
-  <span class="token number">3</span><span class="token punctuation">,</span>
-  <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token number">2</span><span class="token punctuation">,</span>
-  <span class="token number">3</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">from</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/from&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> distinctUntilChanged <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x57FA;&#x4E8E;&#x6700;&#x65B0;&#x53D1;&#x51FA;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x53EA;&#x8F93;&#x51FA;&#x4E0D;&#x540C;&#x7684;&#x503C;</span>
+<span class="token keyword">const</span> myArrayWithDuplicatesInARow <span class="token operator">=</span> <span class="token keyword">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> distinctSub <span class="token operator">=</span> myArrayWithDuplicatesInARow
-  <span class="token punctuation">.</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; : 1,2,3,1,2,3</span>
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: 1,2,3,1,2,3</span>
   <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;DISTINCT SUB:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> nonDistinctSub <span class="token operator">=</span> myArrayWithDuplicatesInARow
@@ -1496,16 +1531,19 @@
 <h5 id="&#x793A;&#x4F8B;-2-&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;-distinctuntilchanged">&#x793A;&#x4F8B; 2: &#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x8FDB;&#x884C; distinctUntilChanged</h5>
 <p>( <a href="http://jsbin.com/mexocipave/1/edit?js,console" target="_blank">jsBin</a> |
 <a href="https://jsfiddle.net/btroncone/t4ava5b4/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> sampleObject <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Test&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">from</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/from&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> distinctUntilChanged <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> sampleObject <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Test&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5F15;&#x7528;</span>
-<span class="token keyword">const</span> myArrayWithDuplicateObjects <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+<span class="token keyword">const</span> myArrayWithDuplicateObjects <span class="token operator">=</span> <span class="token keyword">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
   sampleObject<span class="token punctuation">,</span>
   sampleObject<span class="token punctuation">,</span>
   sampleObject
 <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x57FA;&#x4E8E;&#x6700;&#x65B0;&#x53D1;&#x51FA;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x53EA;&#x8F93;&#x51FA;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;</span>
 <span class="token keyword">const</span> nonDistinctObjects <span class="token operator">=</span> myArrayWithDuplicateObjects
-  <span class="token punctuation">.</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: &apos;DISTINCT OBJECTS: {name: &apos;Test&apos;}</span>
   <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;DISTINCT OBJECTS:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -1561,7 +1599,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"distinctUntilChanged","level":"2.2.6.3","depth":3,"next":{"title":"filter","level":"2.2.6.4","depth":3,"path":"operators/filtering/filter.md","ref":"operators/filtering/filter.md","articles":[]},"previous":{"title":"debounceTime","level":"2.2.6.2","depth":3,"path":"operators/filtering/debouncetime.md","ref":"operators/filtering/debouncetime.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/filtering/distinctuntilchanged.md","mtime":"2018-01-30T12:52:45.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-02-17T10:19:52.244Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"distinctUntilChanged","level":"2.2.6.3","depth":3,"next":{"title":"filter","level":"2.2.6.4","depth":3,"path":"operators/filtering/filter.md","ref":"operators/filtering/filter.md","articles":[]},"previous":{"title":"debounceTime","level":"2.2.6.2","depth":3,"path":"operators/filtering/debouncetime.md","ref":"operators/filtering/debouncetime.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/filtering/distinctuntilchanged.md","mtime":"2018-03-28T11:25:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-03-28T11:25:53.176Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,0 +1,1853 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>游戏循环 · 学习 RxJS 操作符</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../concepts/" />
+    
+    
+    <link rel="prev" href="progressbar.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" >
+            
+                <a target="_blank" href="https://github.com/RxJS-CN/learn-rxjs-operators">
+            
+                    
+                    学习 RxJS 操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../about/">
+            
+                <a href="../about/">
+            
+                    
+                    关于中文版
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">学习 RxJS</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../operators/">
+            
+                <a href="../operators/">
+            
+                    
+                    操作符
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../operators/combination/">
+            
+                <a href="../operators/combination/">
+            
+                    
+                    组合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1.1" data-path="../operators/combination/combineall.html">
+            
+                <a href="../operators/combination/combineall.html">
+            
+                    
+                    combineAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.2" data-path="../operators/combination/combinelatest.html">
+            
+                <a href="../operators/combination/combinelatest.html">
+            
+                    
+                    combineLatest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.3" data-path="../operators/combination/concat.html">
+            
+                <a href="../operators/combination/concat.html">
+            
+                    
+                    concat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.4" data-path="../operators/combination/concatall.html">
+            
+                <a href="../operators/combination/concatall.html">
+            
+                    
+                    concatAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.5" data-path="../operators/combination/forkjoin.html">
+            
+                <a href="../operators/combination/forkjoin.html">
+            
+                    
+                    forkJoin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.6" data-path="../operators/combination/merge.html">
+            
+                <a href="../operators/combination/merge.html">
+            
+                    
+                    merge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.7" data-path="../operators/combination/mergeall.html">
+            
+                <a href="../operators/combination/mergeall.html">
+            
+                    
+                    mergeAll
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.8" data-path="../operators/combination/pairwise.html">
+            
+                <a href="../operators/combination/pairwise.html">
+            
+                    
+                    pairwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.9" data-path="../operators/combination/race.html">
+            
+                <a href="../operators/combination/race.html">
+            
+                    
+                    race
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.10" data-path="../operators/combination/startwith.html">
+            
+                <a href="../operators/combination/startwith.html">
+            
+                    
+                    startWith
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.11" data-path="../operators/combination/withlatestfrom.html">
+            
+                <a href="../operators/combination/withlatestfrom.html">
+            
+                    
+                    withLatestFrom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.12" data-path="../operators/combination/zip.html">
+            
+                <a href="../operators/combination/zip.html">
+            
+                    
+                    zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../operators/conditional/">
+            
+                <a href="../operators/conditional/">
+            
+                    
+                    条件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="../operators/conditional/defaultifempty.html">
+            
+                <a href="../operators/conditional/defaultifempty.html">
+            
+                    
+                    defaultIfEmpty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.2" data-path="../operators/conditional/every.html">
+            
+                <a href="../operators/conditional/every.html">
+            
+                    
+                    every
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../operators/creation/">
+            
+                <a href="../operators/creation/">
+            
+                    
+                    创建
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.3.1" data-path="../operators/creation/create.html">
+            
+                <a href="../operators/creation/create.html">
+            
+                    
+                    create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.2" data-path="../operators/creation/empty.html">
+            
+                <a href="../operators/creation/empty.html">
+            
+                    
+                    empty
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.3" data-path="../operators/creation/from.html">
+            
+                <a href="../operators/creation/from.html">
+            
+                    
+                    from
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.4" data-path="../operators/creation/fromevent.html">
+            
+                <a href="../operators/creation/fromevent.html">
+            
+                    
+                    fromEvent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.5" data-path="../operators/creation/frompromise.html">
+            
+                <a href="../operators/creation/frompromise.html">
+            
+                    
+                    fromPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.6" data-path="../operators/creation/interval.html">
+            
+                <a href="../operators/creation/interval.html">
+            
+                    
+                    interval
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.7" data-path="../operators/creation/of.html">
+            
+                <a href="../operators/creation/of.html">
+            
+                    
+                    of
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.8" data-path="../operators/creation/range.html">
+            
+                <a href="../operators/creation/range.html">
+            
+                    
+                    range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.9" data-path="../operators/creation/throw.html">
+            
+                <a href="../operators/creation/throw.html">
+            
+                    
+                    throw
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.10" data-path="../operators/creation/timer.html">
+            
+                <a href="../operators/creation/timer.html">
+            
+                    
+                    timer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../operators/error_handling/">
+            
+                <a href="../operators/error_handling/">
+            
+                    
+                    错误处理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.4.1" data-path="../operators/error_handling/catch.html">
+            
+                <a href="../operators/error_handling/catch.html">
+            
+                    
+                    catchError
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4.2" data-path="../operators/error_handling/retry.html">
+            
+                <a href="../operators/error_handling/retry.html">
+            
+                    
+                    retry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4.3" data-path="../operators/error_handling/retrywhen.html">
+            
+                <a href="../operators/error_handling/retrywhen.html">
+            
+                    
+                    retryWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../operators/multicasting/">
+            
+                <a href="../operators/multicasting/">
+            
+                    
+                    多播
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.5.1" data-path="../operators/multicasting/publish.html">
+            
+                <a href="../operators/multicasting/publish.html">
+            
+                    
+                    publish
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2" data-path="../operators/multicasting/multicast.html">
+            
+                <a href="../operators/multicasting/multicast.html">
+            
+                    
+                    multicast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.3" data-path="../operators/multicasting/share.html">
+            
+                <a href="../operators/multicasting/share.html">
+            
+                    
+                    share
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../operators/multicasting/sharereplay.html">
+            
+                <a href="../operators/multicasting/sharereplay.html">
+            
+                    
+                    shareReplay
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../operators/filtering/">
+            
+                <a href="../operators/filtering/">
+            
+                    
+                    过滤
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.6.1" data-path="../operators/filtering/debounce.html">
+            
+                <a href="../operators/filtering/debounce.html">
+            
+                    
+                    debounce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.2" data-path="../operators/filtering/debouncetime.html">
+            
+                <a href="../operators/filtering/debouncetime.html">
+            
+                    
+                    debounceTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.3" data-path="../operators/filtering/distinctuntilchanged.html">
+            
+                <a href="../operators/filtering/distinctuntilchanged.html">
+            
+                    
+                    distinctUntilChanged
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.4" data-path="../operators/filtering/filter.html">
+            
+                <a href="../operators/filtering/filter.html">
+            
+                    
+                    filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.5" data-path="../operators/filtering/first.html">
+            
+                <a href="../operators/filtering/first.html">
+            
+                    
+                    first
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.6" data-path="../operators/filtering/ignoreelements.html">
+            
+                <a href="../operators/filtering/ignoreelements.html">
+            
+                    
+                    ignoreElements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.7" data-path="../operators/filtering/last.html">
+            
+                <a href="../operators/filtering/last.html">
+            
+                    
+                    last
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.8" data-path="../operators/filtering/sample.html">
+            
+                <a href="../operators/filtering/sample.html">
+            
+                    
+                    sample
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.9" data-path="../operators/filtering/single.html">
+            
+                <a href="../operators/filtering/single.html">
+            
+                    
+                    single
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.10" data-path="../operators/filtering/skip.html">
+            
+                <a href="../operators/filtering/skip.html">
+            
+                    
+                    skip
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.11" data-path="../operators/filtering/skipuntil.html">
+            
+                <a href="../operators/filtering/skipuntil.html">
+            
+                    
+                    skipUntil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.12" data-path="../operators/filtering/skipwhile.html">
+            
+                <a href="../operators/filtering/skipwhile.html">
+            
+                    
+                    skipWhile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.13" data-path="../operators/filtering/take.html">
+            
+                <a href="../operators/filtering/take.html">
+            
+                    
+                    take
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.14" data-path="../operators/filtering/takeuntil.html">
+            
+                <a href="../operators/filtering/takeuntil.html">
+            
+                    
+                    takeUntil
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.15" data-path="../operators/filtering/takewhile.html">
+            
+                <a href="../operators/filtering/takewhile.html">
+            
+                    
+                    takeWhile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.16" data-path="../operators/filtering/throttle.html">
+            
+                <a href="../operators/filtering/throttle.html">
+            
+                    
+                    throttle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.17" data-path="../operators/filtering/throttletime.html">
+            
+                <a href="../operators/filtering/throttletime.html">
+            
+                    
+                    throttleTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../operators/transformation/">
+            
+                <a href="../operators/transformation/">
+            
+                    
+                    转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.7.1" data-path="../operators/transformation/buffer.html">
+            
+                <a href="../operators/transformation/buffer.html">
+            
+                    
+                    buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.2" data-path="../operators/transformation/buffercount.html">
+            
+                <a href="../operators/transformation/buffercount.html">
+            
+                    
+                    bufferCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.3" data-path="../operators/transformation/buffertime.html">
+            
+                <a href="../operators/transformation/buffertime.html">
+            
+                    
+                    bufferTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.4" data-path="../operators/transformation/buffertoggle.html">
+            
+                <a href="../operators/transformation/buffertoggle.html">
+            
+                    
+                    bufferToggle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.5" data-path="../operators/transformation/bufferwhen.html">
+            
+                <a href="../operators/transformation/bufferwhen.html">
+            
+                    
+                    bufferWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.6" data-path="../operators/transformation/concatmap.html">
+            
+                <a href="../operators/transformation/concatmap.html">
+            
+                    
+                    concatMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.7" data-path="../operators/transformation/concatmapto.html">
+            
+                <a href="../operators/transformation/concatmapto.html">
+            
+                    
+                    concatMapTo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.8" data-path="../operators/transformation/exhaustmap.html">
+            
+                <a href="../operators/transformation/exhaustmap.html">
+            
+                    
+                    exhaustMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.9" data-path="../operators/transformation/expand.html">
+            
+                <a href="../operators/transformation/expand.html">
+            
+                    
+                    expand
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.10" data-path="../operators/transformation/exhaustmap.html">
+            
+                <a href="../operators/transformation/exhaustmap.html">
+            
+                    
+                    exhaustMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.11" data-path="../operators/transformation/groupby.html">
+            
+                <a href="../operators/transformation/groupby.html">
+            
+                    
+                    groupBy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.12" data-path="../operators/transformation/map.html">
+            
+                <a href="../operators/transformation/map.html">
+            
+                    
+                    map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.13" data-path="../operators/transformation/mapto.html">
+            
+                <a href="../operators/transformation/mapto.html">
+            
+                    
+                    mapTo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.14" data-path="../operators/transformation/mergemap.html">
+            
+                <a href="../operators/transformation/mergemap.html">
+            
+                    
+                    mergeMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.15" data-path="../operators/transformation/partition.html">
+            
+                <a href="../operators/transformation/partition.html">
+            
+                    
+                    partition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.16" data-path="../operators/transformation/pluck.html">
+            
+                <a href="../operators/transformation/pluck.html">
+            
+                    
+                    pluck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.17" data-path="../operators/transformation/reduce.html">
+            
+                <a href="../operators/transformation/reduce.html">
+            
+                    
+                    reduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.18" data-path="../operators/transformation/scan.html">
+            
+                <a href="../operators/transformation/scan.html">
+            
+                    
+                    scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.19" data-path="../operators/transformation/switchmap.html">
+            
+                <a href="../operators/transformation/switchmap.html">
+            
+                    
+                    switchMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.20" data-path="../operators/transformation/window.html">
+            
+                <a href="../operators/transformation/window.html">
+            
+                    
+                    window
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.21" data-path="../operators/transformation/windowcount.html">
+            
+                <a href="../operators/transformation/windowcount.html">
+            
+                    
+                    windowCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.22" data-path="../operators/transformation/windowtime.html">
+            
+                <a href="../operators/transformation/windowtime.html">
+            
+                    
+                    windowTime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.23" data-path="../operators/transformation/windowtoggle.html">
+            
+                <a href="../operators/transformation/windowtoggle.html">
+            
+                    
+                    windowToggle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7.24" data-path="../operators/transformation/windowwhen.html">
+            
+                <a href="../operators/transformation/windowwhen.html">
+            
+                    
+                    windowWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="../operators/utility/">
+            
+                <a href="../operators/utility/">
+            
+                    
+                    工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.8.1" data-path="../operators/utility/do.html">
+            
+                <a href="../operators/utility/do.html">
+            
+                    
+                    do
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.2" data-path="../operators/utility/delay.html">
+            
+                <a href="../operators/utility/delay.html">
+            
+                    
+                    delay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.3" data-path="../operators/utility/delaywhen.html">
+            
+                <a href="../operators/utility/delaywhen.html">
+            
+                    
+                    delayWhen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.4" data-path="../operators/utility/dematerialize.html">
+            
+                <a href="../operators/utility/dematerialize.html">
+            
+                    
+                    dematerialize
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.5" data-path="../operators/utility/let.html">
+            
+                <a href="../operators/utility/let.html">
+            
+                    
+                    let
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.6" data-path="../operators/utility/timeout.html">
+            
+                <a href="../operators/utility/timeout.html">
+            
+                    
+                    timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8.7" data-path="../operators/utility/topromise.html">
+            
+                <a href="../operators/utility/topromise.html">
+            
+                    
+                    toPromise
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="../operators/complete.html">
+            
+                <a href="../operators/complete.html">
+            
+                    
+                    完整列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    食谱
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="smartcounter.html">
+            
+                <a href="smartcounter.html">
+            
+                    
+                    智能计数器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="progressbar.html">
+            
+                <a href="progressbar.html">
+            
+                    
+                    进度条
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3.3" data-path="gameloop.html">
+            
+                <a href="gameloop.html">
+            
+                    
+                    游戏循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../concepts/">
+            
+                <a href="../concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../concepts/operator-imports.html">
+            
+                <a href="../concepts/operator-imports.html">
+            
+                    
+                    理解操作符导入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >游戏循环</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6E38;&#x620F;&#x5FAA;&#x73AF;">&#x6E38;&#x620F;&#x5FAA;&#x73AF;</h1>
+<p><em>&#x4F5C;&#x8005; <a href="https://twitter.com/barryrowe" target="_blank">@barryrowe</a></em></p>
+<p>&#x672C;&#x98DF;&#x8C31;&#x6F14;&#x793A;&#x4E86;&#x4F7F;&#x7528;&#x7EC4;&#x5408;&#x6D41;&#x6765;&#x521B;&#x5EFA;&#x6E38;&#x620F;&#x5FAA;&#x73AF;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x672C;&#x98DF;&#x8C31;&#x65E8;&#x5728;&#x7A81;&#x51FA;&#x5982;&#x4F55;&#x7528;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x91CD;&#x65B0;&#x601D;&#x8003;&#x73B0;&#x6709;&#x95EE;&#x9898;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x63D0;&#x4F9B;&#x6574;&#x4F53;&#x5FAA;&#x73AF;&#x4EE5;&#x53CA;&#x81EA;&#x4E0A;&#x5E27;&#x4EE5;&#x6765;&#x7684;&#x589E;&#x91CF;&#x65F6;&#x95F4;&#x3002;&#x4E0E;&#x6B64;&#x76F8;&#x7ED3;&#x5408;&#x7684;&#x662F;&#x7528;&#x6237;&#x8F93;&#x5165;&#x6D41;&#xFF0C;&#x4EE5;&#x53CA;&#x5F53;&#x524D;&#x7684;&#x6E38;&#x620F;&#x72B6;&#x6001;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x66F4;&#x65B0;&#x6211;&#x4EEC;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x6BCF;&#x5E27;&#x7684;&#x53D1;&#x51FA;&#x6765;&#x5C06;&#x5176;&#x6E32;&#x67D3;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x3002;</p>
+<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk" target="_blank"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+
+<h3 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h3>
+<p>(
+<a href="https://stackblitz.com/edit/rxjs-5-based-game-loop?file=index.ts" target="_blank">StackBlitz</a>
+)</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> BehaviorSubject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/BehaviorSubject&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Observable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/Observable&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">of</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/of&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> fromEvent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/fromEvent&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> buffer<span class="token punctuation">,</span> bufferCount<span class="token punctuation">,</span> expand<span class="token punctuation">,</span> filter<span class="token punctuation">,</span> map<span class="token punctuation">,</span>  share<span class="token punctuation">,</span> tap<span class="token punctuation">,</span> withLatestFrom <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> IFrameData <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;./frame.interface&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> KeyUtil <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;./keys.util&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> clampMag<span class="token punctuation">,</span> runBoundaryCheck<span class="token punctuation">,</span> clampTo30FPS <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;./game.util&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> boundaries <span class="token operator">=</span> <span class="token punctuation">{</span>
+  left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  bottom<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+  right<span class="token punctuation">:</span> <span class="token number">400</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bounceRateChanges <span class="token operator">=</span> <span class="token punctuation">{</span>
+  left<span class="token punctuation">:</span> <span class="token number">1.1</span><span class="token punctuation">,</span>
+  top<span class="token punctuation">:</span> <span class="token number">1.2</span><span class="token punctuation">,</span>
+  bottom<span class="token punctuation">:</span> <span class="token number">1.3</span><span class="token punctuation">,</span>
+  right<span class="token punctuation">:</span> <span class="token number">1.4</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> baseObjectVelocity <span class="token operator">=</span> <span class="token punctuation">{</span>
+  x<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  y<span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
+  maxX<span class="token punctuation">:</span> <span class="token number">250</span><span class="token punctuation">,</span>
+  maxY<span class="token punctuation">:</span> <span class="token number">200</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> gameArea<span class="token punctuation">:</span> HTMLElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;game&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fps<span class="token punctuation">:</span> HTMLElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;fps&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * &#x8FD9;&#x662F;&#x6E38;&#x620F;&#x5FAA;&#x73AF;&#x7684;&#x6838;&#x5FC3;&#x903B;&#x8F91;&#x3002;&#x6BCF;&#x4E00;&#x5E27;&#x90FD;&#x66F4;&#x65B0;&#x5BF9;&#x8C61;&#x548C;&#x6E38;&#x620F;&#x72B6;&#x6001;&#x3002;
+ * &#x4F20;&#x5165;&#x7684; `deltaTime` &#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x7ED9;&#x5B9A;&#x4E86;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x548C;&#x4EFB;&#x610F;&#x7684;&#x8F93;&#x5165;&#x72B6;&#x6001;&#x3002;
+ * &#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x6E38;&#x620F;&#x72B6;&#x6001;&#x3002;
+ */</span>
+<span class="token keyword">const</span> update <span class="token operator">=</span> <span class="token punctuation">(</span>deltaTime<span class="token punctuation">:</span> number<span class="token punctuation">,</span> state<span class="token punctuation">:</span> any<span class="token punctuation">,</span> inputState<span class="token punctuation">:</span> any<span class="token punctuation">)</span><span class="token punctuation">:</span> any <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//console.log(&quot;Input State: &quot;, inputState);</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>state<span class="token punctuation">[</span><span class="token string">&apos;objects&apos;</span><span class="token punctuation">]</span> <span class="token operator">===</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state<span class="token punctuation">[</span><span class="token string">&apos;objects&apos;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> 
+        <span class="token comment" spellcheck="true">// &#x53D8;&#x5F62;&#x5C5E;&#x6027;</span>
+        x<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> 
+        <span class="token comment" spellcheck="true">// &#x72B6;&#x6001;&#x5C5E;&#x6027;</span>
+        isPaused<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> toggleColor<span class="token punctuation">:</span> <span class="token string">&apos;#FF0000&apos;</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> <span class="token string">&apos;#000000&apos;</span><span class="token punctuation">,</span> 
+        <span class="token comment" spellcheck="true">// &#x79FB;&#x52A8;&#x5C5E;&#x6027;</span>
+        velocity<span class="token punctuation">:</span> baseObjectVelocity 
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> 
+        <span class="token comment" spellcheck="true">// &#x53D8;&#x5F62;&#x5C5E;&#x6027;</span>
+        x<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">249</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// &#x72B6;&#x6001;&#x5C5E;&#x6027;</span>
+        isPaused<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> toggleColor<span class="token punctuation">:</span> <span class="token string">&apos;#00FF00&apos;</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> <span class="token string">&apos;#0000FF&apos;</span><span class="token punctuation">,</span> 
+        <span class="token comment" spellcheck="true">// &#x79FB;&#x52A8;&#x5C5E;&#x6027;</span>
+        velocity<span class="token punctuation">:</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token operator">-</span>baseObjectVelocity<span class="token punctuation">.</span>x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token operator">*</span>baseObjectVelocity<span class="token punctuation">.</span>y<span class="token punctuation">}</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+    state<span class="token punctuation">[</span><span class="token string">&apos;objects&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// &#x5904;&#x7406;&#x8F93;&#x5165;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>inputState<span class="token punctuation">[</span><span class="token string">&apos;spacebar&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        obj<span class="token punctuation">.</span>isPaused <span class="token operator">=</span> <span class="token operator">!</span>obj<span class="token punctuation">.</span>isPaused<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> newColor <span class="token operator">=</span> obj<span class="token punctuation">.</span>toggleColor<span class="token punctuation">;</span>        
+        obj<span class="token punctuation">.</span>toggleColor <span class="token operator">=</span> obj<span class="token punctuation">.</span>color<span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span>color <span class="token operator">=</span> newColor<span class="token punctuation">;</span>        
+      <span class="token punctuation">}</span>
+
+      <span class="token comment" spellcheck="true">// &#x5904;&#x7406;&#x6E38;&#x620F;&#x5FAA;&#x73AF;&#x7684;&#x66F4;&#x65B0;</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>obj<span class="token punctuation">.</span>isPaused<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">// &#x5E94;&#x7528;&#x901F;&#x7387;&#x8FD0;&#x52A8;</span>
+        obj<span class="token punctuation">.</span>x <span class="token operator">=</span> obj<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>x<span class="token operator">*</span>deltaTime<span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span>y <span class="token operator">=</span> obj<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>y<span class="token operator">*</span>deltaTime<span class="token punctuation">;</span>  
+
+        <span class="token comment" spellcheck="true">// &#x8FB9;&#x754C;&#x68C0;&#x67E5;</span>
+        <span class="token keyword">const</span> didHit <span class="token operator">=</span> <span class="token function">runBoundaryCheck</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> boundaries<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+        <span class="token comment" spellcheck="true">// &#x5904;&#x7406;&#x8FB9;&#x754C;&#x8C03;&#x6574;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>didHit<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span>didHit <span class="token operator">===</span> <span class="token string">&apos;right&apos;</span> <span class="token operator">||</span> didHit <span class="token operator">===</span> <span class="token string">&apos;left&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>x <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span>bounceRateChanges<span class="token punctuation">[</span>didHit<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>y <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span>bounceRateChanges<span class="token punctuation">[</span>didHit<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment" spellcheck="true">// &#x5982;&#x679C;&#x6211;&#x4EEC;&#x7684;&#x8FB9;&#x754C;&#x53CD;&#x5F39;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x7684;&#x901F;&#x5EA6;&#x53D8;&#x5F97;&#x592A;&#x5FEB;&#xFF0C;&#x5C31;&#x94B3;&#x5236;&#x901F;&#x5EA6;&#x3002;</span>
+      obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token function">clampMag</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> baseObjectVelocity<span class="token punctuation">.</span>maxX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">clampMag</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>velocity<span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> baseObjectVelocity<span class="token punctuation">.</span>maxY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/**
+ * &#x8FD9;&#x662F;&#x6E32;&#x67D3;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x63A5;&#x6536;&#x7ED9;&#x5B9A;&#x7684;&#x6E38;&#x620F;&#x72B6;&#x6001;&#x5E76;&#x6839;&#x636E;&#x5B83;&#x4EEC;&#x7684;&#x6700;&#x65B0;&#x5C5E;&#x6027;&#x6765;&#x6E32;&#x67D3;&#x9875;&#x9762;&#x3002;
+ */</span>
+<span class="token keyword">const</span> render <span class="token operator">=</span> <span class="token punctuation">(</span>state<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> ctx<span class="token punctuation">:</span> CanvasRenderingContext2D <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token comment" spellcheck="true">/*&lt;HTMLCanvasElement&gt;*/</span>gameArea<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">&apos;2d&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// &#x6E05;&#x9664; canvas</span>
+  ctx<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> gameArea<span class="token punctuation">.</span>clientWidth<span class="token punctuation">,</span> gameArea<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// &#x6E32;&#x67D3;&#x6240;&#x6709;&#x5BF9;&#x8C61; (&#x90FD;&#x662F;&#x7B80;&#x5355;&#x7684;&#x77E9;&#x5F62;)</span>
+  state<span class="token punctuation">[</span><span class="token string">&apos;objects&apos;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> obj<span class="token punctuation">.</span>color<span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">fillRect</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>x<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>y<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>width<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+
+<span class="token comment" spellcheck="true">/**
+ * &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; observable&#xFF0C;&#x4E00;&#x65E6;&#x6D4F;&#x89C8;&#x5668;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x5E27;&#x6B65;&#x9AA4;&#xFF0C;&#x8BE5; observable &#x5C06;&#x53D1;&#x51FA;&#x4E0B;&#x4E00;&#x4E2A;&#x5E27;&#x3002;
+ * &#x9274;&#x4E8E;&#x524D;&#x4E00;&#x5E27;&#x8BA1;&#x7B97;&#x5F97;&#x51FA;&#x7684;&#x589E;&#x91CF;&#x65F6;&#x95F4;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x94B3;&#x5236;&#x81F3;30FPS&#xFF0C;&#x4EE5;&#x9632;&#x957F;&#x5E27;&#x7684;&#x51FA;&#x73B0;&#x3002;
+ */</span>
+<span class="token keyword">const</span> calculateStep<span class="token punctuation">:</span> <span class="token punctuation">(</span>prevFrame<span class="token punctuation">:</span> IFrameData<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Observable<span class="token operator">&lt;</span>IFrameData<span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">(</span>prevFrame<span class="token punctuation">:</span> IFrameData<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> 
+
+    <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span><span class="token punctuation">(</span>frameStartTime<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>      
+      <span class="token comment" spellcheck="true">// &#x6BEB;&#x79D2;&#x8F6C;&#x5316;&#x6210;&#x79D2;</span>
+      <span class="token keyword">const</span> deltaTime <span class="token operator">=</span> prevFrame <span class="token operator">?</span> <span class="token punctuation">(</span>frameStartTime <span class="token operator">-</span> prevFrame<span class="token punctuation">.</span>frameStartTime<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      observer<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        frameStartTime<span class="token punctuation">,</span>
+        deltaTime
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">map</span><span class="token punctuation">(</span>clampTo30FPS<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * &#x8FD9;&#x662F;&#x5E27;&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528; `expand` &#x64CD;&#x4F5C;&#x7B26;&#x6765;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x4E0A;&#x9762;&#x7684; `calculateStep` &#x51FD;&#x6570;&#xFF0C;
+ * &#x5B83;&#x4F1A;&#x57FA;&#x4E8E; `window.requestAnimationFrame` &#x7684;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x6BCF;&#x4E00;&#x4E2A;&#x65B0;&#x5E27;&#x3002;
+ * `expand` &#x53D1;&#x51FA;&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684; observable &#x7684;&#x503C;&#xFF0C;&#x5E76;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x5177;&#x6709;&#x76F8;&#x540C;&#x53D1;&#x51FA;&#x503C;&#x7684;&#x51FD;&#x6570;&#x3002;
+ * &#x8FD9;&#x975E;&#x5E38;&#x9002;&#x5408;&#x8BA1;&#x7B97;&#x6211;&#x4EEC;&#x7684;&#x5E27;&#x6B65;&#x9AA4;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x6B65;&#x9AA4;&#x90FD;&#x9700;&#x8981;&#x77E5;&#x9053;&#x4E0A;&#x4E00;&#x5E27;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x8BA1;&#x7B97;&#x4E0B;&#x4E00;&#x5E27;&#x3002;
+ * &#x4E00;&#x65E6;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x5E27;&#x5DF2;&#x7ECF;&#x8FD4;&#x56DE;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x60F3;&#x8981;&#x6C42;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E27;&#x3002;
+ */</span>
+<span class="token keyword">const</span> frames$ <span class="token operator">=</span> <span class="token keyword">of</span><span class="token punctuation">(</span>undefined<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">expand</span><span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">calculateStep</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// expand &#x53D1;&#x51FA;&#x63D0;&#x4F9B;&#x7ED9;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;</span>
+    <span class="token comment" spellcheck="true">// &#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x60F3;&#x5FFD;&#x7565;&#x503C;&#x4E3A; undefined &#x7684;&#x8F93;&#x5165;&#x5E27;</span>
+    <span class="token function">filter</span><span class="token punctuation">(</span>frame <span class="token operator">=</span><span class="token operator">&gt;</span> frame <span class="token operator">!==</span> undefined<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> IFrameData<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> frame<span class="token punctuation">.</span>deltaTime<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">share</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// &#x8FD9;&#x662F; keyDown &#x8F93;&#x5165;&#x4E8B;&#x4EF6;&#x7684;&#x6838;&#x5FC3;&#x6D41;&#x3002;</span>
+<span class="token comment" spellcheck="true">// &#x6BCF;&#x6B21;&#x6309;&#x952E;&#x540E;&#x5B83;&#x4F1A;&#x53D1;&#x51FA;&#x7C7B;&#x4F3C; `{&quot;spacebar&quot;: 32}` &#x7684;&#x5BF9;&#x8C61;</span>
+<span class="token keyword">const</span> keysDown$ <span class="token operator">=</span> <span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;keydown&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>event<span class="token punctuation">:</span> KeyboardEvent<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> name <span class="token operator">=</span> KeyUtil<span class="token punctuation">.</span><span class="token function">codeToKey</span><span class="token punctuation">(</span><span class="token string">&apos;&apos;</span><span class="token operator">+</span>event<span class="token punctuation">.</span>keyCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>name <span class="token operator">!==</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> keyMap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        keyMap<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> event<span class="token punctuation">.</span>code<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> keyMap<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> undefined<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>      
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>keyMap<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> keyMap <span class="token operator">!==</span> undefined<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C06; keyDown &#x6D41;&#x7F13;&#x51B2;&#x8D77;&#x6765;&#xFF0C;&#x76F4;&#x5230;&#x53D1;&#x51FA;&#x65B0;&#x7684;&#x5E27;&#x3002;</span>
+<span class="token comment" spellcheck="true">// &#x6211;&#x4EEC;&#x5C06;&#x5F97;&#x5230;&#x81EA;&#x4ECE;&#x4E0A;&#x4E00;&#x5E27;&#x53D1;&#x51FA;&#x540E;&#x7684;&#x6240;&#x6709; keyDown &#x4E8B;&#x4EF6;&#x3002;</span>
+<span class="token comment" spellcheck="true">// &#x6211;&#x4EEC;&#x5C06;&#x5176;&#x5F52;&#x5E76;&#x4E3A;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</span>
+<span class="token keyword">const</span> keysDownPerFrame$ <span class="token operator">=</span> keysDown$
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">buffer</span><span class="token punctuation">(</span>frames$<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>frames<span class="token punctuation">:</span> Array<span class="token operator">&lt;</span>any<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> frames<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x56E0;&#x4E3A;&#x6BCF;&#x4E00;&#x5E27;&#x6211;&#x4EEC;&#x90FD;&#x4F1A;&#x66F4;&#x65B0;&#x6E38;&#x620F;&#x72B6;&#x6001;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Observable &#x4F5C;&#x4E3A;&#x4E00;&#x7CFB;&#x5217;&#x72B6;&#x6001;</span>
+<span class="token comment" spellcheck="true">// &#x8FDB;&#x884C;&#x8FFD;&#x8E2A;&#xFF0C;&#x6700;&#x65B0;&#x7684;&#x53D1;&#x51FA;&#x503C;&#x5373;&#x4E3A;&#x5F53;&#x524D;&#x6E38;&#x620F;&#x72B6;&#x6001;&#x3002;</span>
+<span class="token keyword">const</span> gameState$ <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BehaviorSubject</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x8FD9;&#x662F;&#x8FD0;&#x884C;&#x6E38;&#x620F;&#x7684;&#x4EE3;&#x7801;&#xFF01;</span>
+<span class="token comment" spellcheck="true">// &#x6211;&#x4EEC;&#x8BA2;&#x9605; `frames$` &#x6D41;&#x4EE5;&#x5F00;&#x59CB;&#xFF0C;&#x5E76;&#x786E;&#x4FDD;&#x7EC4;&#x5408;&#x4E86;&#x8F93;&#x5165;&#x6D41;&#x7684;&#x6700;&#x65B0;&#x53D1;&#x51FA;&#xFF0C;&#x4EE5;&#x83B7;&#x53D6;&#x6E38;&#x620F;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x6240;</span>
+<span class="token comment" spellcheck="true">// &#x5FC5;&#x987B;&#x7684;&#x6570;&#x636E;&#x3002;</span>
+frames$
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">withLatestFrom</span><span class="token punctuation">(</span>keysDownPerFrame$<span class="token punctuation">,</span> gameState$<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// &#x8BFE;&#x540E;&#x4F5C;&#x4E1A;: &#x5904;&#x7406; keyUp &#x5E76;&#x6620;&#x5C04;&#x6210;&#x771F;&#x6B63;&#x7684;&#x6309;&#x952E;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x5BF9;&#x8C61;</span>
+    <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span>deltaTime<span class="token punctuation">,</span> keysDown<span class="token punctuation">,</span> gameState<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">update</span><span class="token punctuation">(</span>deltaTime<span class="token punctuation">,</span> gameState<span class="token punctuation">,</span> keysDown<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">tap</span><span class="token punctuation">(</span><span class="token punctuation">(</span>gameState<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> gameState$<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span>gameState<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span>gameState<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span>gameState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">// &#x5E73;&#x5747;&#x6BCF;10&#x5E27;&#x8BA1;&#x7B97;&#x4E00;&#x4E0B;FPS</span>
+frames$ 
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">bufferCount</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>frames<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> total <span class="token operator">=</span> frames
+        <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+          acc <span class="token operator">+</span><span class="token operator">=</span> curr<span class="token punctuation">;</span>
+          <span class="token keyword">return</span> acc<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token operator">/</span><span class="token punctuation">(</span>total<span class="token operator">/</span>frames<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span>avg<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    fps<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>avg<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h5 id="&#x8F85;&#x52A9;-js-&#x6587;&#x4EF6;">&#x8F85;&#x52A9; js &#x6587;&#x4EF6;</h5>
+<ul>
+<li><a href="https://stackblitz.com/edit/rxjs-5-based-game-loop?file=game.util.ts" target="_blank">game.util.ts</a></li>
+<li><a href="https://stackblitz.com/edit/rxjs-5-based-game-loop?file=keys.util.ts" target="_blank">keys.util.ts</a></li>
+<li><a href="https://stackblitz.com/edit/rxjs-5-based-game-loop?file=frame.interface.ts" target="_blank">frame.interface.ts</a></li>
+</ul>
+<h5 id="html">html</h5>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>400px<span class="token punctuation">&quot;</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>300px<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>game<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>fps<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>instructions<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  Each time a block hits a wall, it gets faster. You can hit SPACE to pause the boxes. They will change colors to show they are paused.
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;&#x5230;&#x7684;&#x64CD;&#x4F5C;&#x7B26;">&#x4F7F;&#x7528;&#x5230;&#x7684;&#x64CD;&#x4F5C;&#x7B26;</h3>
+<ul>
+<li><a href="../operators/transformation/buffer.html">buffer</a></li>
+<li><a href="../operators/transformation/bufferCount.md">bufferCount</a></li>
+<li><a href="../operators/transformation/expand.html">expand</a></li>
+<li><a href="../operators/filtering/filter.html">filter</a></li>
+<li><a href="../operators/creation/fromevent.html">fromEvent</a></li>
+<li><a href="../operators/transformation/map.html">map</a></li>
+<li><a href="../operators/multicasting/share.html">share</a></li>
+<li><a href="../operators/utility/do.html">tap</a></li>
+<li><a href="../operators/transformation/withlatestfrom.md">withLatestFrom</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="progressbar.html" class="navigation navigation-prev " aria-label="Previous page: 进度条">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../concepts/" class="navigation navigation-next " aria-label="Next page: 概念">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"游戏循环","level":"2.3.3","depth":2,"next":{"title":"概念","level":"2.4","depth":1,"path":"concepts/README.md","ref":"concepts/README.md","articles":[{"title":"理解操作符导入","level":"2.4.1","depth":2,"path":"concepts/operator-imports.md","ref":"concepts/operator-imports.md","articles":[]}]},"previous":{"title":"进度条","level":"2.3.2","depth":2,"path":"recipes/progressbar.md","ref":"recipes/progressbar.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"recipes/gameloop.md","mtime":"2018-03-28T11:25:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-03-28T11:25:53.176Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

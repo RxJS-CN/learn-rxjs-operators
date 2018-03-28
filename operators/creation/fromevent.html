@@ -42,6 +42,8 @@
 
     
         
+        <link rel="stylesheet" href="../../styles/website.css">
+        
     
         
     
@@ -557,7 +559,7 @@
                 <a href="../error_handling/catch.html">
             
                     
-                    catch
+                    catchError
             
                 </a>
             
@@ -642,6 +644,19 @@
             
                     
                     share
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../multicasting/sharereplay.html">
+            
+                <a href="../multicasting/sharereplay.html">
+            
+                    
+                    shareReplay
             
                 </a>
             
@@ -1380,6 +1395,32 @@
             
         </li>
     
+        <li class="chapter " data-level="2.3.2" data-path="../../recipes/progressbar.html">
+            
+                <a href="../../recipes/progressbar.html">
+            
+                    
+                    进度条
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../recipes/gameloop.html">
+            
+                <a href="../../recipes/gameloop.html">
+            
+                    
+                    游戏循环
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1465,20 +1506,27 @@
                                 <h1 id="fromevent">fromEvent</h1>
 <h4 id="&#x7B7E;&#x540D;-fromeventtarget-eventtargetlike-eventname-string-selector-function-observable">&#x7B7E;&#x540D;: <code>fromEvent(target: EventTargetLike, eventName: string, selector: function): Observable</code></h4>
 <h2 id="&#x5C06;&#x4E8B;&#x4EF6;&#x8F6C;&#x6362;&#x6210;-observable-&#x5E8F;&#x5217;&#x3002;">&#x5C06;&#x4E8B;&#x4EF6;&#x8F6C;&#x6362;&#x6210; observable &#x5E8F;&#x5217;&#x3002;</h2>
+<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk" target="_blank"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684;-observable">&#x793A;&#x4F8B; 1: &#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x8F6C;&#x6362;&#x800C;&#x6765;&#x7684; observable</h5>
 <p>( <a href="http://jsbin.com/xikapewoqa/1/edit?js,console,output" target="_blank">jsBin</a> |
 <a href="https://jsfiddle.net/btroncone/vbLz1pdx/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x521B;&#x5EFA;&#x53D1;&#x51FA;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684; observable</span>
-<span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> fromEvent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/fromEvent&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> map <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x521B;&#x5EFA;&#x53D1;&#x51FA;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684; observable</span>
+<span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x6620;&#x5C04;&#x6210;&#x7ED9;&#x5B9A;&#x7684;&#x4E8B;&#x4EF6;&#x65F6;&#x95F4;&#x6233;</span>
-<span class="token keyword">const</span> example <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>event <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token template-string"><span class="token string">`Event time: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>event<span class="token punctuation">.</span>timeStamp<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> example <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>event <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token template-string"><span class="token string">`Event time: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>event<span class="token punctuation">.</span>timeStamp<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA; (&#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x6570;&#x5B57;&#x4EE5;&#x8FD0;&#x884C;&#x65F6;&#x4E3A;&#x51C6;): &apos;Event time: 7276.390000000001&apos;</span>
 <span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x76F8;&#x5173;&#x98DF;&#x8C31;">&#x76F8;&#x5173;&#x98DF;&#x8C31;</h3>
 <ul>
 <li><a href="../../recipes/smartcounter.html">&#x667A;&#x80FD;&#x8BA1;&#x6570;&#x5668;</a></li>
+<li><a href="../../recipes/progressbar.html">&#x8FDB;&#x5EA6;&#x6761;</a></li>
+<li><a href="../../recipes/gameloop.html">&#x6E38;&#x620F;&#x5FAA;&#x73AF;</a></li>
 </ul>
 <h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
 <ul>
@@ -1531,7 +1579,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"fromEvent","level":"2.2.3.4","depth":3,"next":{"title":"fromPromise","level":"2.2.3.5","depth":3,"path":"operators/creation/frompromise.md","ref":"operators/creation/frompromise.md","articles":[]},"previous":{"title":"from","level":"2.2.3.3","depth":3,"path":"operators/creation/from.md","ref":"operators/creation/from.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/creation/fromevent.md","mtime":"2018-01-30T12:52:45.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-02-17T10:19:52.244Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"fromEvent","level":"2.2.3.4","depth":3,"next":{"title":"fromPromise","level":"2.2.3.5","depth":3,"path":"operators/creation/frompromise.md","ref":"operators/creation/frompromise.md","articles":[]},"previous":{"title":"from","level":"2.2.3.3","depth":3,"path":"operators/creation/from.md","ref":"operators/creation/from.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/creation/fromevent.md","mtime":"2018-03-28T11:25:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-03-28T11:25:53.176Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

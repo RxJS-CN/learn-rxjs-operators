@@ -42,6 +42,8 @@
 
     
         
+        <link rel="stylesheet" href="../../styles/website.css">
+        
     
         
     
@@ -557,7 +559,7 @@
                 <a href="../error_handling/catch.html">
             
                     
-                    catch
+                    catchError
             
                 </a>
             
@@ -642,6 +644,19 @@
             
                     
                     share
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../multicasting/sharereplay.html">
+            
+                <a href="../multicasting/sharereplay.html">
+            
+                    
+                    shareReplay
             
                 </a>
             
@@ -1380,6 +1395,32 @@
             
         </li>
     
+        <li class="chapter " data-level="2.3.2" data-path="../../recipes/progressbar.html">
+            
+                <a href="../../recipes/progressbar.html">
+            
+                    
+                    进度条
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../recipes/gameloop.html">
+            
+                <a href="../../recipes/gameloop.html">
+            
+                    
+                    游戏循环
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1468,50 +1509,63 @@
 <hr>
 <p><img align="absmiddle" alt=":bulb:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/bulb.png" title=":bulb:"> &#x6B64;&#x64CD;&#x4F5C;&#x7B26;&#x662F;&#x8BB8;&#x591A;&#x57FA;&#x4E8E; <a href="http://redux.js.org" target="_blank">Redux</a> &#x5B9E;&#x73B0;&#x7684; RxJS &#x7684;&#x6838;&#x5FC3;&#xFF01;</p>
 <hr>
+<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk" target="_blank"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#x8BA1;&#x7B97;&#x603B;&#x6570;">&#x793A;&#x4F8B; 1: &#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#x8BA1;&#x7B97;&#x603B;&#x6570;</h5>
-<p>( <a href="http://jsbin.com/kozidakose/1/edit?js,console" target="_blank">jsBin</a> |
-<a href="https://jsfiddle.net/btroncone/d2g2a2c6/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>( <a href="https://stackblitz.com/edit/typescript-jkisea?file=index.ts" target="_blank">StackBlitz</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">of</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/of&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> scan <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token keyword">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x57FA;&#x7840;&#x7684; scan &#x793A;&#x4F8B;&#xFF0C;&#x4ECE;0&#x5F00;&#x59CB;&#xFF0C;&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#x8BA1;&#x7B97;&#x603B;&#x6570;</span>
-<span class="token keyword">const</span> example <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> acc <span class="token operator">+</span> curr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> example <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> acc <span class="token operator">+</span> curr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;&#x7D2F;&#x52A0;&#x503C;</span>
-<span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Accumulated total:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// subject &#x53D1;&#x51FA;&#x7684;&#x503C;&#x4F1A;&#x6DFB;&#x52A0;&#x5230;&#x5F53;&#x524D;&#x7684;&#x603B;&#x6570;&#x4E2D;</span>
-subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1</span>
-subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//3</span>
-subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//6</span>
+<span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;: 1,3,6</span>
+<span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h5 id="&#x793A;&#x4F8B;-2-&#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7D2F;&#x52A0;">&#x793A;&#x4F8B; 2: &#x5BF9;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x7D2F;&#x52A0;</h5>
-<p>( <a href="http://jsbin.com/fusunoguqu/1/edit?js,console" target="_blank">jsBin</a> |
+<p>( <a href="https://stackblitz.com/edit/typescript-pjmrta?file=index.ts" target="_blank">StackBlitz</a> |
+<a href="http://jsbin.com/fusunoguqu/1/edit?js,console" target="_blank">jsBin</a> |
 <a href="https://jsfiddle.net/btroncone/36rbu38b/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Subject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/Subject&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> scan <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// scan &#x793A;&#x4F8B;&#xFF0C;&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;</span>
-<span class="token keyword">const</span> example <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> example <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+  <span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> acc<span class="token punctuation">,</span> curr<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;&#x7D2F;&#x52A0;&#x503C;</span>
 <span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Accumulated object:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// subject &#x53D1;&#x51FA;&#x7684;&#x503C;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x6210;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</span>
-subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&apos;Joe&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {name: &apos;Joe&apos;}</span>
-subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span>age<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {name: &apos;Joe&apos;, age: 30}</span>
-subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span>favoriteLanguage<span class="token punctuation">:</span> <span class="token string">&apos;JavaScript&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {name: &apos;Joe&apos;, age: 30, favoriteLanguage: &apos;JavaScript&apos;}</span>
+<span class="token comment" spellcheck="true">// {name: &apos;Joe&apos;}</span>
+subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">&apos;Joe&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// {name: &apos;Joe&apos;, age: 30}</span>
+subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// {name: &apos;Joe&apos;, age: 30, favoriteLanguage: &apos;JavaScript&apos;}</span>
+subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> favoriteLanguage<span class="token punctuation">:</span> <span class="token string">&apos;JavaScript&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h5 id="&#x793A;&#x4F8B;-3-&#x968F;&#x673A;&#x53D1;&#x51FA;&#x7D2F;&#x52A0;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#x3002;">&#x793A;&#x4F8B; 3: &#x968F;&#x673A;&#x53D1;&#x51FA;&#x7D2F;&#x52A0;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#x3002;</h5>
-<p>( <a href="http://jsbin.com/mudolideqo/1/edit?js,console" target="_blank">jsBin</a> |
-<a href="https://jsfiddle.net/btroncone/afjgf4tz/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x7D2F;&#x52A0;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x968F;&#x673A;&#x53D1;&#x51FA;&#x6B64;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#x3002;</span>
-<span class="token keyword">const</span> scanObs <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>r <span class="token operator">=</span><span class="token operator">&gt;</span> r<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> r<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<p>( <a href="https://stackblitz.com/edit/typescript-sxhtbf?file=index.ts" target="_blank">StackBlitz</a> )</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> interval <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/interval&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> scan<span class="token punctuation">,</span> map<span class="token punctuation">,</span> distinctUntilChanged <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x7D2F;&#x52A0;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x968F;&#x673A;&#x53D1;&#x51FA;&#x6B64;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;</span>
+<span class="token keyword">const</span> scanObs <span class="token operator">=</span> <span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token operator">...</span>a<span class="token punctuation">,</span> c<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">map</span><span class="token punctuation">(</span>r <span class="token operator">=</span><span class="token operator">&gt;</span> r<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> r<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="&#x76F8;&#x5173;&#x98DF;&#x8C31;">&#x76F8;&#x5173;&#x98DF;&#x8C31;</h3>
 <ul>
 <li><a href="../../recipes/smartcounter.html">&#x667A;&#x80FD;&#x8BA1;&#x6570;&#x5668;</a></li>
+<li><a href="../../recipes/progressbar.html">&#x8FDB;&#x5EA6;&#x6761;</a></li>
 </ul>
 <h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
 <ul>
@@ -1567,7 +1621,7 @@ subject<span class="token punctuation">.</span><span class="token function">next
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"scan","level":"2.2.7.18","depth":3,"next":{"title":"switchMap","level":"2.2.7.19","depth":3,"path":"operators/transformation/switchmap.md","ref":"operators/transformation/switchmap.md","articles":[]},"previous":{"title":"reduce","level":"2.2.7.17","depth":3,"path":"operators/transformation/reduce.md","ref":"operators/transformation/reduce.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/scan.md","mtime":"2018-01-30T12:52:45.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-02-17T10:19:52.244Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"scan","level":"2.2.7.18","depth":3,"next":{"title":"switchMap","level":"2.2.7.19","depth":3,"path":"operators/transformation/switchmap.md","ref":"operators/transformation/switchmap.md","articles":[]},"previous":{"title":"reduce","level":"2.2.7.17","depth":3,"path":"operators/transformation/reduce.md","ref":"operators/transformation/reduce.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/scan.md","mtime":"2018-03-28T11:25:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-03-28T11:25:53.176Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

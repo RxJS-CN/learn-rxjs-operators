@@ -42,6 +42,8 @@
 
     
         
+        <link rel="stylesheet" href="../../styles/website.css">
+        
     
         
     
@@ -557,7 +559,7 @@
                 <a href="../error_handling/catch.html">
             
                     
-                    catch
+                    catchError
             
                 </a>
             
@@ -642,6 +644,19 @@
             
                     
                     share
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../multicasting/sharereplay.html">
+            
+                <a href="../multicasting/sharereplay.html">
+            
+                    
+                    shareReplay
             
                 </a>
             
@@ -1380,6 +1395,32 @@
             
         </li>
     
+        <li class="chapter " data-level="2.3.2" data-path="../../recipes/progressbar.html">
+            
+                <a href="../../recipes/progressbar.html">
+            
+                    
+                    进度条
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../recipes/gameloop.html">
+            
+                <a href="../../recipes/gameloop.html">
+            
+                    
+                    游戏循环
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1465,25 +1506,36 @@
                                 <h1 id="buffer">buffer</h1>
 <h4 id="&#x7B7E;&#x540D;-bufferclosingnotifier-observable-observable">&#x7B7E;&#x540D;: <code>buffer(closingNotifier: Observable): Observable</code></h4>
 <h2 id="&#x6536;&#x96C6;&#x8F93;&#x51FA;&#x503C;&#xFF0C;&#x76F4;&#x5230;&#x63D0;&#x4F9B;&#x7684;-observable-&#x53D1;&#x51FA;&#x624D;&#x5C06;&#x6536;&#x96C6;&#x5230;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x53D1;&#x51FA;&#x3002;">&#x6536;&#x96C6;&#x8F93;&#x51FA;&#x503C;&#xFF0C;&#x76F4;&#x5230;&#x63D0;&#x4F9B;&#x7684; observable &#x53D1;&#x51FA;&#x624D;&#x5C06;&#x6536;&#x96C6;&#x5230;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x6570;&#x7EC4;&#x53D1;&#x51FA;&#x3002;</h2>
+<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk" target="_blank"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x7F13;&#x51B2;&#x503C;&#x76F4;&#x5230;&#x70B9;&#x51FB;&#x9875;&#x9762;">&#x793A;&#x4F8B; 1: &#x7F13;&#x51B2;&#x503C;&#x76F4;&#x5230;&#x70B9;&#x51FB;&#x9875;&#x9762;</h5>
-<p>( <a href="http://jsbin.com/fazimarajo/edit?js,console,output" target="_blank">jsBin</a> |
+<p>( <a href="https://stackblitz.com/edit/typescript-p1fckr?file=index.ts" target="_blank">StackBlitz</a> |
+<a href="http://jsbin.com/fazimarajo/edit?js,console,output" target="_blank">jsBin</a> |
 <a href="https://jsfiddle.net/btroncone/7451s67k/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x521B;&#x5EFA;&#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;&#x7684; observable</span>
-<span class="token keyword">const</span> myInterval <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> interval <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/interval&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> fromEvent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/fromEvent&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> buffer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x521B;&#x5EFA;&#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;&#x7684; observable</span>
+<span class="token keyword">const</span> myInterval <span class="token operator">=</span> <span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x521B;&#x5EFA;&#x9875;&#x9762;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684; observable</span>
-<span class="token keyword">const</span> bufferBy <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bufferBy <span class="token operator">=</span> <span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/*
   &#x6536;&#x96C6;&#x7531; myInterval &#x53D1;&#x51FA;&#x7684;&#x6240;&#x6709;&#x503C;&#xFF0C;&#x76F4;&#x5230;&#x6211;&#x4EEC;&#x70B9;&#x51FB;&#x9875;&#x9762;&#x3002;&#x6B64;&#x65F6; bufferBy &#x4F1A;&#x53D1;&#x51FA;&#x503C;&#x4EE5;&#x5B8C;&#x6210;&#x7F13;&#x5B58;&#x3002;
   &#x5C06;&#x81EA;&#x4E0A;&#x6B21;&#x7F13;&#x51B2;&#x4EE5;&#x6765;&#x6536;&#x96C6;&#x7684;&#x6240;&#x6709;&#x503C;&#x4F20;&#x9012;&#x7ED9;&#x6570;&#x7EC4;&#x3002;
 */</span>
-<span class="token keyword">const</span> myBufferedInterval <span class="token operator">=</span> myInterval<span class="token punctuation">.</span><span class="token function">buffer</span><span class="token punctuation">(</span>bufferBy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> myBufferedInterval <span class="token operator">=</span> myInterval<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">buffer</span><span class="token punctuation">(</span>bufferBy<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &#x6253;&#x5370;&#x503C;&#x5230;&#x63A7;&#x5236;&#x53F0;</span>
 <span class="token comment" spellcheck="true">// &#x4F8B;&#x5982; &#x8F93;&#x51FA;: [1,2,3] ... [4,5,6,7,8]</span>
 <span class="token keyword">const</span> subscribe <span class="token operator">=</span> myBufferedInterval<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos; Buffered Values:&apos;</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<h3 id="&#x76F8;&#x5173;&#x98DF;&#x8C31;">&#x76F8;&#x5173;&#x98DF;&#x8C31;</h3>
+<ul>
+<li><a href="../../recipes/gameloop.html">&#x6E38;&#x620F;&#x5FAA;&#x73AF;</a></li>
+</ul>
 <h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
 <ul>
 <li><a href="http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-buffer" target="_blank">buffer</a> <img align="absmiddle" alt=":newspaper:" class="emoji" src="../../gitbook/gitbook-plugin-advanced-emoji/emojis/newspaper.png" title=":newspaper:"> - &#x5B98;&#x65B9;&#x6587;&#x6863;</li>
@@ -1536,7 +1588,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"buffer","level":"2.2.7.1","depth":3,"next":{"title":"bufferCount","level":"2.2.7.2","depth":3,"path":"operators/transformation/buffercount.md","ref":"operators/transformation/buffercount.md","articles":[]},"previous":{"title":"转换","level":"2.2.7","depth":2,"path":"operators/transformation/README.md","ref":"operators/transformation/README.md","articles":[{"title":"buffer","level":"2.2.7.1","depth":3,"path":"operators/transformation/buffer.md","ref":"operators/transformation/buffer.md","articles":[]},{"title":"bufferCount","level":"2.2.7.2","depth":3,"path":"operators/transformation/buffercount.md","ref":"operators/transformation/buffercount.md","articles":[]},{"title":"bufferTime","level":"2.2.7.3","depth":3,"path":"operators/transformation/buffertime.md","ref":"operators/transformation/buffertime.md","articles":[]},{"title":"bufferToggle","level":"2.2.7.4","depth":3,"path":"operators/transformation/buffertoggle.md","ref":"operators/transformation/buffertoggle.md","articles":[]},{"title":"bufferWhen","level":"2.2.7.5","depth":3,"path":"operators/transformation/bufferwhen.md","ref":"operators/transformation/bufferwhen.md","articles":[]},{"title":"concatMap","level":"2.2.7.6","depth":3,"path":"operators/transformation/concatmap.md","ref":"operators/transformation/concatmap.md","articles":[]},{"title":"concatMapTo","level":"2.2.7.7","depth":3,"path":"operators/transformation/concatmapto.md","ref":"operators/transformation/concatmapto.md","articles":[]},{"title":"exhaustMap","level":"2.2.7.8","depth":3,"path":"operators/transformation/exhaustmap.md","ref":"operators/transformation/exhaustmap.md","articles":[]},{"title":"expand","level":"2.2.7.9","depth":3,"path":"operators/transformation/expand.md","ref":"operators/transformation/expand.md","articles":[]},{"title":"exhaustMap","level":"2.2.7.10","depth":3,"path":"operators/transformation/exhaustmap.md","ref":"operators/transformation/exhaustmap.md","articles":[]},{"title":"groupBy","level":"2.2.7.11","depth":3,"path":"operators/transformation/groupby.md","ref":"operators/transformation/groupby.md","articles":[]},{"title":"map","level":"2.2.7.12","depth":3,"path":"operators/transformation/map.md","ref":"operators/transformation/map.md","articles":[]},{"title":"mapTo","level":"2.2.7.13","depth":3,"path":"operators/transformation/mapto.md","ref":"operators/transformation/mapto.md","articles":[]},{"title":"mergeMap","level":"2.2.7.14","depth":3,"path":"operators/transformation/mergemap.md","ref":"operators/transformation/mergemap.md","articles":[]},{"title":"partition","level":"2.2.7.15","depth":3,"path":"operators/transformation/partition.md","ref":"operators/transformation/partition.md","articles":[]},{"title":"pluck","level":"2.2.7.16","depth":3,"path":"operators/transformation/pluck.md","ref":"operators/transformation/pluck.md","articles":[]},{"title":"reduce","level":"2.2.7.17","depth":3,"path":"operators/transformation/reduce.md","ref":"operators/transformation/reduce.md","articles":[]},{"title":"scan","level":"2.2.7.18","depth":3,"path":"operators/transformation/scan.md","ref":"operators/transformation/scan.md","articles":[]},{"title":"switchMap","level":"2.2.7.19","depth":3,"path":"operators/transformation/switchmap.md","ref":"operators/transformation/switchmap.md","articles":[]},{"title":"window","level":"2.2.7.20","depth":3,"path":"operators/transformation/window.md","ref":"operators/transformation/window.md","articles":[]},{"title":"windowCount","level":"2.2.7.21","depth":3,"path":"operators/transformation/windowcount.md","ref":"operators/transformation/windowcount.md","articles":[]},{"title":"windowTime","level":"2.2.7.22","depth":3,"path":"operators/transformation/windowtime.md","ref":"operators/transformation/windowtime.md","articles":[]},{"title":"windowToggle","level":"2.2.7.23","depth":3,"path":"operators/transformation/windowtoggle.md","ref":"operators/transformation/windowtoggle.md","articles":[]},{"title":"windowWhen","level":"2.2.7.24","depth":3,"path":"operators/transformation/windowwhen.md","ref":"operators/transformation/windowwhen.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/buffer.md","mtime":"2018-01-30T12:52:45.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-02-17T10:19:52.244Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"buffer","level":"2.2.7.1","depth":3,"next":{"title":"bufferCount","level":"2.2.7.2","depth":3,"path":"operators/transformation/buffercount.md","ref":"operators/transformation/buffercount.md","articles":[]},"previous":{"title":"转换","level":"2.2.7","depth":2,"path":"operators/transformation/README.md","ref":"operators/transformation/README.md","articles":[{"title":"buffer","level":"2.2.7.1","depth":3,"path":"operators/transformation/buffer.md","ref":"operators/transformation/buffer.md","articles":[]},{"title":"bufferCount","level":"2.2.7.2","depth":3,"path":"operators/transformation/buffercount.md","ref":"operators/transformation/buffercount.md","articles":[]},{"title":"bufferTime","level":"2.2.7.3","depth":3,"path":"operators/transformation/buffertime.md","ref":"operators/transformation/buffertime.md","articles":[]},{"title":"bufferToggle","level":"2.2.7.4","depth":3,"path":"operators/transformation/buffertoggle.md","ref":"operators/transformation/buffertoggle.md","articles":[]},{"title":"bufferWhen","level":"2.2.7.5","depth":3,"path":"operators/transformation/bufferwhen.md","ref":"operators/transformation/bufferwhen.md","articles":[]},{"title":"concatMap","level":"2.2.7.6","depth":3,"path":"operators/transformation/concatmap.md","ref":"operators/transformation/concatmap.md","articles":[]},{"title":"concatMapTo","level":"2.2.7.7","depth":3,"path":"operators/transformation/concatmapto.md","ref":"operators/transformation/concatmapto.md","articles":[]},{"title":"exhaustMap","level":"2.2.7.8","depth":3,"path":"operators/transformation/exhaustmap.md","ref":"operators/transformation/exhaustmap.md","articles":[]},{"title":"expand","level":"2.2.7.9","depth":3,"path":"operators/transformation/expand.md","ref":"operators/transformation/expand.md","articles":[]},{"title":"exhaustMap","level":"2.2.7.10","depth":3,"path":"operators/transformation/exhaustmap.md","ref":"operators/transformation/exhaustmap.md","articles":[]},{"title":"groupBy","level":"2.2.7.11","depth":3,"path":"operators/transformation/groupby.md","ref":"operators/transformation/groupby.md","articles":[]},{"title":"map","level":"2.2.7.12","depth":3,"path":"operators/transformation/map.md","ref":"operators/transformation/map.md","articles":[]},{"title":"mapTo","level":"2.2.7.13","depth":3,"path":"operators/transformation/mapto.md","ref":"operators/transformation/mapto.md","articles":[]},{"title":"mergeMap","level":"2.2.7.14","depth":3,"path":"operators/transformation/mergemap.md","ref":"operators/transformation/mergemap.md","articles":[]},{"title":"partition","level":"2.2.7.15","depth":3,"path":"operators/transformation/partition.md","ref":"operators/transformation/partition.md","articles":[]},{"title":"pluck","level":"2.2.7.16","depth":3,"path":"operators/transformation/pluck.md","ref":"operators/transformation/pluck.md","articles":[]},{"title":"reduce","level":"2.2.7.17","depth":3,"path":"operators/transformation/reduce.md","ref":"operators/transformation/reduce.md","articles":[]},{"title":"scan","level":"2.2.7.18","depth":3,"path":"operators/transformation/scan.md","ref":"operators/transformation/scan.md","articles":[]},{"title":"switchMap","level":"2.2.7.19","depth":3,"path":"operators/transformation/switchmap.md","ref":"operators/transformation/switchmap.md","articles":[]},{"title":"window","level":"2.2.7.20","depth":3,"path":"operators/transformation/window.md","ref":"operators/transformation/window.md","articles":[]},{"title":"windowCount","level":"2.2.7.21","depth":3,"path":"operators/transformation/windowcount.md","ref":"operators/transformation/windowcount.md","articles":[]},{"title":"windowTime","level":"2.2.7.22","depth":3,"path":"operators/transformation/windowtime.md","ref":"operators/transformation/windowtime.md","articles":[]},{"title":"windowToggle","level":"2.2.7.23","depth":3,"path":"operators/transformation/windowtoggle.md","ref":"operators/transformation/windowtoggle.md","articles":[]},{"title":"windowWhen","level":"2.2.7.24","depth":3,"path":"operators/transformation/windowwhen.md","ref":"operators/transformation/windowwhen.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/transformation/buffer.md","mtime":"2018-03-28T11:25:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-03-28T11:25:53.176Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -42,6 +42,8 @@
 
     
         
+        <link rel="stylesheet" href="../../styles/website.css">
+        
     
         
     
@@ -557,7 +559,7 @@
                 <a href="catch.html">
             
                     
-                    catch
+                    catchError
             
                 </a>
             
@@ -642,6 +644,19 @@
             
                     
                     share
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../multicasting/sharereplay.html">
+            
+                <a href="../multicasting/sharereplay.html">
+            
+                    
+                    shareReplay
             
                 </a>
             
@@ -1380,6 +1395,32 @@
             
         </li>
     
+        <li class="chapter " data-level="2.3.2" data-path="../../recipes/progressbar.html">
+            
+                <a href="../../recipes/progressbar.html">
+            
+                    
+                    进度条
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../recipes/gameloop.html">
+            
+                <a href="../../recipes/gameloop.html">
+            
+                    
+                    游戏循环
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1465,29 +1506,37 @@
                                 <h1 id="retrywhen">retryWhen</h1>
 <h4 id="&#x7B7E;&#x540D;-retrywhenreceives-errors-observable--observable-the-scheduler-observable">&#x7B7E;&#x540D;: <code>retryWhen(receives: (errors: Observable) =&gt; Observable, the: scheduler): Observable</code></h4>
 <h2 id="&#x5F53;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x57FA;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6807;&#x51C6;&#x6765;&#x91CD;&#x8BD5;-observable-&#x5E8F;&#x5217;&#x3002;">&#x5F53;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x57FA;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6807;&#x51C6;&#x6765;&#x91CD;&#x8BD5; observable &#x5E8F;&#x5217;&#x3002;</h2>
+<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk" target="_blank"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+
 <h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
 <h5 id="&#x793A;&#x4F8B;-1-&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x540E;&#x89E6;&#x53D1;&#x91CD;&#x8BD5;">&#x793A;&#x4F8B; 1: &#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x540E;&#x89E6;&#x53D1;&#x91CD;&#x8BD5;</h5>
 <p>( <a href="http://jsbin.com/miduqexalo/1/edit?js,console" target="_blank">jsBin</a> |
 <a href="https://jsfiddle.net/btroncone/49mkhsyr/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;</span>
-<span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> example <span class="token operator">=</span> source
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> timer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/timer&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> interval <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/interval&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> map<span class="token punctuation">,</span> tap<span class="token punctuation">,</span> retryWhen<span class="token punctuation">,</span> delayWhen <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// &#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;</span>
+<span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> example <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+  <span class="token function">map</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment" spellcheck="true">// &#x9519;&#x8BEF;&#x5C06;&#x7531; retryWhen &#x63A5;&#x6536;</span>
       <span class="token keyword">throw</span> val<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> val<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span>errors <span class="token operator">=</span><span class="token operator">&gt;</span>
-    errors
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">retryWhen</span><span class="token punctuation">(</span>errors <span class="token operator">=</span><span class="token operator">&gt;</span>
+    errors<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
       <span class="token comment" spellcheck="true">// &#x8F93;&#x51FA;&#x9519;&#x8BEF;&#x4FE1;&#x606F;</span>
-      <span class="token punctuation">.</span><span class="token keyword">do</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Value </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> was too high!`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token function">tap</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Value </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> was too high!`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
       <span class="token comment" spellcheck="true">// 5&#x79D2;&#x540E;&#x91CD;&#x542F;</span>
-      <span class="token punctuation">.</span><span class="token function">delayWhen</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span>val <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">delayWhen</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">timer</span><span class="token punctuation">(</span>val <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">/*
-  &#x8F93;&#x51FA;: 
+  &#x8F93;&#x51FA;:
   0
   1
   2
@@ -1499,31 +1548,86 @@
 */</span>
 <span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h5 id="&#x793A;&#x4F8B;-2-&#x589E;&#x52A0;&#x91CD;&#x8BD5;&#x4E4B;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;">&#x793A;&#x4F8B; 2: &#x589E;&#x52A0;&#x91CD;&#x8BD5;&#x4E4B;&#x95F4;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;</h5>
-<p>( <a href="http://jsbin.com/nexuxoyifa/1/edit?js,console" target="_blank">jsBin</a> |
-<a href="https://jsfiddle.net/btroncone/tLx1c3j6/2/" target="_blank">jsFiddle</a> )</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// &#x6BCF;1&#x79D2;&#x53D1;&#x51FA;&#x503C;</span>
-<span class="token keyword">const</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> example <span class="token operator">=</span> source
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// &#x9519;&#x8BEF;&#x5C06;&#x7531; retryWhen &#x63A5;&#x6536;</span>
-      <span class="token keyword">throw</span> val<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> val<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span>attempts <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> attempts<span class="token punctuation">.</span><span class="token function">zip</span><span class="token punctuation">(</span>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mergeMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span>error<span class="token punctuation">,</span> i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Wait </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> seconds, then retry!`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>_ <span class="token operator">=</span><span class="token operator">&gt;</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">of</span><span class="token punctuation">(</span><span class="token string">&apos;Ouch, giving up!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h5 id="&#x793A;&#x4F8B;-2-&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x589E;&#x52A0;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x91CD;&#x8BD5;">&#x793A;&#x4F8B; 2: &#x65F6;&#x95F4;&#x95F4;&#x9694;&#x589E;&#x52A0;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x91CD;&#x8BD5;</h5>
+<p>(
+<a href="https://stackblitz.com/edit/angular-cwnknr?file=app%2Frxjs-utils.ts" target="_blank">StackBlitz</a>
+)</p>
+<p><em>&#x5F52;&#x529F;&#x4E8E; <a href="https://twitter.com/maxim_koretskyi" target="_blank">Maxim Koretskyi</a> &#x7684;&#x4F18;&#x5316;</em></p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Observable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/Observable&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> _throw <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/throw&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> timer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/timer&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mergeMap<span class="token punctuation">,</span> finalize <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> subscribe <span class="token operator">=</span> example<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> genericRetryStrategy <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  maxRetryAttempts <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  scalingDuration <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+  excludedStatusCodes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  maxRetryAttempts<span class="token operator">?</span><span class="token punctuation">:</span> number<span class="token punctuation">,</span>
+  scalingDuration<span class="token operator">?</span><span class="token punctuation">:</span> number<span class="token punctuation">,</span>
+  excludedStatusCodes<span class="token operator">?</span><span class="token punctuation">:</span> number<span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>attempts<span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>any<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> attempts<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+    <span class="token function">mergeMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> retryAttempt <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// &#x5982;&#x679C;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x91CD;&#x8BD5;&#x6B21;&#x6570;&#x6216;&#x54CD;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;</span>
+      <span class="token comment" spellcheck="true">// &#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x91CD;&#x8BD5;&#x7684;&#xFF0C;&#x5C31;&#x629B;&#x51FA;&#x9519;&#x8BEF;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        retryAttempt <span class="token operator">&gt;</span> maxRetryAttempts <span class="token operator">||</span>
+        excludedStatusCodes<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> e <span class="token operator">===</span> error<span class="token punctuation">.</span>status<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">_throw</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+        <span class="token template-string"><span class="token string">`Attempt </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>retryAttempt<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: retrying in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>retryAttempt <span class="token operator">*</span>
+          scalingDuration<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms`</span></span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// &#x91CD;&#x8BD5;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x4E0D;&#x65AD;&#x589E;&#x957F;: 1&#x79D2;&#x3001;2&#x79D2;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;</span>
+      <span class="token keyword">return</span> <span class="token function">timer</span><span class="token punctuation">(</span>retryAttempt <span class="token operator">*</span> scalingDuration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">finalize</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;We are done!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> OnInit <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> catchError<span class="token punctuation">,</span> retryWhen  <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/operators&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token keyword">of</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;rxjs/observable/of&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> genericRetryStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;./rxjs-utils&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;./app.service&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;my-app&apos;</span><span class="token punctuation">,</span>
+  templateUrl<span class="token punctuation">:</span> <span class="token string">&apos;./app.component.html&apos;</span><span class="token punctuation">,</span>
+  styleUrls<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">&apos;./app.component.css&apos;</span> <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppComponent</span> <span class="token keyword">implements</span> <span class="token class-name">OnInit</span>  <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> _appService<span class="token punctuation">:</span> AppService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token function">ngOnInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_appService
+      <span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+        <span class="token function">retryWhen</span><span class="token punctuation">(</span><span class="token function">genericRetryStrategy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">catchError</span><span class="token punctuation">(</span>error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">of</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// &#x6392;&#x9664;&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x589E;&#x52A0;&#x5EF6;&#x8FDF;&#x4EE5;&#x4FDD;&#x6301;&#x65E5;&#x5FD7;&#x6E05;&#x6670;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_appService
+      <span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+        <span class="token function">retryWhen</span><span class="token punctuation">(</span><span class="token function">genericRetryStrategy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          scalingDuration<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+          excludedStatusCodes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">500</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">catchError</span><span class="token punctuation">(</span>error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">of</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Exluded code:&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">8000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="&#x5176;&#x4ED6;&#x8D44;&#x6E90;">&#x5176;&#x4ED6;&#x8D44;&#x6E90;</h3>
 <ul>
@@ -1577,7 +1681,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"retryWhen","level":"2.2.4.3","depth":3,"next":{"title":"多播","level":"2.2.5","depth":2,"path":"operators/multicasting/README.md","ref":"operators/multicasting/README.md","articles":[{"title":"publish","level":"2.2.5.1","depth":3,"path":"operators/multicasting/publish.md","ref":"operators/multicasting/publish.md","articles":[]},{"title":"multicast","level":"2.2.5.2","depth":3,"path":"operators/multicasting/multicast.md","ref":"operators/multicasting/multicast.md","articles":[]},{"title":"share","level":"2.2.5.3","depth":3,"path":"operators/multicasting/share.md","ref":"operators/multicasting/share.md","articles":[]}]},"previous":{"title":"retry","level":"2.2.4.2","depth":3,"path":"operators/error_handling/retry.md","ref":"operators/error_handling/retry.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/error_handling/retrywhen.md","mtime":"2018-01-30T12:52:45.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-02-17T10:19:52.244Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"retryWhen","level":"2.2.4.3","depth":3,"next":{"title":"多播","level":"2.2.5","depth":2,"path":"operators/multicasting/README.md","ref":"operators/multicasting/README.md","articles":[{"title":"publish","level":"2.2.5.1","depth":3,"path":"operators/multicasting/publish.md","ref":"operators/multicasting/publish.md","articles":[]},{"title":"multicast","level":"2.2.5.2","depth":3,"path":"operators/multicasting/multicast.md","ref":"operators/multicasting/multicast.md","articles":[]},{"title":"share","level":"2.2.5.3","depth":3,"path":"operators/multicasting/share.md","ref":"operators/multicasting/share.md","articles":[]},{"title":"shareReplay","level":"2.2.5.4","depth":3,"path":"operators/multicasting/sharereplay.md","ref":"operators/multicasting/sharereplay.md","articles":[]}]},"previous":{"title":"retry","level":"2.2.4.2","depth":3,"path":"operators/error_handling/retry.md","ref":"operators/error_handling/retry.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"operators/error_handling/retrywhen.md","mtime":"2018-03-28T11:25:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-03-28T11:25:53.176Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

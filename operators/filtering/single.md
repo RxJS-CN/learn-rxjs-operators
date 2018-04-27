@@ -1,6 +1,6 @@
 # single
 
-#### 签名: `single(a: Function): Observable`
+#### 函数签名: `single(a: Function): Observable`
 
 ## 发出通过表达式的单一项。
 

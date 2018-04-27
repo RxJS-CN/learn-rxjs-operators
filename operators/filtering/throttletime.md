@@ -1,6 +1,6 @@
 # throttleTime
 
-#### 签名: `throttleTime(duration: number, scheduler: Scheduler): Observable`
+#### 函数签名: `throttleTime(duration: number, scheduler: Scheduler): Observable`
 
 ## 当指定的持续时间经过后发出最新值。
 

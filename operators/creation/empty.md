@@ -1,6 +1,6 @@
 # empty
 
-#### 签名: `empty(scheduler: Scheduler): Observable`
+#### 函数签名: `empty(scheduler: Scheduler): Observable`
 
 ## 立即完成的 observable 。
 

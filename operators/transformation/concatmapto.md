@@ -1,6 +1,6 @@
 # concatMapTo
 
-#### 签名: `concatMapTo(observable: Observable, resultSelector: function): Observable`
+#### 函数签名: `concatMapTo(observable: Observable, resultSelector: function): Observable`
 
 ## 当前一个 observable 完成时订阅提供的 observable 并发出值。
 

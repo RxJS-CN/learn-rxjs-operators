@@ -1,6 +1,6 @@
 # exhaustMap
 
-#### 签名: `exhaustMap(project: function, resultSelector: function): Observable`
+#### 函数签名: `exhaustMap(project: function, resultSelector: function): Observable`
 
 ## 映射成内部 observable，忽略其他值直到该 observable 完成。
 

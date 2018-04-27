@@ -1,6 +1,6 @@
 # throw
 
-#### 签名: `throw(error: any, scheduler: Scheduler): Observable`
+#### 函数签名: `throw(error: any, scheduler: Scheduler): Observable`
 
 ## 在订阅上发出错误
 

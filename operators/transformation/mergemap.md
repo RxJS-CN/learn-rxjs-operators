@@ -1,6 +1,6 @@
 # mergeMap
 
-#### 签名: `mergeMap(project: function: Observable, resultSelector: function: any, concurrent: number): Observable`
+#### 函数签名: `mergeMap(project: function: Observable, resultSelector: function: any, concurrent: number): Observable`
 
 ## 映射成 observable 并发出值。
 

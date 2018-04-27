@@ -1,6 +1,6 @@
 # finalize / finally
 
-#### 签名: `finalize(callback: () => void)`
+#### 函数签名: `finalize(callback: () => void)`
 
 ## 当 Observable 完成或报错时调用函数
 

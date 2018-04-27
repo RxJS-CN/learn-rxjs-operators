@@ -1,6 +1,6 @@
 # concatMap
 
-#### 签名: `concatMap(project: function, resultSelector: function): Observable`
+#### 函数签名: `concatMap(project: function, resultSelector: function): Observable`
 
 ## 将值映射成内部 observable，并按顺序订阅和发出。
 

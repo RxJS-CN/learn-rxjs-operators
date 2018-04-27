@@ -1,6 +1,6 @@
 # windowWhen
 
-#### 签名: `windowWhen(closingSelector: function(): Observable): Observable`
+#### 函数签名: `windowWhen(closingSelector: function(): Observable): Observable`
 
 ## 在提供的时间帧处关闭窗口，并发出从源 observable 中收集的值的 observable 。
 

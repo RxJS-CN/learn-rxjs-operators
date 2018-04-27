@@ -1,6 +1,6 @@
 # pluck
 
-#### 签名: `pluck(properties: ...args): Observable`
+#### 函数签名: `pluck(properties: ...args): Observable`
 
 ## 选择属性来发出。
 

@@ -1,6 +1,6 @@
 # throttle
 
-#### 签名: `throttle(durationSelector: function(value): Observable | Promise): Observable`
+#### 函数签名: `throttle(durationSelector: function(value): Observable | Promise): Observable`
 
 ## 仅当由提供的函数所确定的持续时间已经过去时才发出值。
 

@@ -1,6 +1,6 @@
 # pairwise
 
-#### 签名: `pairwise(): Observable<Array>`
+#### 函数签名: `pairwise(): Observable<Array>`
 
 ## 将前一个值和当前值作为数组发出
 

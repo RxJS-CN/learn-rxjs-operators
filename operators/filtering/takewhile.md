@@ -1,6 +1,6 @@
 # takeWhile
 
-#### 签名: `takeWhile(predicate: function(value, index): boolean): Observable`
+#### 函数签名: `takeWhile(predicate: function(value, index): boolean): Observable`
 
 ## 发出值，直到提供的表达式结果为 false 。
 

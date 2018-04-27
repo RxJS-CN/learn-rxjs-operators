@@ -1,6 +1,6 @@
 # defaultIfEmpty
 
-#### 签名: `defaultIfEmpty(defaultValue: any): Observable`
+#### 函数签名: `defaultIfEmpty(defaultValue: any): Observable`
 
 ## 如果在完成前没有发出任何通知，那么发出给定的值
 

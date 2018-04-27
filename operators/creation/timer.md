@@ -1,6 +1,6 @@
 # timer
 
-#### 签名: `timer(initialDelay: number | Date, period: number, scheduler: Scheduler): Observable`
+#### 函数签名: `timer(initialDelay: number | Date, period: number, scheduler: Scheduler): Observable`
 
 ## 给定持续时间后，再按照指定间隔时间依次发出数字。
 

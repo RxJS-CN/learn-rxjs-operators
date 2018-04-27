@@ -1,6 +1,6 @@
 # ignoreElements
 
-#### 签名: `ignoreElements(): Observable`
+#### 函数签名: `ignoreElements(): Observable`
 
 ## 忽略所有通知，除了 complete 和 error 。
 

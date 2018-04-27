@@ -1,6 +1,6 @@
 # create
 
-#### 签名: `create(subscribe: function)`
+#### 函数签名: `create(subscribe: function)`
 
 ## 使用给定的订阅函数来创建 observable 。
 

@@ -1,6 +1,6 @@
 # dematerialize
 
-#### 签名: `dematerialize(): Observable`
+#### 函数签名: `dematerialize(): Observable`
 
 ## 将 notification 对象转换成 notification 值。
 

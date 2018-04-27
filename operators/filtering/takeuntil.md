@@ -1,6 +1,6 @@
 # takeUntil
 
-#### 签名: ` takeUntil(notifier: Observable): Observable`
+#### 函数签名: ` takeUntil(notifier: Observable): Observable`
 
 ## 发出值，直到提供的 observable 发出值，它便完成。
 

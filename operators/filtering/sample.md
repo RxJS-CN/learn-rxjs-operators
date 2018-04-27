@@ -1,6 +1,6 @@
 # sample
 
-#### 签名: `sample(sampler: Observable): Observable`
+#### 函数签名: `sample(sampler: Observable): Observable`
 
 ## 当提供的 observable 发出时从源 observable 中取样。
 

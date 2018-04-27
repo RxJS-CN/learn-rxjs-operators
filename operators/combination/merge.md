@@ -1,6 +1,6 @@
 # merge
 
-#### 签名: `merge(input: Observable): Observable`
+#### 函数签名: `merge(input: Observable): Observable`
 
 ## 将多个 observables 转换成单个 observable 。
 

@@ -1,6 +1,6 @@
 # combineAll
 
-#### 签名: `combineAll(project: function): Observable`
+#### 函数签名: `combineAll(project: function): Observable`
 
 ## 当源 observable 完成时，对收集的 observables 使用 [combineLatest](combinelatest.md) 。
 

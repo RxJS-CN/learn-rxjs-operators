@@ -1,6 +1,6 @@
 # do / tap
 
-#### 签名: `do(nextOrObserver: function, error: function, complete: function): Observable`
+#### 函数签名: `do(nextOrObserver: function, error: function, complete: function): Observable`
 
 ## Transparently perform actions or side-effects, such as logging.
 ## 透明地执行操作或副作用，比如打印日志。

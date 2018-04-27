@@ -1,6 +1,6 @@
 # windowToggle
 
-#### 签名: `windowToggle(openings: Observable, closingSelector: function(value): Observable): Observable`
+#### 函数签名: `windowToggle(openings: Observable, closingSelector: function(value): Observable): Observable`
 
 ## 以 openings 发出为起始，以 closingSelector 发出为结束，收集并发出源 observable 中的值的 observable 。
 

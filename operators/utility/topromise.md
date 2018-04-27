@@ -1,6 +1,6 @@
 # toPromise
 
-#### 签名: `toPromise() : Promise`
+#### 函数签名: `toPromise() : Promise`
 
 ## 将 observable 转换成 promise 。
 

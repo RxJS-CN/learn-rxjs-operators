@@ -1,6 +1,6 @@
 # fromEvent
 
-#### 签名: `fromEvent(target: EventTargetLike, eventName: string, selector: function): Observable`
+#### 函数签名: `fromEvent(target: EventTargetLike, eventName: string, selector: function): Observable`
 
 ## 将事件转换成 observable 序列。
 

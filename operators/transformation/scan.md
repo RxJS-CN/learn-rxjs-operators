@@ -1,6 +1,6 @@
 # scan
 
-#### 签名: `scan(accumulator: function, seed: any): Observable`
+#### 函数签名: `scan(accumulator: function, seed: any): Observable`
 
 ## 随着时间的推移进行归并。
 

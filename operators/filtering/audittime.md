@@ -1,6 +1,6 @@
 # auditTime
 
-#### 签名: `audit(duration: number, scheduler?: Scheduler): Observable`
+#### 函数签名: `audit(duration: number, scheduler?: Scheduler): Observable`
 
 ## 在给定的时间内忽略发出的数据，时间到后发出最新值
 

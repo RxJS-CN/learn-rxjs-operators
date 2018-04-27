@@ -1,6 +1,6 @@
 # shareReplay
 
-#### 签名: `shareReplay(bufferSize?: number, windowTime?: number, scheduler?I IScheduler): Observable`
+#### 函数签名: `shareReplay(bufferSize?: number, windowTime?: number, scheduler?I IScheduler): Observable`
 
 ## 共享源 observable 并重放指定次数的发出。
 

@@ -1,6 +1,6 @@
 # windowCount
 
-#### 签名: `windowCount(windowSize: number, startWindowEvery: number): Observable`
+#### 函数签名: `windowCount(windowSize: number, startWindowEvery: number): Observable`
 
 ## 源 observable 中的值的 observable，每次发出N个值(N由参数决定)。
 

@@ -1,6 +1,6 @@
 # timeout
 
-#### 签名: `timeout(due: number, scheduler: Scheduler): Observable`
+#### 函数签名: `timeout(due: number, scheduler: Scheduler): Observable`
 
 ## 在指定时间间隔内不发出值就报错
 

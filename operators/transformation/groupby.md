@@ -1,6 +1,6 @@
 # groupBy
 
-#### 签名: `groupBy(keySelector: Function, elementSelector: Function): Observable`
+#### 函数签名: `groupBy(keySelector: Function, elementSelector: Function): Observable`
 
 ## 基于提供的值分组成多个 observables
 

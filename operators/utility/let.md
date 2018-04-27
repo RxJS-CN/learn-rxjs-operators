@@ -1,6 +1,6 @@
 # let
 
-#### 签名: `let(function): Observable`
+#### 函数签名: `let(function): Observable`
 
 ## 让我拥有完整的 observable 。
 

@@ -1,6 +1,6 @@
 # partition
 
-#### 签名: `partition(predicate: function: boolean, thisArg: any): [Observable, Observable]`
+#### 函数签名: `partition(predicate: function: boolean, thisArg: any): [Observable, Observable]`
 
 ## Split one observable into two based on provided predicate.
 

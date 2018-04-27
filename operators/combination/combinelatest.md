@@ -1,6 +1,6 @@
 # combineLatest
 
-#### 签名: `combineLatest(observables: ...Observable, project: function): Observable`
+#### 函数签名: `combineLatest(observables: ...Observable, project: function): Observable`
 
 ## 当任意 observable 发出值时，发出每个 observable 的最新值。
 

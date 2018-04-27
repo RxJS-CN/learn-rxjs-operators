@@ -1,6 +1,6 @@
 # debounceTime
 
-#### 签名: `debounceTime(dueTime: number, scheduler: Scheduler): Observable`
+#### 函数签名: `debounceTime(dueTime: number, scheduler: Scheduler): Observable`
 
 ## 舍弃掉在两次输出之间小于指定时间的发出值
 

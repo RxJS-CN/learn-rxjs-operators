@@ -1,6 +1,6 @@
 # multicast
 
-#### 签名: `multicast(selector: Function): Observable`
+#### 函数签名: `multicast(selector: Function): Observable`
 
 ## 使用提供 的 Subject 来共享源 observable
 

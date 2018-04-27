@@ -1,6 +1,6 @@
 # first
 
-#### 签名: `first(predicate: function, select: function)`
+#### 函数签名: `first(predicate: function, select: function)`
 
 ## 发出第一个值或第一个通过给定表达式的值。
 

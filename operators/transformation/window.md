@@ -1,6 +1,6 @@
 # window
 
-#### 签名: `window(windowBoundaries: Observable): Observable`
+#### 函数签名: `window(windowBoundaries: Observable): Observable`
 
 ## 时间窗口值的 observable 。
 

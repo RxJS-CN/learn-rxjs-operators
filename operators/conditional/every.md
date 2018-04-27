@@ -1,6 +1,6 @@
 # every
 
-#### 签名: `every(predicate: function, thisArg: any): Observable`
+#### 函数签名: `every(predicate: function, thisArg: any): Observable`
 
 ## 如果完成时所有的值都能通过断言，那么发出 true，否则发出 false 。
 

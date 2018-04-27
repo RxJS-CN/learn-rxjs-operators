@@ -1,6 +1,6 @@
 # delayWhen
 
-#### 签名: `delayWhen(selector: Function, sequence: Observable): Observable`
+#### 函数签名: `delayWhen(selector: Function, sequence: Observable): Observable`
 
 ## 延迟发出值，延迟时间由提供函数决定。
 

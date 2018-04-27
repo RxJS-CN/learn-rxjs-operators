@@ -1,6 +1,6 @@
 # switchMap
 
-#### 签名: ` switchMap(project: function: Observable, resultSelector: function(outerValue, innerValue, outerIndex, innerIndex): any): Observable`
+#### 函数签名: ` switchMap(project: function: Observable, resultSelector: function(outerValue, innerValue, outerIndex, innerIndex): any): Observable`
 
 ## 映射成 observable，完成前一个内部 observable，发出值。
 

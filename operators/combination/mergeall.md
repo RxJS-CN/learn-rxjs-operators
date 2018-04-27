@@ -1,6 +1,6 @@
 # mergeAll
 
-#### 签名: `mergeAll(concurrent: number): Observable`
+#### 函数签名: `mergeAll(concurrent: number): Observable`
 
 ## 收集并订阅所有的 observables 。
 

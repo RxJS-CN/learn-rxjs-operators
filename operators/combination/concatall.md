@@ -1,6 +1,6 @@
 # concatAll
 
-#### 签名: `concatAll(): Observable`
+#### 函数签名: `concatAll(): Observable`
 
 ## 收集 observables，当前一个完成时订阅下一个。
 

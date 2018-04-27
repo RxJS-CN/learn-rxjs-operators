@@ -1,6 +1,6 @@
 # delay
 
-#### 签名: `delay(delay: number | Date, scheduler: Scheduler): Observable`
+#### 函数签名: `delay(delay: number | Date, scheduler: Scheduler): Observable`
 
 ## 根据给定时间延迟发出值。
 

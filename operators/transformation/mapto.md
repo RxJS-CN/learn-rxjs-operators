@@ -1,6 +1,6 @@
 # mapTo
 
-#### 签名: `mapTo(value: any): Observable`
+#### 函数签名: `mapTo(value: any): Observable`
 
 ## 将每个发出值映射成常量。
 

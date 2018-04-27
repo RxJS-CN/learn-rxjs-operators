@@ -1,6 +1,6 @@
 # map
 
-#### 签名: `map(project: Function, thisArg: any): Observable`
+#### 函数签名: `map(project: Function, thisArg: any): Observable`
 
 ## 对源 observable 的每个值应用投射函数。
 

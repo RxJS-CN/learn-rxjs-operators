@@ -1,6 +1,6 @@
 # bufferCount
 
-#### 签名: `bufferCount(bufferSize: number, startBufferEvery: number = null): Observable`
+#### 函数签名: `bufferCount(bufferSize: number, startBufferEvery: number = null): Observable`
 
 ## 收集发出的值，直到收集完提供的数量的值才将其作为数组发出。
 

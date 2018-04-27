@@ -1,6 +1,6 @@
 # retry
 
-#### 签名: `retry(number: number): Observable`
+#### 函数签名: `retry(number: number): Observable`
 
 ## 如果发生错误，以指定次数重试 observable 序列。
 

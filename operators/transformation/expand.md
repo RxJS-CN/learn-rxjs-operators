@@ -1,6 +1,6 @@
 # expand
 
-#### 签名: `expand(project: function, concurrent: number, scheduler: Scheduler): Observable`
+#### 函数签名: `expand(project: function, concurrent: number, scheduler: Scheduler): Observable`
 
 ## 递归调用提供的函数
 

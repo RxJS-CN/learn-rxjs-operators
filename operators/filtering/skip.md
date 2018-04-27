@@ -1,6 +1,6 @@
 # skip
 
-#### 签名: `skip(the: Number): Observable`
+#### 函数签名: `skip(the: Number): Observable`
 
 ## 跳过N个(由参数提供)发出值。
 

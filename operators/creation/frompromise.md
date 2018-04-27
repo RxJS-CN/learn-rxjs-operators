@@ -1,6 +1,6 @@
 # fromPromise
 
-#### 签名: `fromPromise(promise: Promise, scheduler: Scheduler): Observable`
+#### 函数签名: `fromPromise(promise: Promise, scheduler: Scheduler): Observable`
 
 ## 创建由 promise 转换而来的 observable，并发出 promise 的结果。
 

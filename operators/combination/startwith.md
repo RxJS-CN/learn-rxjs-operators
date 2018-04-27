@@ -1,6 +1,6 @@
 # startWith
 
-#### 签名: `startWith(an: Values): Observable`
+#### 函数签名: `startWith(an: Values): Observable`
 
 ## 发出给定的第一个值
 

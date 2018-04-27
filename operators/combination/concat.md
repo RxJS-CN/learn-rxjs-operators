@@ -1,6 +1,6 @@
 # concat
 
-#### 签名: `concat(observables: ...*): Observable`
+#### 函数签名: `concat(observables: ...*): Observable`
 
 ## 按照顺序，前一个 observable 完成了再订阅下一个 observable 并发出值。
 

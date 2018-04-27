@@ -1,6 +1,6 @@
 # range
 
-#### 签名: `range(start: number, count: number, scheduler: Scheduler): Observable`
+#### 函数签名: `range(start: number, count: number, scheduler: Scheduler): Observable`
 
 ## 依次发出给定区间内的数字。
 

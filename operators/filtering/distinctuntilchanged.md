@@ -1,6 +1,6 @@
 # distinctUntilChanged
 
-#### 签名: ` distinctUntilChanged(compare: function): Observable`
+#### 函数签名: ` distinctUntilChanged(compare: function): Observable`
 
 ## 只有当当前值与之前最后一个值不同时才将其发出。
 

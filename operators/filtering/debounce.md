@@ -1,6 +1,6 @@
 # debounce
 
-#### 签名: `debounce(durationSelector: function): Observable`
+#### 函数签名: `debounce(durationSelector: function): Observable`
 
 ## 根据一个选择器函数，舍弃掉在两次输出之间小于指定时间的发出值。
 

@@ -1,6 +1,6 @@
 # retryWhen
 
-#### 签名: `retryWhen(receives: (errors: Observable) => Observable, the: scheduler): Observable`
+#### 函数签名: `retryWhen(receives: (errors: Observable) => Observable, the: scheduler): Observable`
 
 ## 当发生错误时，基于自定义的标准来重试 observable 序列。
 

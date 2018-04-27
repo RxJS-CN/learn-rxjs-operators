@@ -1,6 +1,6 @@
 # share
 
-#### 签名: `share(): Observable`
+#### 函数签名: `share(): Observable`
 
 ## 在多个订阅者间共享源 observable 。
 

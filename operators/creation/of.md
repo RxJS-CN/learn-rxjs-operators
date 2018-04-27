@@ -1,6 +1,6 @@
 # of / just
 
-#### 签名: ` of(...values, scheduler: Scheduler): Observable`
+#### 函数签名: ` of(...values, scheduler: Scheduler): Observable`
 
 ## 按顺序发出任意数量的值。
 

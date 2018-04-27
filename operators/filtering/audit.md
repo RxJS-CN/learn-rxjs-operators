@@ -1,6 +1,6 @@
 # audit
 
-#### 签名: `audit(durationSelector: (value) => Observable | Promise): Observable`
+#### 函数签名: `audit(durationSelector: (value) => Observable | Promise): Observable`
 
 ## 根据提供的 Observable 来忽略某段时间内发出的数据，时间到后发出最新值
 

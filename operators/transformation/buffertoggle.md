@@ -1,6 +1,6 @@
 # bufferToggle
 
-#### 签名: `bufferToggle(openings: Observable, closingSelector: Function): Observable`
+#### 函数签名: `bufferToggle(openings: Observable, closingSelector: Function): Observable`
 
 ## 开启开关以捕获源 observable 所发出的值，关闭开关以将缓冲的值作为数组发出。
 

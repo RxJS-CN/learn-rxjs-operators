@@ -1,6 +1,6 @@
 # catch / catchError
 
-#### 签名: `catchError(project : function): Observable`
+#### 函数签名: `catchError(project : function): Observable`
 
 ## 优雅地处理 observable 序列中的错误
 

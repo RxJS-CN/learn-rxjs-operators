@@ -1,6 +1,6 @@
 # skipWhile
 
-#### 签名: `skipWhile(predicate: Function): Observable`
+#### 函数签名: `skipWhile(predicate: Function): Observable`
 
 ## 跳过源 observable 发出的值，直到提供的表达式结果为 false 。
 

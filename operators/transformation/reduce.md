@@ -1,6 +1,6 @@
 # reduce
 
-#### 签名: `reduce(accumulator: function, seed: any): Observable`
+#### 函数签名: `reduce(accumulator: function, seed: any): Observable`
 
 ## 将源 observalbe 的值归并为单个值，当源 observable 完成时将这个值发出。
 

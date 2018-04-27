@@ -1,6 +1,6 @@
 # from
 
-#### 签名: `from(ish: ObservableInput, mapFn: function, thisArg: any, scheduler: Scheduler): Observable`
+#### 函数签名: `from(ish: ObservableInput, mapFn: function, thisArg: any, scheduler: Scheduler): Observable`
 
 ## 将数组、promise 或迭代器转换成 observable 。
 

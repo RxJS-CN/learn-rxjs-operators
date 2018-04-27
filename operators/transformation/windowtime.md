@@ -1,6 +1,6 @@
 # windowTime
 
-#### 签名: `windowTime(windowTimeSpan: number, windowCreationInterval: number, scheduler: Scheduler): Observable`
+#### 函数签名: `windowTime(windowTimeSpan: number, windowCreationInterval: number, scheduler: Scheduler): Observable`
 
 ## 在每个提供的时间跨度内，收集源 obsercvable 中的值的 observable 。
 

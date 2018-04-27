@@ -1,6 +1,6 @@
 # last
 
-#### 签名: `last(predicate: function): Observable`
+#### 函数签名: `last(predicate: function): Observable`
 
 ## 根据提供的表达式，在源 observable 完成时发出它的最后一个值。
 

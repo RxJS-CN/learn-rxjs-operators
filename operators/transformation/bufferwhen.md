@@ -1,6 +1,6 @@
 # bufferWhen
 
-#### 签名: `bufferWhen(closingSelector: function): Observable`
+#### 函数签名: `bufferWhen(closingSelector: function): Observable`
 
 ## 收集值，直到关闭选择器发出值才发出缓冲的值。
 

@@ -1,6 +1,6 @@
 # filter
 
-#### 签名: `filter(select: Function, thisArg: any): Observable`
+#### 函数签名: `filter(select: Function, thisArg: any): Observable`
 
 ## 发出符合给定条件的值。
 

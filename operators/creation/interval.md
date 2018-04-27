@@ -1,6 +1,6 @@
 # interval
 
-#### 签名: `interval(period: number, scheduler: Scheduler): Observable`
+#### 函数签名: `interval(period: number, scheduler: Scheduler): Observable`
 
 ## 基于给定时间间隔发出数字序列。
 

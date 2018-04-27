@@ -1,6 +1,6 @@
 # skipUntil
 
-#### 签名: `skipUntil(the: Observable): Observable`
+#### 函数签名: `skipUntil(the: Observable): Observable`
 
 ## 跳过源 observable 发出的值，直到提供的 observable 发出值。
 

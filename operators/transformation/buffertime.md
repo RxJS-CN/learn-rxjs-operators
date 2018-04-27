@@ -1,6 +1,6 @@
 # bufferTime
 
-#### 签名: `bufferTime(bufferTimeSpan: number, bufferCreationInterval: number, scheduler: Scheduler): Observable`
+#### 函数签名: `bufferTime(bufferTimeSpan: number, bufferCreationInterval: number, scheduler: Scheduler): Observable`
 
 ## 收集发出的值，直到经过了提供的时间才将其作为数组发出。
 

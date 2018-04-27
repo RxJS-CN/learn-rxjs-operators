@@ -1,6 +1,6 @@
 # take
 
-#### 签名: ` take(count: number): Observable`
+#### 函数签名: ` take(count: number): Observable`
 
 ## 在完成前发出N个值(N由参数决定)。
 

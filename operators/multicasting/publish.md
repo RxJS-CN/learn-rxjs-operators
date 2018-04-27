@@ -1,6 +1,6 @@
 # publish
 
-#### 签名: `publish() : ConnectableObservable`
+#### 函数签名: `publish() : ConnectableObservable`
 
 ## 共享源 observable 并通过调用 connect 方法使其变成热的。
 

@@ -1,6 +1,6 @@
 # race
 
-#### 签名: `race(): Observable`
+#### 函数签名: `race(): Observable`
 
 ## 使用首先发出值的 observable 。
 

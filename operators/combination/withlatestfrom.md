@@ -1,6 +1,6 @@
 # withLatestFrom
 
-#### 签名: `withLatestFrom(other: Observable, project: Function): Observable`
+#### 函数签名: `withLatestFrom(other: Observable, project: Function): Observable`
 
 ## 还提供另一个 observable 的最新值。
 

@@ -1,6 +1,6 @@
 # zip
 
-#### 签名: `zip(observables: *): Observable`
+#### 函数签名: `zip(observables: *): Observable`
 
 ### 描述
 

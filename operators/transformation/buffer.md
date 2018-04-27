@@ -1,6 +1,6 @@
 # buffer
 
-#### 签名: `buffer(closingNotifier: Observable): Observable`
+#### 函数签名: `buffer(closingNotifier: Observable): Observable`
 
 ## 收集输出值，直到提供的 observable 发出才将收集到的值作为数组发出。
 

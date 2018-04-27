@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>食谱 · 学习 RxJS 操作符</title>
+        <title>RxJS v5 -> v6 升级 · 学习 RxJS 操作符</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -68,10 +68,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="http-polling.html" />
+    <link rel="next" href="operator-imports.html" />
     
     
-    <link rel="prev" href="../operators/complete.html" />
+    <link rel="prev" href="./" />
     
 
     <style>
@@ -1407,9 +1407,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.3" data-path="./">
+        <li class="chapter " data-level="2.3" data-path="../recipes/">
             
-                <a href="./">
+                <a href="../recipes/">
             
                     
                     食谱
@@ -1421,9 +1421,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.3.1" data-path="http-polling.html">
+        <li class="chapter " data-level="2.3.1" data-path="../recipes/http-polling.html">
             
-                <a href="http-polling.html">
+                <a href="../recipes/http-polling.html">
             
                     
                     Http 轮询
@@ -1434,9 +1434,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.2" data-path="gameloop.html">
+        <li class="chapter " data-level="2.3.2" data-path="../recipes/gameloop.html">
             
-                <a href="gameloop.html">
+                <a href="../recipes/gameloop.html">
             
                     
                     游戏循环
@@ -1447,9 +1447,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.3" data-path="progressbar.html">
+        <li class="chapter " data-level="2.3.3" data-path="../recipes/progressbar.html">
             
-                <a href="progressbar.html">
+                <a href="../recipes/progressbar.html">
             
                     
                     进度条
@@ -1460,9 +1460,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3.4" data-path="smartcounter.html">
+        <li class="chapter " data-level="2.3.4" data-path="../recipes/smartcounter.html">
             
-                <a href="smartcounter.html">
+                <a href="../recipes/smartcounter.html">
             
                     
                     智能计数器
@@ -1478,9 +1478,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../concepts/">
+        <li class="chapter " data-level="2.4" data-path="./">
             
-                <a href="../concepts/">
+                <a href="./">
             
                     
                     概念
@@ -1492,9 +1492,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.4.1" data-path="../concepts/rxjs5-6.html">
+        <li class="chapter active" data-level="2.4.1" data-path="rxjs5-6.html">
             
-                <a href="../concepts/rxjs5-6.html">
+                <a href="rxjs5-6.html">
             
                     
                     RxJS v5 -> v6 升级
@@ -1505,9 +1505,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4.2" data-path="../concepts/operator-imports.html">
+        <li class="chapter " data-level="2.4.2" data-path="operator-imports.html">
             
-                <a href="../concepts/operator-imports.html">
+                <a href="operator-imports.html">
             
                     
                     理解操作符导入
@@ -1553,7 +1553,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >食谱</a>
+        <a href=".." >RxJS v5 -> v6 升级</a>
     </h1>
 </div>
 
@@ -1568,15 +1568,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x98DF;&#x8C31;">&#x98DF;&#x8C31;</h1>
-<p>&#x6709;&#x52A9;&#x4E8E;&#x5B66;&#x4E60; RxJS &#x7684;&#x5E38;&#x89C1;&#x7528;&#x4F8B;&#x548C;&#x6709;&#x8DA3;&#x7684;&#x98DF;&#x8C31;&#x3002;</p>
-<h3 id="&#x5185;&#x5BB9;">&#x5185;&#x5BB9;</h3>
-<ul>
-<li><a href="progressbar.html">&#x8FDB;&#x5EA6;&#x6761;</a></li>
-<li><a href="smartcounter.html">&#x667A;&#x80FD;&#x8BA1;&#x6570;&#x5668;</a></li>
-<li><a href="gameloop.html">&#x6E38;&#x620F;&#x5FAA;&#x73AF;</a></li>
-<li><a href="http-polling.html">HTTP &#x8F6E;&#x8BE2;</a></li>
-</ul>
+                                <h1 id="rxjs-v5---v6-&#x5347;&#x7EA7;">RxJS v5 -&gt; v6 &#x5347;&#x7EA7;</h1>
+<p>&#x51C6;&#x5907;&#x5C06; RxJS &#x4ECE; v5 &#x5347;&#x7EA7;&#x5230; v6 &#xFF1F;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x8D44;&#x6E90;:</p>
+<h3 id="rxjs-tslint"><a href="https://github.com/ReactiveX/rxjs-tslint" target="_blank">RxJS-TsLint</a></h3>
+<p>TsLint &#x7684;&#x89C4;&#x5219;&#x5DF2;&#x7ECF;&#x5347;&#x7EA7;&#x81F3; RxJS 6 &#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5BFC;&#x5165;&#x8DEF;&#x5F84;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x56DE;&#x8F6C;&#x6362;&#x6210; pipeable &#x64CD;&#x4F5C;&#x7B26;&#x3002;</p>
+<h3 id="rxjs-v55---v6-&#x5347;&#x7EA7;&#x6307;&#x5357;"><a href="https://docs.google.com/document/d/12nlLt71VLKb-z3YaSGzUfx6mJbc34nsMXtByPUN35cg/preview#heading=h.otwnycrbbl01" target="_blank">RxJS v5.5 -&gt; v6 &#x5347;&#x7EA7;&#x6307;&#x5357;</a></h3>
+<p>&#x5C06;&#x9879;&#x76EE;&#x4E2D;&#x7684; RxJS v5 &#x5347;&#x7EA7;&#x81F3; v6 &#x7684;&#x5168;&#x9762;&#x6307;&#x5357;</p>
+<h3 id="rxjs-v5-&#x548C;-v6-&#x4EE3;&#x7801;&#x7684;&#x4EA4;&#x4E92;&#x5F0F;&#x6BD4;&#x5BF9;"><a href="http://reactive.how/rxjs/explorer" target="_blank">RxJS v5 &#x548C; v6 &#x4EE3;&#x7801;&#x7684;&#x4EA4;&#x4E92;&#x5F0F;&#x6BD4;&#x5BF9;</a></h3>
+<p>&#x6F14;&#x793A; v5 &#x548C; v6 &#x4EE3;&#x7801;&#x7684;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#xFF0C;&#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x8FD8;&#x4F7F;&#x7528;&#x4E86;&#x5B9E;&#x9A8C;&#x6027;&#x7684; <a href="https://github.com/tc39/proposal-pipeline-operator" target="_blank">pipeline &#x64CD;&#x4F5C;&#x7B26;</a>&#x3002;</p>
+<h3 id="pipeable-&#x64CD;&#x4F5C;&#x7B26;"><a href="http://reactive.how/rxjs/pipeable-operators" target="_blank">Pipeable &#x64CD;&#x4F5C;&#x7B26;</a></h3>
+<p>pipeable &#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x8BB2;&#x89E3;&#x548C;&#x793A;&#x4F8B;&#x3002;</p>
 
                                 
                                 </section>
@@ -1604,12 +1605,12 @@
 
             
                 
-                <a href="../operators/complete.html" class="navigation navigation-prev " aria-label="Previous page: 完整列表">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 概念">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="http-polling.html" class="navigation navigation-next " aria-label="Next page: Http 轮询">
+                <a href="operator-imports.html" class="navigation navigation-next " aria-label="Next page: 理解操作符导入">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1620,7 +1621,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"食谱","level":"2.3","depth":1,"next":{"title":"Http 轮询","level":"2.3.1","depth":2,"path":"recipes/http-polling.md","ref":"recipes/http-polling.md","articles":[]},"previous":{"title":"完整列表","level":"2.2.9","depth":2,"path":"operators/complete.md","ref":"operators/complete.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"recipes/README.md","mtime":"2018-04-27T02:31:04.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-04-27T12:05:01.982Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"RxJS v5 -> v6 升级","level":"2.4.1","depth":2,"next":{"title":"理解操作符导入","level":"2.4.2","depth":2,"path":"concepts/operator-imports.md","ref":"concepts/operator-imports.md","articles":[]},"previous":{"title":"概念","level":"2.4","depth":1,"path":"concepts/README.md","ref":"concepts/README.md","articles":[{"title":"RxJS v5 -> v6 升级","level":"2.4.1","depth":2,"path":"concepts/rxjs5-6.md","ref":"concepts/rxjs5-6.md","articles":[]},{"title":"理解操作符导入","level":"2.4.2","depth":2,"path":"concepts/operator-imports.md","ref":"concepts/operator-imports.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["include-codeblock","advanced-emoji","prism","highlight","copy-code-button","edit-link","github","github-buttons"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/RxJS-CN/learn-rxjs-operators"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"star","size":"small","count":true},{"user":"RxJS-CN","repo":"learn-rxjs-operators","type":"fork","size":"small","count":true}]},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"帮忙纠错","base":"https://github.com/RxJS-CN/learn-rxjs-operators/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"学习 RxJS 操作符","gitbook":"3.1.1"},"file":{"path":"concepts/rxjs5-6.md","mtime":"2018-04-27T08:47:27.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2018-04-27T12:05:01.982Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

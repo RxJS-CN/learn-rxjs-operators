@@ -91,7 +91,7 @@ const subscribe = source.subscribe(val => console.log(val));
 ### 相关食谱
 
 - [进度条](../../recipes/progressbar.md)
-- [HTTP Polling](../../recipes/http-polling.md)
+- [HTTP 轮询](../../recipes/http-polling.md)
 
 ### 其他资源
 

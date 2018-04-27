@@ -7,4 +7,4 @@
 * [进度条](progressbar.md)
 * [智能计数器](smartcounter.md)
 * [游戏循环](gameloop.md)
-* [HTTP Polling](http-polling.md)
+* [HTTP 轮询](http-polling.md)

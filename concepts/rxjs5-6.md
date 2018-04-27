@@ -1,23 +1,20 @@
-# RxJS v5 -> v6 Upgrade
+# RxJS v5 -> v6 升级
 
-Preparing to upgrade from RxJS v5 to v6? Here are some resources you might find
-handy:
+准备将 RxJS 从 v5 升级到 v6 ？下面是一些有用的资源:
 
 ### [RxJS-TsLint](https://github.com/ReactiveX/rxjs-tslint)
 
-TsLint rules for migration to RxJS 6. Auto-update project for new import paths
-and transition to pipeable operators.
+TsLint 的规则已经升级至 RxJS 6 。它可以自动更新项目中的导入路径，同时还回转换成 pipeable 操作符。
 
-### [RxJS v5.x to v6 Update Guide](https://github.com/ReactiveX/rxjs/blob/master/docs_app/content/guide/v6/migration.md)
+### [RxJS v5.x -> v6 升级指南](https://github.com/ReactiveX/rxjs/blob/master/docs_app/content/guide/v6/migration.md)
 
-Comprehensive guide for updating your project from RxJS v5 to 6
+将项目中的 RxJS v5 升级至 v6 的全面指南
 
-### [Interactive Comparison of RxJS v5 and v6 Code](http://reactive.how/rxjs/explorer)
+### [RxJS v5 和 v6 代码的交互式比对](http://reactive.how/rxjs/explorer)
 
-Demonstrates differences between v5 and v6 code, as well as RxJS examples
-utilizing the experimental
-[pipeline operator](https://github.com/tc39/proposal-pipeline-operator).
+演示 v5 和 v6 代码的不同之处，示例中的代码还使用了实验性的 [pipeline 操作符](https://github.com/tc39/proposal-pipeline-operator)。
 
-### [Pipeable Operators](http://reactive.how/rxjs/pipeable-operators)
 
-Explanation and examples of utilizing pipeable operators.
+### [Pipeable 操作符](http://reactive.how/rxjs/pipeable-operators)
+
+pipeable 操作符的讲解和示例。

@@ -70,9 +70,9 @@ const example = first.pipe(merge(second));
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-- [HTTP Polling](../../recipes/http-polling.md)
+- [HTTP 轮询](../../recipes/http-polling.md)
 
 ### 其他资源
 

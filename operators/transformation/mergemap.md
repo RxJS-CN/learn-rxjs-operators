@@ -139,9 +139,9 @@ const example = source.pipe(
 const subscribe = example.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-- [HTTP Polling](../../recipes/http-polling.md)
+- [HTTP 论述](../../recipes/http-polling.md)
 
 ### 其他资源
 

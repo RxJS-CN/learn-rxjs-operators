@@ -33,10 +33,12 @@ _[更喜欢按字母顺序排列的完整列表？](complete.md)_
   - [throw](creation/throw.md)
   - [timer](creation/timer.md)
 - [错误处理](error_handling/README.md)
-  - [catchError](error_handling/catch.md) :star:
+  - [catch / catchError](error_handling/catch.md) :star:
   - [retry](error_handling/retry.md)
   - [retryWhen](error_handling/retrywhen.md)
 - [过滤](filtering/README.md)
+  - [audit](filtering/audit.md)
+  - [auditTime](filtering/audittime.md) 
   - [debounce](filtering/debounce.md)
   - [debounceTime](filtering/debouncetime.md) :star:
   - [distinctUntilChanged](filtering/distinctuntilchanged.md) :star:
@@ -71,7 +73,7 @@ _[更喜欢按字母顺序排列的完整列表？](complete.md)_
   - [groupBy](transformation/groupby.md)
   - [map](transformation/map.md) :star:
   - [mapTo](transformation/mapto.md)
-  - [mergeMap](transformation/mergemap.md) :star:
+  - [mergeMap / flatMap](transformation/mergemap.md) :star:
   - [partition](transformation/partition.md)
   - [pluck](transformation/pluck.md)
   - [reduce](transformation/reduce.md)
@@ -83,9 +85,10 @@ _[更喜欢按字母顺序排列的完整列表？](complete.md)_
   - [windowToggle](transformation/windowtoggle.md)
   - [windowWhen](transformation/windowwhen.md)
 - [工具](utility/README.md)
-  - [do](utility/do.md) :star:
+  - [do / tap](utility/do.md) :star:
   - [delay](utility/delay.md)
   - [delayWhen](utility/delaywhen.md)
+  - [finalize / finally](operators/utility/finalize.md)
   - [let](utility/let.md)
   - [timeout](utility/timeout.md)
   - [toPromise](utility/topromise.md)

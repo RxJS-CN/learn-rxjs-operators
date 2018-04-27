@@ -75,7 +75,7 @@ const subscribe = example.subscribe(val =>
 
 ### 相关食谱
 
-* [HTTP Polling](../../recipes/http-polling.md)
+* [HTTP 轮询](../../recipes/http-polling.md)
 * [游戏循环](../../recipes/gameloop.md)
 
 ### 其他资源

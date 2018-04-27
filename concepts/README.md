@@ -4,5 +4,5 @@
 
 ### 内容
 
-* [RxJS v5 -> v6 Upgrade](rxjs5-6.md)
+* [RxJS v5 -> v6 升级](rxjs5-6.md)
 * [理解操作符导入](operator-imports.md)

@@ -1,22 +1,19 @@
-# HTTP Polling
+# HTTP 轮询
 
-_By [@barryrowe](https://twitter.com/barryrowe)_
+_作者 [@barryrowe](https://twitter.com/barryrowe)_
 
-This recipe demonstrates one way you can achieve polling an HTTP endpoint on an
-interval. This is a common task in web applications, and one that RxJS tends to
-handle really well as the continuous series of HTTP requests and responses is
-easy to reason about as a stream of data.
+本食谱演示了通过定时器来进行 HTTP 轮询。在 Web 应用中这是常见任务，RxJS 可以很好地处理此项任务，因为将一系列 HTTP 请求和响应当做是数据流很容易。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 
-### Example Code
+### 示例代码
 
 (
 [StackBlitz](https://stackblitz.com/edit/rxjs-http-poll-recipe-jc5cj7?file=index.ts&devtoolsheight=50)
 )
 
-```js
-// Import stylesheets
+```ts
+// 导入样式
 import './style.css';
 
 import { Observable, Subscription, of, fromEvent, from, empty, merge, timer } from 'rxjs';
@@ -24,7 +21,7 @@ import { map, mapTo, switchMap, tap, mergeMap, takeUntil, filter, finalize } fro
 
 declare type RequestCategory = 'cats' | 'meats';
 
-// Constants for Cat Requests
+// Cat 请求的常量
 const CATS_URL = "https://placekitten.com/g/{w}/{h}";
 function mapCats(response): Observable<string> {
 
@@ -38,7 +35,7 @@ function mapCats(response): Observable<string> {
   }));
 }
 
-// Constants for Meat Requests
+// Meat 请求的常量
 const MEATS_URL = "https://baconipsum.com/api/?type=meat-and-filler";
 function mapMeats(response): Observable<string> {
   const parsedData = JSON.parse(response);
@@ -46,26 +43,25 @@ function mapMeats(response): Observable<string> {
 }
 
 /*************************
- * Our Operating State
+ * 我们的操作状态
  *************************/
- // Which type of data we are requesting
+ // 请求数据的类型
 let requestCategory: RequestCategory = 'cats';
-// Current Polling Subscription
+// 当前轮询的订阅
 let pollingSub: Subscription;
 /*************************/
 
 /**
- * This function will make an AJAX request to the given Url, map the
- * JSON parsed repsonse with the provided mapper function, and emit
- * the result onto the returned observable.
+ * 此函数会对给定的 URL 发起 AJAX 请求，并使用提供的映射函数对响应 JSON 
+ * 进行映射，然后在返回的 Observable 上发出结果。
  */
 function requestData(url: string, mapFunc: (any) => Observable<string>): Observable<string> {
   console.log(url)
   const xhr = new XMLHttpRequest();
   return from(new Promise<string>((resolve, reject) => {
 
-    // This is generating a random size for a placekitten image
-    //   so that we get new cats each request.
+    // 为 placekitten 的图像生成随机尺寸
+    // 这样每次请求我们得到的都是新的猫
     const w = Math.round(Math.random() * 400);
     const h = Math.round(Math.random() * 400);
     const targetUrl = url
@@ -77,8 +73,8 @@ function requestData(url: string, mapFunc: (any) => Observable<string>): Observa
     });
     xhr.open("GET", targetUrl);
     if(requestCategory === 'cats') {
-      // Our cats urls return binary payloads
-      //  so we need to respond as such.
+      // 猫的 url 返回的是二进制数据
+      // 所以我们需要这样进行响应
       xhr.responseType = "arraybuffer";
     }
     xhr.send();
@@ -91,8 +87,8 @@ function requestData(url: string, mapFunc: (any) => Observable<string>): Observa
 
 
 /**
- * This function will begin our polling for the given state, and
- * on the provided interval (defaulting to 5 seconds)
+ * 此函数会根据给定的状态开始轮询，轮询时间
+ * 由提供的 interval 决定 (默认为 5 秒)
  */
 function startPolling(category: RequestCategory, interval: number = 5000): Observable<string> {
   const url = category === 'cats' ? CATS_URL : MEATS_URL;
@@ -104,7 +100,7 @@ function startPolling(category: RequestCategory, interval: number = 5000): Obser
     );
 }
 
-// Gather our DOM Elements to wire up events
+// 获取 DOM 元素以绑定事件
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 const text = document.getElementById('text');
@@ -114,7 +110,7 @@ const meatsRadio = document.getElementById('meatsCheckbox');
 const catsClick$ = fromEvent(catsRadio, 'click').pipe(mapTo('cats'));
 const meatsClick$ = fromEvent(meatsRadio, 'click').pipe(mapTo('meats'));
 const catImage: HTMLImageElement = <HTMLImageElement>document.getElementById('cat');
-// Stop polling
+// 停止轮询
 let stopPolling$ = fromEvent(stopButton, 'click');
 
 function updateDom(result) {
@@ -127,22 +123,22 @@ function updateDom(result) {
 }
 
 function watchForData(category: RequestCategory) {
-    // Start  new Poll
+    // 开始新的轮询
     return startPolling(category, 5000).pipe(
       tap(updateDom),
       takeUntil(
-        // stop polling on either button click or change of categories
+        // 无论是点击按钮还是切换分类，都将停止轮询
         merge(
           stopPolling$,
           merge(catsClick$, meatsClick$).pipe(filter(c => c !== category))
         )
       ),
-      // for demo purposes only
+      // 仅用于演示目的
       finalize(() => pollingStatus.innerHTML = 'Stopped')
     )
 }
 
-// Handle Form Updates
+// 处理表单更新
 catsClick$
   .subscribe((category: RequestCategory) => {
     requestCategory = category;
@@ -157,17 +153,17 @@ meatsClick$
     text.style.display = 'block';
   });
 
-// Start Polling
+// 开始轮询
 fromEvent(startButton, 'click')
 .pipe(
-  // for demo purposes only
+  // 仅用于演示目的
   tap(_ => pollingStatus.innerHTML = 'Started'),
   mergeMap(_ => watchForData(requestCategory))
 )
 .subscribe();
 ```
 
-### Operators Used
+### 使用到的操作符
 
 - [filter](../operators/filtering/filter.md)
 - [fromEvent](../operators/creation/fromevent.md)

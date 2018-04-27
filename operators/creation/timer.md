@@ -45,9 +45,9 @@ const source = timer(1000, 2000);
 const subscribe = source.subscribe(val => console.log(val));
 ```
 
-### Related Recipes
+### 相关食谱
 
-- [HTTP Polling](../../recipes/http-polling.md)
+- [HTTP 轮询](../../recipes/http-polling.md)
 
 ### 其他资源
 

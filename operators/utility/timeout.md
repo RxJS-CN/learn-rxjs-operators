@@ -34,10 +34,10 @@ of(4000, 3000, 2000)
     )
   )
   /*
-      *  "Request timed out after: 4000"
-      *  "Request timed out after: 3000"
-      *  "Request Complete!"
-      */
+    *  "Request timed out after: 4000"
+    *  "Request timed out after: 3000"
+    *  "Request Complete!"
+    */
   .subscribe(val => console.log(val));
 ```
 

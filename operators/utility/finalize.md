@@ -1,21 +1,21 @@
 # finalize / finally
 
-#### signature: `finalize(callback: () => void)`
+#### 签名: `finalize(callback: () => void)`
 
-## Call a function when observable completes or errors
+## 当 Observable 完成或报错时调用函数
 
-### [ Examples Coming Soon! ]
+### [ 示例尽请期待！ ]
 
-### Related Recipes
+### 相关食谱
 
-* [HTTP Polling](../../recipes/http-polling.md)
+* [HTTP 轮询](../../recipes/http-polling.md)
 
-### Additional Resources
+### 其他资源
 
-* [finalize](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-finalize)
-  :newspaper: - Official docs
+* [finalize](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-finalize)
+  :newspaper: - 官方文档
 
 ---
 
-> :file_folder: Source Code:
+> :file_folder: 源码:
 > [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/finalize.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/finalize.ts)

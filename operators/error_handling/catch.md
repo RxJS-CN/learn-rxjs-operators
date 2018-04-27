@@ -23,6 +23,7 @@
 
 ```js
 import { _throw } from 'rxjs/observable/throw';
+import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators';
 // 发出错误
 const source = _throw('This is an error!');
@@ -39,7 +40,7 @@ const subscribe = example.subscribe(val => console.log(val));
 
 ```js
 import { timer } from 'rxjs/observable/timer';
-import { fromPromise } from 'rxjs/observable/timer';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 import { of } from 'rxjs/observable/of';
 import { mergeMap, catchError } from 'rxjs/operators';
 

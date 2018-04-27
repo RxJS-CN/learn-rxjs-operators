@@ -68,7 +68,7 @@ const example = source.pipe(
   mapTo('Result Two!')
 );
 // 可以使用任何类型的 subject
-const multi = example.pipe(multicast(() => new Rx.ReplaySubject(5)));
+const multi = example.pipe(multicast(() => new ReplaySubject(5)));
 // 使用 subject 订阅 source
 multi.connect();
 

@@ -18,16 +18,14 @@
 ```js
 import { empty } from 'rxjs/observable/empty';
 
-// 创建的 observable 会立即完成
-const example = empty();
 // 输出: 'Complete!'
-const subscribe = example.subscribe({
+const subscribe = empty().subscribe({
   next: () => console.log('Next'),
   complete: () => console.log('Complete!')
 });
 ```
 
-##### Example 2: `empty` with timer
+##### 示例 2: 使用定时器的 `empty` 
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-ur5svp?file=index.ts&devtoolsheight=50)
@@ -52,7 +50,7 @@ const resume$ = fromEvent(resumeButton, 'click').pipe(mapTo(true));
 const timer$ = merge(pause$, resume$)
   .pipe(
     startWith(true),
-    // if timer is paused return empty observable
+    // 如果定时器暂停，则返回空的 Observable
     switchMap(val => (val ? interval$ : empty())),
     scan((acc, curr) => (curr ? curr + acc : acc), countdownSeconds),
     takeWhile(v => v >= 0)

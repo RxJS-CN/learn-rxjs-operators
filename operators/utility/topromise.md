@@ -42,7 +42,7 @@ const sample = val => of(val).pipe(delay(5000));
 /*
   将每个 observable 转换成 promise 并使用 Promise.all 
   来等待所有 promise 解析完成
-  (you should probably use forkJoin and no 'toPromise' instead!)
+  (你或许应该使用 forkJoin，而不是 toPromise)
 */
 const example = () => {
   return Promise.all([

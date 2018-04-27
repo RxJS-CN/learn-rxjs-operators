@@ -66,9 +66,10 @@ const example = first.pipe(merge(second));
 // 输出: 0,1,0,2....
 const subscribe = example.subscribe(val => console.log(val));
 ```
-### Related Recipes
 
-* [HTTP Polling](../../recipes/http-polling.md)
+### 相关食谱
+
+* [HTTP 轮询](../../recipes/http-polling.md)
 
 ### 其他资源
 

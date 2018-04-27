@@ -48,7 +48,7 @@ const subscribe = example.subscribe(val => console.log(val));
 
 ### 相关食谱
 
-* [HTTP Polling](../../recipes/http-polling.md)
+* [HTTP 轮询](../../recipes/http-polling.md)
 * [智能计数器](../../recipes/smartcounter.md)
 
 ### 其他资源

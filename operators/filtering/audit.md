@@ -1,17 +1,17 @@
 # audit
 
-#### signature: `audit(durationSelector: (value) => Observable | Promise): Observable`
+#### 签名: `audit(durationSelector: (value) => Observable | Promise): Observable`
 
-## Ignore for time based on provided observable, then emit most recent value
+## 根据提供的 Observable 来忽略某段时间内发出的数据，时间到后发出最新值
 
-### [ Examples Coming Soon! ]
+### [ 示例尽请期待！ ]
 
-### Additional Resources
+### 其他资源
 
-* [audit](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-audit)
-  :newspaper: - Official docs
+* [audit](http://cn.rx.js.org/class/es6/Observable.js~Observable.html#instance-method-audit)
+  :newspaper: - 官方文档
 
 ---
 
-> :file_folder: Source Code:
+> :file_folder: 源码:
 > [https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/audit.ts](https://github.com/ReactiveX/rxjs/blob/master/src/internal/operators/audit.ts)

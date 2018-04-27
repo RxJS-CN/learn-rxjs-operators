@@ -30,7 +30,7 @@ const subscribe = example.subscribe(val => console.log(val));
 * [智能计数器](../../recipes/smartcounter.md)
 * [进度条](../../recipes/progressbar.md)
 * [游戏循环](../../recipes/gameloop.md)
-* [HTTP Polling](../../recipes/http-polling.md)
+* [HTTP 轮询](../../recipes/http-polling.md)
 
 ### 其他资源
 

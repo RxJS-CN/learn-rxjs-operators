@@ -6,7 +6,7 @@
 
 ---
 
-:bulb: 打平类操作符通常可以接收 promises 而不需要 observable 包装！
+:bulb: 打平类操作符可以接收 promises 而不需要 observable 包装！
 
 :bulb: 你还可以使用 [from](from.md) 达到同样的效果！
 

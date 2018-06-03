@@ -55,6 +55,7 @@ RxJS 和响应式编程的新手？除了本网站上发现的内容，这些优
 
 * [RxJS 入门](http://reactivex.io/rxjs/manual/overview.html#introduction) - 官方文档
 * [不容错过的响应式编程-介绍](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) - André Staltz
+* [不容错过的响应式编程-介绍(中文)](http://wiki.jikexueyuan.com/project/android-weekly/issue-145/introduction-to-RP.html) - 极客学院翻译
 
 #### 视频
 

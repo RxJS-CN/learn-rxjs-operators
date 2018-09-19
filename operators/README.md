@@ -1,6 +1,6 @@
-# 通过示例来学习 RxJS 5 操作符
+# 通过示例来学习 RxJS 操作符
 
-RxJS 5 操作符的完整列表，每个操作符都有着清晰的解释、相关资源和可执行的示例。
+RxJS 操作符的完整列表，每个操作符都有着清晰的解释、相关资源和可执行的示例。
 
 _[更喜欢按字母顺序排列的完整列表？](complete.md)_
 
@@ -86,7 +86,7 @@ _[更喜欢按字母顺序排列的完整列表？](complete.md)_
   - [windowWhen](transformation/windowwhen.md)
 - [工具](utility/README.md)
   - [do / tap](utility/do.md) :star:
-  - [delay](utility/delay.md)
+  - [delay](utility/delay.md) :star:
   - [delayWhen](utility/delaywhen.md)
   - [finalize / finally](operators/utility/finalize.md)
   - [let](utility/let.md)

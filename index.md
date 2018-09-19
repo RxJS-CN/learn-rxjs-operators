@@ -18,18 +18,18 @@ _作者 [@btroncone](https://twitter.com/BTroncone)_
 
 #### 操作符
 
-操作符是 observables 背后的马力，为复杂的异步任务提供了一种优雅的声明式解决方案。本章节涵盖了所有 [RxJS 5 操作符](/operators/README.md)，还附带在 [JSBin](https://jsbin.com) 和 [JSFiddle](https://jsfiddle.net) 均可执行的清晰示例。适当的时候，还会为每个操作符提供其他资源和使用技巧的链接。
+操作符是 observables 背后的马力，为复杂的异步任务提供了一种优雅的声明式解决方案。本章节涵盖了所有 [RxJS 操作符](/operators/README.md)，还附带在 [JSBin](https://jsbin.com) 和 [JSFiddle](https://jsfiddle.net) 均可执行的清晰示例。适当的时候，还会为每个操作符提供其他资源和使用技巧的链接。
 
 ##### 分类
 
-* [组合](/operators/combination/README.md)
-* [条件](/operators/conditional/README.md)
-* [创建](/operators/creation/README.md)
-* [错误处理](/operators/error_handling/README.md)
-* [多播](/operators/multicasting/README.md)
-* [过滤](/operators/filtering/README.md)
-* [转换](/operators/transformation/README.md)
-* [工具](/operators/utility/README.md)
+- [组合](/operators/combination/README.md)
+- [条件](/operators/conditional/README.md)
+- [创建](/operators/creation/README.md)
+- [错误处理](/operators/error_handling/README.md)
+- [多播](/operators/multicasting/README.md)
+- [过滤](/operators/filtering/README.md)
+- [转换](/operators/transformation/README.md)
+- [工具](/operators/utility/README.md)
 
 **或者...**
 
@@ -53,33 +53,33 @@ RxJS 和响应式编程的新手？除了本网站上发现的内容，这些优
 
 #### 阅读
 
-* [RxJS 入门](http://reactivex.io/rxjs/manual/overview.html#introduction) - 官方文档
-* [不容错过的响应式编程-介绍](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) - André Staltz
+- [RxJS 入门](http://reactivex.io/rxjs/manual/overview.html#introduction) - 官方文档
+- [不容错过的响应式编程-介绍](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) - André Staltz
 
 #### 视频
 
-* [异步编程: 循环终结者](https://egghead.io/courses/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
-* [什么是 RxJS ？](https://egghead.io/lessons/rxjs-what-is-rxjs) - Ben Lesh
-* [从零开始创建 Observable](https://egghead.io/lessons/rxjs-creating-observable-from-scratch) - Ben Lesh
-* [介绍 RxJS 的弹珠测试](https://egghead.io/lessons/rxjs-introduction-to-rxjs-marble-testing) - Brian Troncone
-* [介绍响应式编程](https://egghead.io/courses/introduction-to-reactive-programming) :dollar: - André Staltz
-* [使用 Observables 的响应式编程](https://www.youtube.com/watch?v=HT7JiiqnYYc&feature=youtu.be) - Jeremy Lund
+- [异步编程: 循环终结者](https://egghead.io/courses/mastering-asynchronous-programming-the-end-of-the-loop) - Jafar Husain
+- [什么是 RxJS ？](https://egghead.io/lessons/rxjs-what-is-rxjs) - Ben Lesh
+- [从零开始创建 Observable](https://egghead.io/lessons/rxjs-creating-observable-from-scratch) - Ben Lesh
+- [介绍 RxJS 的弹珠测试](https://egghead.io/lessons/rxjs-introduction-to-rxjs-marble-testing) - Brian Troncone
+- [介绍响应式编程](https://egghead.io/courses/introduction-to-reactive-programming) :dollar: - André Staltz
+- [使用 Observables 的响应式编程](https://www.youtube.com/watch?v=HT7JiiqnYYc&feature=youtu.be) - Jeremy Lund
 
 #### 练习
 
-* [JavaScript 中的函数式编程](http://reactivex.io/learnrx/) - Jafar Husain
+- [JavaScript 中的函数式编程](http://reactivex.io/learnrx/) - Jafar Husain
 
 #### 工具
 
-* [Rx Marbles - Rx Observables 的交互弹珠图](http://rxmarbles.com/) - André Staltz
-* [Rx Visualizer - Rx Observables 的动画游乐场](https://rxviz.com) - Misha Moroshko
-* [Reactive.how - 学习响应式编程的动画卡片](http://reactive.how) - Cédric Soulas
+- [Rx Marbles - Rx Observables 的交互弹珠图](http://rxmarbles.com/) - André Staltz
+- [Rx Visualizer - Rx Observables 的动画游乐场](https://rxviz.com) - Misha Moroshko
+- [Reactive.how - 学习响应式编程的动画卡片](http://reactive.how) - Cédric Soulas
 
 *对 RxJS 4 感兴趣？ 请查阅 [Denis Stoyanov's](https://github.com/xgrommx) 超棒的 [电子书](https://xgrommx.github.io/rx-book/)!*
 
 ## 翻译
 
-  * [简体中文](https://rxjs-cn.github.io/learn-rxjs-operators)
+  - [简体中文](https://rxjs-cn.github.io/learn-rxjs-operators)
 
 ### 参考文献注
 

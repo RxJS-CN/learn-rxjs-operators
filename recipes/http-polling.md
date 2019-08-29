@@ -4,7 +4,7 @@ _作者 [@barryrowe](https://twitter.com/barryrowe)_
 
 本食谱演示了通过定时器来进行 HTTP 轮询。在 Web 应用中这是常见任务，RxJS 可以很好地处理此项任务，因为将一系列 HTTP 请求和响应当做是数据流很容易。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例代码
 

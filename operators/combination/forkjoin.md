@@ -20,7 +20,7 @@
 
 还需要注意的是如果 observable 发出的项多于一个的话，并且你只关心前一个发出的话，那么 `forkJoin` 并非正确的选择。在这种情况下，应该选择像 [combineLatest](combinelatest.md) 或 [zip](zip.md) 这样的操作符。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例
 

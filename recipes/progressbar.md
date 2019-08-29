@@ -4,7 +4,7 @@ _作者 [@barryrowe](https://twitter.com/barryrowe)_
 
 本食谱演示了动态进度条的创建、模拟多个请求的管理，并在每个请求完成后更新总体进度。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例代码
 

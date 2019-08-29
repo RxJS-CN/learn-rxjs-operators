@@ -2,7 +2,7 @@
 
 一个在页面上带有动态更新数字效果的有趣元素就是智能计数器，也可以称之为里程表效果。不采用上下跳数的方式，而是快速地清点到期望的数字，这能达到一种很酷的效果。能做到这点的流行库的其中一个就是由 [Hubspot](https://github.com/HubSpot) 所写的 [odometer](https://github.com/HubSpot/odometer) 。让我们来看看如何使用短短几行 RxJS 代码来实现类似的效果。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 #### 原生 JS
 

@@ -22,7 +22,7 @@
 
 不过要小心，在每个请求都需要完成的情况下，考虑写数据库，你可能要避免使用 `switchMap` 。如果源 observable 发出速度足够快的话，`switchMap` 可以取消请求。在这些场景中，[mergeMap](mergemap.md) 是正确的选择。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例
 

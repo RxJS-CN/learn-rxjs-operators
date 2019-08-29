@@ -23,7 +23,7 @@
 
 注意，因为 `mergeMap` 同时维护多个活动的内部订阅，由于这些长期活动的内部订阅，所以是有可能产生内存泄露的。举个例子，如果你将 observable 映射成内部的定时器或 DOM 事件流。在这些案例中，如果你仍然想用 `mergeMap` 的话，你应该利用另一个操作符来管理内部订阅的完成，比如 [`take`](../filtering/take.md) 或 [`takeUntil`](../filtering/takeuntil.md)。你还可以使用 `concurrent` 参数来限制活动的内部订阅的数量，参见 [示例 4](#%E7%A4%BA%E4%BE%8B%204%3A%20%E4%BD%BF%E7%94%A8%20concurrent%20%E5%80%BC%E8%BF%9B%E8%A1%8C%20mergeMap)。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例
 

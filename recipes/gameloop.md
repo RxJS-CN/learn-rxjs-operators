@@ -4,7 +4,7 @@ _作者 [@barryrowe](https://twitter.com/barryrowe)_
 
 本食谱演示了使用组合流来创建游戏循环的一种方式。本食谱旨在突出如何用响应式的方式来重新思考现有问题。在这个示例中，我们将提供整体循环以及自上帧以来的增量时间。与此相结合的是用户输入流，以及当前的游戏状态，我们可以用它来更新我们的对象，并根据每帧的发出来将其渲染到屏幕上。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例代码
 

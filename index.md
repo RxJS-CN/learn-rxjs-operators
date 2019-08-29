@@ -12,7 +12,7 @@ _作者 [@btroncone](https://twitter.com/BTroncone)_
 
 学习 RxJS 和响应式编程很[难](https://twitter.com/hoss/status/742643506536153088)。它有着众多的概念，大量的表层 API 和从[命令式到声明式风格](http://codenugget.co/2015/03/05/declarative-vs-imperative-programming-web.html)的思维转换。本网站致力于让这些概念更容易理解，示例清晰且容易解释，并且功能参考了网络上最好的 RxJS 相关资源。目标是增强[官方文档](http://reactivex.io/rxjs/)，并且提供了一个全新的，新鲜的视角，以清除任何学习上的障碍和解决初学者的痛点。学习 Rx 或许是困难的，但是它绝对值得你去付出！
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ## 内容
 

@@ -20,7 +20,7 @@
 
 最后，如果你只需要 observables 发出一个值，或只需要它们完成前的最新值时，[`forkJoin`](forkjoin.md) 会是更好的选择。
 
-<div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
+<div class="ua-ad"><a href="https://ultimatecourses.com/courses/rxjs"><img src="https://ultimatecourses.com/assets/img/banners/rxjs-banner-desktop.svg"></a></div>
 
 ### 示例
 

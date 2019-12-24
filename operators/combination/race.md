@@ -18,8 +18,8 @@
 ```js
 // RxJS v6+
 import { mapTo } from 'rxjs/operators';
-import { interval } from 'rxjs/observable/interval';
-import { race } from 'rxjs/observable/race';
+import { interval } from 'rxjs/internal/observable/interval';
+import { race } from 'rxjs/internal/observable/race';
 
 // 接收第一个发出值的 observable
 const example = race(

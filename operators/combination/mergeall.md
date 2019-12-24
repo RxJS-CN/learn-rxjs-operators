@@ -17,7 +17,7 @@
 
 ( [示例测试](https://github.com/btroncone/learn-rxjs/blob/master/operators/specs/combination/mergeall-spec.ts) )
 
-##### 示例 1: 使用 promise 来进行 concatAll
+##### 示例 1: 使用 promise 来进行 mergeAll
 
 (
 [StackBlitz](https://stackblitz.com/edit/typescript-y4ncvc?file=index.ts&devtoolsheight=100)

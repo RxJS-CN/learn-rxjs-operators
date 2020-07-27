@@ -2,7 +2,7 @@
 
 #### 函数签名: `windowTime(windowTimeSpan: number, windowCreationInterval: number, scheduler: Scheduler): Observable`
 
-## 在每个提供的时间跨度内，收集源 obsercvable 中的值的 observable 。
+## 在每个提供的时间跨度内，收集源 observable 中的值的 observable 。
 
 <div class="ua-ad"><a href="https://ultimateangular.com/?ref=76683_kee7y7vk"><img src="https://ultimateangular.com/assets/img/banners/ua-leader.svg"></a></div>
 

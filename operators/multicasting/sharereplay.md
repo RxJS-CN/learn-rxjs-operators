@@ -10,7 +10,7 @@
 当你知道流的后来订阅者也需要访问之前发出的值，`shareReplay` 在这种场景下也是有价值的。
 这种在订阅过程中重放值的能力是区分 [`share`](./share.md) 和 `shareReplay` 的关键。
 
-例如，加入你有一个发出最后访问 url 的 observable 。
+例如，假如你有一个发出最后访问 url 的 observable 。
 在第一个示例中，我们将使用 [`share`](./share.md):
 
 ```js

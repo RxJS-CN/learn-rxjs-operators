@@ -16,7 +16,7 @@
 ```js
 // RxJS v6+
 import { timer, interval } from 'rxjs';
-import { window, scan, mergeAll } from 'rxjs/operators';
+import { window, scan } from 'rxjs/operators';
 
 // 立即发出值，然后每秒发出值
 const source = timer(0, 1000);
@@ -34,9 +34,7 @@ const count = example.pipe(scan((acc, curr) => acc + 1, 0));
   ...
 */
 const subscribe = count.subscribe(val => console.log(`Window ${val}:`));
-const subscribeTwo = example
-  .pipe(mergeAll())
-  .subscribe(val => console.log(val));
+const subscribeTwo = source.subscribe(val => console.log(val));
 ```
 
 ### 其他资源
